@@ -35,45 +35,34 @@ function Help(props) {
   ];
 
   return (
-    <div className="docMainWrapper wrapper">
+        <div className="docMainWrapper wrapper">
       <Container className="mainContainer documentContainer postContainer">
-        <div className="index-info-block grid-blocks two-blocks-grid">
-          <div className="index-info-block-title">
-            Conditional Token Use Cases
-          </div>
-          <div className="index-info-block-text">
-            <p>
-            Learn about the different Use Cases of Conditional Tokens.
-            </p>
-          </div>
+        <div className="tutorials-intro">
+          <h1>
+             dƒusion protocol Use Cases
+          </h1>
+          <p>
+            Learn about the different Use Cases of the dƒusion protocol.
+          </p>
         </div>
 
         <div className="inner index-section-boxes grid-blocks three-blocks-grid">
           <a href={docUrl("game1")} className="white-box">
             <h3>
-              Tokens, Gaming, and Forking Gardens
+              Simple liquidity provision
             </h3>
             <p>
-              How prediction market tools like conditional tokens can change gaming
+              Provide liquidity of stable coins, while making use of the fluctuation around 1USD
             </p>
           </a>
-          <a href={docUrl("X")} className="white-box">
+          <a className="white-box">
             <h3>
-              Futarchy
+              To be continued... 
             </h3>
             <p>
-              Make decission based on prediction markets 
+               More use cases will be added over time. Make sure to come back and learn more about the dƒusion protocol.
             </p>
           </a>
-          <a href={docUrl("doc5")} className="white-box">
-            <h3>
-              Games
-            </h3>
-            <p>
-              How can Conditional Tokens be used for Games
-            </p>
-          </a>
-        
         </div>
       </Container>
     </div>
