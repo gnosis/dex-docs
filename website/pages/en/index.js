@@ -156,6 +156,33 @@ class HomeSplash extends React.Component {
           </div>
         </div>
 
+
+         <div className="inner index-projects-using grid-blocks two-blocks-grid">
+          <div>
+           <a name="projects">
+            <h2>
+              Analytics
+            </h2>
+            </a>
+          </div>
+          
+          <div className="index-projects-boxes grid-blocks three-blocks-grid">
+                      
+            <a href="https://explore.duneanalytics.com/public/dashboards/I43OkDWnojXZYm8vmdBDcLz5UsS3Tn0cx1xU8Hcg" className="white-box">
+             <strong> Dune Analytics </strong>
+            </a>
+
+            <a href="https://thegraph.com/explorer/subgraph/gnosis/dfusion" className="white-box">
+              <strong> The Graph Mainnet </strong>
+            </a>
+
+            <a href="https://thegraph.com/explorer/subgraph/gnosis/dfusion-rinkeby" className="white-box">
+              <strong> The Graph Rinkeby </strong>
+            </a>
+            
+          </div>
+        </div>
+
         <div className="inner index-projects-using grid-blocks two-blocks-grid">
           <div>
            <a name="projects">
@@ -174,6 +201,13 @@ class HomeSplash extends React.Component {
           </a>
           </div>
         </div>
+
+      
+
+
+
+
+
 
         <div className="inner index-support grid-blocks two-blocks-grid">
           <div>

@@ -10,7 +10,8 @@ In the following we will give an insight into how the simple liquidity provision
 2. You specify a spread between the two coins (i.e., for every trade, the spread is the profit you will make given your assumption that their value is 1).
 3. You create standing orders.
 4. You then need to deposit at least one of the chosen stablecoins into your exchange balance.
-5. That’s it! Now you can wait, and trades will automatically happen for you. 
+
+That’s it! Now you can wait, and trades will automatically happen for you. 
 
 Let’s have a deeper look into the different steps. 
 
