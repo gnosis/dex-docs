@@ -22,16 +22,18 @@ function Tutorial(props) {
   return (
     <div className="docMainWrapper wrapper">
       <Container className="mainContainer documentContainer postContainer">
-        <div className="tutorials-intro">
-          <h1>
+       <div className="index-info-block grid-blocks two-blocks-grid">
+          <div className="index-info-block-title">
             Tutorials
-          </h1>
-          <p>
-            OK, enough about contracts, trades and optimization criterias. 
-            <br/>
+          </div>
+          <div className="index-info-block-text">
+            <p>
+            OK, enough about contracts, trades and optimization criterias. <br></br>
             Let’s start with some hands on examples on how to interact with the dƒusion protocol 
             </p>
+          </div>
         </div>
+
 
         <div className="inner grid-blocks four-blocks-grid tutorials-boxes">
           <a href={docUrl("addtoken1")} className="white-box">

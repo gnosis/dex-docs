@@ -35,15 +35,17 @@ function Help(props) {
   ];
 
   return (
-        <div className="docMainWrapper wrapper">
+    <div className="docMainWrapper wrapper">
       <Container className="mainContainer documentContainer postContainer">
-        <div className="tutorials-intro">
-          <h1>
-             dƒusion protocol Use Cases
-          </h1>
-          <p>
-            Learn about the different Use Cases of the dƒusion protocol.
-          </p>
+        <div className="index-info-block grid-blocks two-blocks-grid">
+          <div className="index-info-block-title">
+            Use cases for the dƒusion protocol
+          </div>
+          <div className="index-info-block-text">
+            <p>
+            Here we will introduce different concepts to use the mechanism, as well as an overivew of a few potential use cases and dapp integrations.
+            </p>
+          </div>
         </div>
 
         <div className="inner index-section-boxes grid-blocks three-blocks-grid">
