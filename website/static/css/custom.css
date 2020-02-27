@@ -454,3 +454,13 @@ a{
   background-color: unset;
   color: $primaryColor;
 }
+
+#imprint-gnosis-logo{
+   width: 10%;
+   margin: unset;
+}
+
+.mainContainer .post a {
+   color: $primaryColor;
+   text-decoration: underline;
+}

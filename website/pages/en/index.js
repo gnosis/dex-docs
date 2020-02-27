@@ -118,7 +118,7 @@ class HomeSplash extends React.Component {
             </h2>
           </div>
           <div className="index-advantages-boxes  grid-blocks two-blocks-grid">
-            <a href="" className="white-box">
+            <a className="white-box">
               <h3>
                 Better Price Finding
               </h3>
@@ -127,7 +127,7 @@ class HomeSplash extends React.Component {
               </p>
             </a>
 
-            <a href="" className="white-box">
+            <a className="white-box">
               <h3>
               Liquidity Maximization
               </h3>
@@ -136,7 +136,7 @@ class HomeSplash extends React.Component {
               </p>
             </a>
 
-            <a href="" className="white-box">
+            <a className="white-box">
               <h3>
                 Smart Contract Integrations
               </h3>
@@ -145,7 +145,7 @@ class HomeSplash extends React.Component {
               </p>
             </a>
 
-            <a href="" className="white-box">
+            <a className="white-box">
               <h3>
                 Full Decentralization
               </h3>
@@ -168,7 +168,7 @@ class HomeSplash extends React.Component {
             </p>
 
           </div>
-          <div className="index-projects-boxes grid-blocks three-blocks-grid">
+          <div className="index-projects-boxes grid-blocks two-blocks-grid">
           <a href="https://github.com/gnosis/GECO" className="white-box">
              <strong> Want to be the first?</strong> <br></br> Apply with your project to the <strong>Gnosis Ecosystem Fund</strong>!
           </a>

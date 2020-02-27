@@ -10,7 +10,7 @@ In order to more closely understand how the Dƒusion protocol works, let’s tak
 ## Trades
  Let’s start with the basics. 
 
-Dƒusion is a trading protocol for ERC20 tokens. The protocol is compatible with any ERC20 token, but only registered tokens can be traded. Token registration is permissionless and can be done by anyone. However, a spam protection fee of 10 OWL is required to register new tokens. Learn more about how to register tokens in this [tutorial](href={docUrl("introduction1")}).
+Dƒusion is a trading protocol for ERC20 tokens. The protocol is compatible with any ERC20 token, but only registered tokens can be traded. Token registration is permissionless and can be done by anyone. However, a spam protection fee of 10 OWL is required to register new tokens. Learn more about how to register tokens in this <a href="addtoken1">tutorial</a>.
 
 To trade on dƒusion, a user can simply place an order for one token in exchange for another. An order is an instruction as to what token a user wants to sell under a given price condition, thereby defining  a limit price within the order, which indicates the absolute worst price a user will receive.  The protocol levies a fee of 0.1% on a trade, which incurs on only on executed orders/ volume. It’s important to note that fee costs are calculated as part of and already included in an order’s limit price.
 
@@ -27,25 +27,26 @@ This means, firstly, all the sell order tokens are collected. Next, the most opt
 ## Trading Cycles
 Let’s take a closer look at the recurring process of trading cycles.
 
-A full trading cycle on dƒusion consists of three user actions: deposit, order, and withdrawal.  Users’ orders are matched in batches. Batches run deterministically and consecutively in 5 minute intervals. At any time, userstraders can place limit sell orders on-chain, which will to be included in the next batch(es)
+A full trading cycle on dƒusion consists of three user actions: deposit, order, and withdrawal.  Users’ orders are matched in batches. At any time, userstraders can place limit sell orders on-chain, which will to be included in the next batch(es)Batches run deterministically and consecutively in 5 minute intervals. 
 
 ### Solvers
-For each batch, proposals can be submitted for settling orders in a collected batch. In Dfusion, those who submit proposals for order settlement are referred to as solvers. Anyone can become a solver by submitting a proposal for order settlement, although significant technical and computational capacity would be required for it to be in their economic interest.
+For each batch, proposals can be submitted for settling orders in a collected batch. In dƒusion, those who submit proposals for order settlement are referred to as solvers. Anyone can become a solver by submitting a proposal for order settlement, although significant technical and computational capacity would be required for it to be in their economic interest.
 
 Solvers’ proposals compete to provide the best order settlement for a given batch, with the term “best” meaning it satisfies pre-defined optimization criteria. As a simple overview, it can be said the best solving proposals maximize the trading volume and individual traders’ profit.
 
 Solvers can submit valid order settlements within the first 4 minutes of every batch (each batch has 5 minute total runtime). Solvers can include any valid orders with available deposits in a batch’s order settlement. Solvers may match not only countertrades (A for B with B for A), but also ring trades such as A for B, B for C, and C for A. The more orders and tokens involved in a batch’s order settlement, the greater the calculation’s difficulty becomes. A solution contains a list of orders that should be executed and a list of clearing prices. A single solution is only allowed to settle up to 25 orders. This is because higher numbers of orders would make it significantly harder for such a transaction to be mined within the 4 minute timeframe for submitting solutions.
 
-<img src="/img/tradingcycle.png">
+The solver that provides the best order settlement solution for a given batch is determined by the protocol, and the order settlement is then settled on-chain, resulting in all matched trades being executed. Lastly, users can withdraw their funds from fulfilled orders. 
 
 ## Benefits
 
-One of the main benefits of the dfusion protocol is the interchangeability between tokens. Trading of  any token for any other token is possible and any asset can be exchanged for any other asset without the need to go through (W)ETH or another specific token. 
-Another advantage is the fairer price finding in respect to other comparable DEXs. The fairer prices are due to both: greatly diminished price discrimination and significantly increased volume facilitaed by  the multi-dimensional orderbook. 
-Additionally, the user experiences no further costs as the fee is already included in the limit price and no gas costs for the user for executing trades occur. 
+One of the main benefits of the dfusion protocol is the ability to trade any token with any other token, without needing an intermediary trade as is the case on most centralized exchanges. For example, converting to LTC in order to hedge between different stablecoins. 
+Another advantage is that, in comparison to other comparable trading protocols, dƒusion offers a fairer price finding mechanism. The fairer prices are due to greatly diminished price discrimination and significantly increased volume facilitated by the multi-dimensional orderbook. 
+Additionally, users trading on dƒusion do not have any gas costs, and the user experience includes fee costs in the displayed limit order price. 
 
 
-In conclusion, the dƒusion protocol proposes a new decentralized trading mechanism which can lead to fairer prices due to both: greatly diminished price discrimination and significantly increased volume facilitaed by the multi-dimensional orderbook. Any asset can be exchanged for any other asset without the need to go through (W)ETH or another specific token. It is fully smart contract compatible, which means that other protocols can use and integrate the system.
+In conclusion, the dƒusion protocol proposes a new decentralized trading mechanism, which can lead to fairer prices due to greatly diminished price discrimination and significantly increased volume facilitated by the multi-dimensional orderbook. Any asset can be exchanged for any other asset without the need to go through (W)ETH or another token. It is fully smart contract compatible, which means that other applications can use,  integrate and build on the protocol.
+
 
 For a more mathematical description of the dƒusion protocol please refer to following document: https://github.com/gnosis/dex-research/blob/master/dFusion/dfusion.v1.pdf
 

@@ -47,12 +47,12 @@ function Help(props) {
         </div>
 
         <div className="inner index-section-boxes grid-blocks three-blocks-grid">
-          <a href={docUrl("game1")} className="white-box">
+          <a href={docUrl("liquidity1")} className="white-box">
             <h3>
               Simple liquidity provision
             </h3>
             <p>
-              Provide liquidity of stable coins, while making use of the fluctuation around 1USD
+              Provide liquidity for stablecoins, while making use of the fluctuation around 1USD
             </p>
           </a>
           <a className="white-box">
