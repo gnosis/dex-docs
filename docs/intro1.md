@@ -1,74 +1,54 @@
 ---
 id: introduction1
-title: A short primer on Conditional Tokens
-sidebar_label: A short primer on Conditional Tokens
+title: An excursion into the dƒusion trading protocol
+sidebar_label: An excursion into the dƒusion trading protocol
 ---
-<span style="color:#009cb4"><font size="4"><em> **Gnosis anticipates a tokenized future in which no single currency is dominant, and tradable asset classes take on increasing informational complexity. Conditional tokens that enable prediction markets are one of these new asset classes.**</em></font></span>
+Dƒusion is a protocol which introduces a new, decentralized trading mechanism for ERC20 tokens. A core goal is to have a global permissionless liquidity pool and a fair matching engine that does not require a trusted operator while still maximizing trader welfare. This is realized through batch auctions with multi-dimensional order books and uniform clearing prices in every batch. 
 
-To better understand the reasoning behind the development of the conditional token framework, it’s helpful to understand the basic concept of a prediction market. Prediction markets—also referred to as information markets, idea futures, event derivatives, decision markets, or virtual stock markets—are exchange-traded markets where individuals stake on the outcome of an event. In blockchain-based prediction markets, participants stake on the market in the form of event contracts. These contracts specify the different possible outcomes of a future event, a payment structure based on those outcomes, and the event’s outcome date.  Unlike financial markets such as stock or commodities futures, which traders use to hedge against risk (i.e., farmers use futures markets to hedge against low crop prices, airlines use futures markets to hedge against high fuel prices), prediction markets primarily seek to aggregate information on particular topics of interest. The principal informational value of a prediction market lies in the price of the futures themselves, which not only represent the average assessment of market participants concerning the likelihood of an event’s outcome, but also the confidence level different participants have in their predictions.
+In order to more closely understand how the Dƒusion protocol works, let’s take a deeper lookr into the different mechanisms and concepts involved. 
 
-IMAGE
+## Trades
+ Let’s start with the basics. 
 
-Prediction markets have far-reaching potential as a prognostic tool. From weather forecasting to abating the destruction of the Great Barrier Reef, learn more about the vast range of use cases for PMs by delving into our blog posts on the topic.
+Dƒusion is a trading protocol for ERC20 tokens. The protocol is compatible with any ERC20 token, but only registered tokens can be traded. Token registration is permissionless and can be done by anyone. However, a spam protection fee of 10 OWL is required to register new tokens. Learn more about how to register tokens in this <a href="addtoken1">tutorial</a>.
 
-Simple prediction markets, including our first contracts and also other known decentralized prediction market platforms such as Augur, lack sufficient infrastructure to support deeper combinatorial markets. These more complex markets provide an invaluable means by which to achieve higher resolution information discovery in respect to conditional and interdependent probabilities of future events and their perceived value.
-In the following section, we will analyze the setup of known prediction markets and their shortcomings, before outlining how combinatorial markets with conditional tokens can solve current deficits. 
+To trade on dƒusion, a user can simply place an order for one token in exchange for another. An order is an instruction as to what token a user wants to sell under a given price condition, thereby defining  a limit price within the order, which indicates the absolute worst price a user will receive.  The protocol levies a fee of 0.1% on a trade, which incurs on only on executed orders/ volume. It’s important to note that fee costs are calculated as part of and already included in an order’s limit price.
 
-## Existing Approach to Combinatorial Markets
+In a perfect, Dfusive world, traders would place sell orders that exactly match available buy orders and vice versa. This, however, is usually not the case. Imagine we have four parties selling one token for another token: Alice wants to exchange DAI for OWL, Bob and Cary both want to exchange USDC for DAI, and Daniel OWL for USDC. Using a conventional exchange, those trades wouldn’t be filled or would likely need to go through one dominant token. In such a case, Daniel would need to make an additional trade, turning OWL into DAI, which will then enable him to trade DAI for USDC. 
 
-First, consider a series of conditions that can be fulfilled independently despite being related, and what the outcomes of these conditions might be. For example, let’s suppose there are two markets asking the following questions:
+<img src="/img/orders.png">
 
-1. Will Elon Musk step down as CEO of Tesla on or before December 31, 2020?
-<p>
-a) Yes
-<br>
-b) No
-</p>
+Dƒusion’s order book, however, has multiple buy and sell dimensions (hence the term multidimensional order book). The trades outlined above can be executed directly, without requiring an intermediary trade, using dƒusion. 
 
-2. Will the share price of Tesla stock be LESS THAN $300 at market close, December 31, 2020?
-<p>
-a) Yes
-<br>
-b) No
-</p>
+This means, firstly, all the sell order tokens are collected. Next, the most optimal way to satisfy all buy and sell orders will be calculated, in order to fulfill all orders (e.g. DAI to OWL, OWL to USDC, and USDC to DAI), while providing uniform clearing prices across all token pairs.   
 
-While the above markets can stand alone, they’re also explicitly correlated. In this case, there are two ways to create conditional tokens backed by a collateral token denoted as $, where the value of these conditional tokens depends on both outcomes of their respective assigned questions. In one setup, we could start by asking how the Tesla stock will evolve under the condition that Elon musk is stepping down.
+<img src="/img/ringtrade.png">
 
-IMAGE
+## Trading Cycles
+Let’s take a closer look at the recurring process of trading cycles.
 
+A full trading cycle on dƒusion consists of three user actions: deposit, order, and withdrawal.  Users’ orders are matched in batches. At any time, userstraders can place limit sell orders on-chain, which will to be included in the next batch(es)Batches run deterministically and consecutively in 5 minute intervals. 
 
-The market can also be presented in the reverse order, “Will Elon Musk step down under the condition that the Tesla Stock is below $300?”
+### Solvers
+For each batch, proposals can be submitted for settling orders in a collected batch. In dƒusion, those who submit proposals for order settlement are referred to as solvers. Anyone can become a solver by submitting a proposal for order settlement, although significant technical and computational capacity would be required for it to be in their economic interest.
 
-IMAGE
+Solvers’ proposals compete to provide the best order settlement for a given batch, with the term “best” meaning it satisfies pre-defined optimization criteria. As a simple overview, it can be said the best solving proposals maximize the trading volume and individual traders’ profit.
 
-Although the outcome tokens in the second layer should represent value in collateral under the same conditions, irrespective of the order in which the conditions are specified, they are, in reality, separate entities. Users may hold separate balances of each, despite the balance being theoretically redeemable under the same conditions.
+Solvers can submit valid order settlements within the first 4 minutes of every batch (each batch has 5 minute total runtime). Solvers can include any valid orders with available deposits in a batch’s order settlement. Solvers may match not only countertrades (A for B with B for A), but also ring trades such as A for B, B for C, and C for A. The more orders and tokens involved in a batch’s order settlement, the greater the calculation’s difficulty becomes. A solution contains a list of orders that should be executed and a list of clearing prices. A single solution is only allowed to settle up to 25 orders. This is because higher numbers of orders would make it significantly harder for such a transaction to be mined within the 4 minute timeframe for submitting solutions.
 
-IMAGE
+The solver that provides the best order settlement solution for a given batch is determined by the protocol, and the order settlement is then settled on-chain, resulting in all matched trades being executed. Lastly, users can withdraw their funds from fulfilled orders. 
 
-## Combinatorial Markets with Conditional Tokens
+## Benefits
 
-The conditional tokens framework, on the other hand, circumvents this problem. Conditional tokens preserve the fungibility in deeper layers, as all conditions are held in a single contract and are not tied to a specific collateral token. Referring to the above example, the situation using conditional tokens looks more like this:
-
-IMAGE
-
-Note the deeper outcome tokens on the far right of the diagram above, which were different in previous market set ups, are now the same. Users will hold conditional tokens in “positions.” Positions can be simple (with only one condition) or complex (relating to multiple conditions). For instance, instead of holding A and N—where A and N are outcomes of two events—you can now hold position AN, representing event N given event A has already occurred. 
-
-With the new contract, one can maximize fungibility in deeper combinatorial markets, ergo achieving more in-depth information concerning the conditional probability of an event and its anticipated value. In this way, conditional tokens offer more possibilities when compared to older prediction market frameworks. 
-
-A recap looking deeper into the benefits of conditional tokens can be found here: 
+One of the main benefits of the dfusion protocol is the ability to trade any token with any other token, without needing an intermediary trade as is the case on most centralized exchanges. For example, converting to LTC in order to hedge between different stablecoins. 
+Another advantage is that, in comparison to other comparable trading protocols, dƒusion offers a fairer price finding mechanism. The fairer prices are due to greatly diminished price discrimination and significantly increased volume facilitated by the multi-dimensional orderbook. 
+Additionally, users trading on dƒusion do not have any gas costs, and the user experience includes fee costs in the displayed limit order price. 
 
 
-<figure class="video_container">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/brFdf7pIYag" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-</figure>
+In conclusion, the dƒusion protocol proposes a new decentralized trading mechanism, which can lead to fairer prices due to greatly diminished price discrimination and significantly increased volume facilitated by the multi-dimensional orderbook. Any asset can be exchanged for any other asset without the need to go through (W)ETH or another token. It is fully smart contract compatible, which means that other applications can use,  integrate and build on the protocol.
 
 
+For a more mathematical description of the dƒusion protocol please refer to following document: https://github.com/gnosis/dex-research/blob/master/dFusion/dfusion.v1.pdf
 
-To summarize, conditional tokens allow you to: 
 
-1. Make simple markets on the likelihood of a given event.
-2. Make complex markets about how the likelihood of an event is affected by any other event. (For example: What is the probability of a global recession, if a trade war breaks out between the United States and China in the next year?)
-3. Trade any asset under the condition that a specific event happens. For market observers, these markets will surface asset prices in different possible futures. (For example: you could have bought a tokenized equivalent of the British Pound contingent on the condition that no hard Brexit happens.) 
-
-Previously such instruments could only be created at a high cost by financial institutions. The arrival of conditional tokens on Ethereum brings down the costs to a few cents and give access to everyone. All conditional tokens can be globally accessible, and payouts are securely (and cheaply) executed through smart contracts.
 

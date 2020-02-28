@@ -21,7 +21,7 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'Gnosis Developer Portal Dfusion', // Title for your website.
+  title: 'Gnosis Developer Portal dƒusion ', // Title for your website.
   tagline: 'Dfusion',
   url: 'https://dfusion-docs.gnosis.io', // Your website URL
   baseUrl: '/', // Base URL for your project */
@@ -40,8 +40,8 @@ const siteConfig = {
   headerLinks: [
     {doc: 'introduction1', label: 'Introduction'},
     {page: 'use-case', label: 'Use Case'},
-    {page: 'tutorials', label: 'Tutorials'},
     {doc: 'devguide01', label: 'Documentation'},
+    {page: 'tutorials', label: 'Tutorials'},
     {href: "/#support", label: 'Support'},
   ],
 
@@ -49,12 +49,12 @@ const siteConfig = {
   users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/conditional_tokens_logo_blue.svg',
+  headerIcon: 'img/dfusion_logo_orange.png',
   favicon: 'img/gnosis_logo_blue.png',
 
   /* Colors for website */
   colors: {
-    primaryColor: '#009cb4',
+    primaryColor: '#e8663d',
     secondaryColor: '#001428'
     ,
   },

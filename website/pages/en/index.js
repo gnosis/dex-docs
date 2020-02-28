@@ -33,13 +33,14 @@ class HomeSplash extends React.Component {
         <div className="inner index-info-block grid-blocks two-blocks-grid">
           <div 
           className="index-info-block-title">
-            Create conditional tokens: a new asset class with rich informational capabilities, making the outcome of any future event tradable.
+           Trade on the dƒusion protocol: Our decentralized exchange is built using market mechanisms designed to counter low liquidity in environments where there are an increasing number of tokenized assets.
           </div>
           <div className="index-info-block-text">
             <p>
-            The conditional tokens developer portal aims to provide an overview of the open framework.</p> 
-            <p>It’s a place where you can explore different use cases for conditional tokens, as well as detailed tutorials on how to encode conditionality and liquidity into your own dapps and prediction markets.
-            </p>
+            Here we will introduce the concept and novel mechanism behind the dƒusion trading protocol.</p> 
+            You’ll have all the tools you need to interact, inspect, and build on the dƒusion protocol. Additionally, we will introduce different concepts to use the mechanism, as well as an overivew of a few potential use cases and dapp integrations.
+            
+        
           </div>
         </div>
 
@@ -49,7 +50,7 @@ class HomeSplash extends React.Component {
               Introduction
             </h3>
             <p>
-              A <strong>short primer</strong> on Conditional Tokens
+              Exploring the <strong>concept</strong> behind the dƒusion 
             </p>
           </a>
           <a href="/use-case" className="white-box">
@@ -57,7 +58,7 @@ class HomeSplash extends React.Component {
               Use Cases
             </h3>
             <p>
-              Explore the <strong>versatility</strong> of Conditional Tokens
+              Making use of the dƒusion <strong>mechanism</strong>
             </p>
           </a>
           <a href={docUrl("devguide01")} className="white-box">
@@ -65,7 +66,7 @@ class HomeSplash extends React.Component {
               Documentation
             </h3>
             <p>
-              <strong>Deep dive</strong> into the Conditional Tokens contracts
+              <strong>Deep dive</strong> into the dƒusion contracts
             </p>
           </a>
           <a href="/tutorials" className="white-box">
@@ -73,7 +74,7 @@ class HomeSplash extends React.Component {
               Tutorials
             </h3>
             <p>
-              <strong>Get started</strong> and build your Conditional Token Dapp
+              <strong>Get started</strong> and work with the dƒusion contracts
             </p>
           </a>
         </div>
@@ -93,7 +94,7 @@ class HomeSplash extends React.Component {
               Projects
             </h3>
             <p>
-              <strong>Explore</strong> existing Conditional Token applications
+              <strong>Explore</strong> existing dƒusion integrations
             </p>
           </a>
         </div>
@@ -101,71 +102,84 @@ class HomeSplash extends React.Component {
         <div className="inner index-what-are grid-blocks two-blocks-grid">
           <div>
             <h2>
-              What are <br></br>Conditional Tokens?
+              What is the dƒusion?
             </h2>
           </div>
           <div>
-          <p> Gnosis has developed the conditional tokens open framework. Conditional tokens are an application agnostic, new asset class designed to facilitate the creation of highly liquid prediction markets. Conditional tokens enable combinatorial outcomes for higher resolution information discovery through prediction markets.</p>
-<p>
-The conditional tokens framework allows you to:
-</p>
-<p>
-<ul>
-  <li> Make simple markets on the likelihood of a given event.</li>
-  <li> Make complex markets about how the likelihood of an event is affected by any other event.</li>
-  <li> Trade any asset under the condition that a specific event occurs.</li>
-</ul>
-</p>
-<p>
-Prediction markets are the main use case for conditional tokens, which the Sight prediction market platform and other Gnosis Ecosystem projects build on. Conditional tokens have a wide range of additional use cases, from awarding access rights in games to paying milestone-based and social impact bonds. </p>
-
+          <p>  With the dƒusion protocol Gnosis introduces a new decentralized trading mechanism for ERC20 tokens. </p>
+          The Dƒusion protocol realizes a global permissionless liquidity pool and a fair matching engine that does not require a trusted operator, while maximizing trader welfare. The mechanism combines ring trades with batch auctions for a multi-dimensional order book with uniform clearing prices.  
           </div>
         </div>
 
         <div className="inner index-advantages grid-blocks two-blocks-grid">
           <div>
             <h2>
-              Advantages of <br></br>Conditional Tokens
+              Advantages of <br></br>the dƒusion protocol
             </h2>
           </div>
           <div className="index-advantages-boxes  grid-blocks two-blocks-grid">
-            <a href="" className="white-box">
+            <a className="white-box">
               <h3>
-                Deeper Combinatorial Markets
+                Better Price Finding
               </h3>
               <p>
-              Enabling <strong>deeper information discovery</strong>  in respect to conditional probabilities of events.
-
+              The dƒusion protocol can lead to fairer prices with its multidimensional orderbook <strong>diminishing price discrimination</strong> and signifcantly increasing volume.
               </p>
             </a>
 
-            <a href="" className="white-box">
+            <a className="white-box">
               <h3>
-               Oracle Agnostic
+              Liquidity Maximization
               </h3>
               <p>
-                Work with the <strong>right oracle for the right question protocol</strong> is not tied to any specific oracle.
-             
+               Users can <strong>easily provide liquidity</strong> through simple  trading strategies.
               </p>
             </a>
 
-            <a href="" className="white-box">
+            <a className="white-box">
               <h3>
-                ERC 1155 tokens
+                Smart Contract Integrations
               </h3>
               <p>
-               Allow batch transfers and receiver callbacks and <strong> avoid costly outcome token deployments</strong> for new events. 
+              Other protocols and dapps can easily <strong>use, integrate, and build </strong> on the protocol. 
               </p>
             </a>
 
-            <a href="" className="white-box">
+            <a className="white-box">
               <h3>
-                Audited contracts
+                Full Decentralization
               </h3>
               <p>
-                Cut costs on development <strong>without sacrificing security</strong>. 
+                Both order matching and asset management <strong>do not require a centralized party</strong> to steer the operations. 
               </p>
             </a>
+          </div>
+        </div>
+
+
+         <div className="inner index-projects-using grid-blocks two-blocks-grid">
+          <div>
+           <a name="projects">
+            <h2>
+              Analytics
+            </h2>
+            </a>
+          </div>
+          
+          <div className="index-projects-boxes grid-blocks three-blocks-grid">
+                      
+            <a href="https://explore.duneanalytics.com/public/dashboards/I43OkDWnojXZYm8vmdBDcLz5UsS3Tn0cx1xU8Hcg" className="white-box">
+             <strong> Dune Analytics </strong>
+            </a>
+
+            <a href="https://thegraph.com/explorer/subgraph/gnosis/dfusion" className="white-box">
+              <strong> The Graph Mainnet </strong>
+            </a>
+
+            <a href="https://thegraph.com/explorer/subgraph/gnosis/dfusion-rinkeby" className="white-box">
+              <strong> The Graph Rinkeby </strong>
+            </a>
+            
           </div>
         </div>
 
@@ -173,40 +187,27 @@ Prediction markets are the main use case for conditional tokens, which the Sight
           <div>
            <a name="projects">
             <h2>
-              Projects using<br></br>Conditional Tokens
+              Projects building on<br></br> the dƒusion protocol
             </h2>
             </a>
             <p>
-              Conditional Tokens are already used by those projects.
+              The dƒusion contracts are already used by those projects.
             </p>
 
           </div>
-          <div className="index-projects-boxes grid-blocks three-blocks-grid">
-            <a href="" className="white-box background-color-1">
-              P1
-            </a>
-            
-            <a href="" className="white-box background-color-2">
-              P2
-            </a>
-          
-            <a href="" className="white-box background-color-3">
-              P3
-            </a>
-
-            <a href="" className="white-box background-color-4">
-              P4
-            </a>
-            
-            <a href="" className="white-box background-color-5">
-              P5
-            </a>
-          
-            <a href="" className="white-box background-color-6">
-              P6
-            </a>
+          <div className="index-projects-boxes grid-blocks two-blocks-grid">
+          <a href="https://github.com/gnosis/GECO" className="white-box">
+             <strong> Want to be the first?</strong> <br></br> Apply with your project to the <strong>Gnosis Ecosystem Fund</strong>!
+          </a>
           </div>
         </div>
+
+      
+
+
+
+
+
 
         <div className="inner index-support grid-blocks two-blocks-grid">
           <div>
@@ -220,22 +221,11 @@ Prediction markets are the main use case for conditional tokens, which the Sight
             </p>
           </div>
           <div className="index-support-boxes grid-blocks">
-            <a href="">
-                Schedule a call with Gnosis
-                <i className="icon icon-arrow"></i>
-            
-            </a>
-            
-            <a href="">
-                Chat with us on discord
-                <i className="icon icon-arrow"></i>
-              
-            </a>
-          
-            <a href="">
-                Dev Focus Forum
-                <i className="icon icon-arrow"></i>
-            </a>
+            <div id="index-support-telegram">
+              <a href="https://t.me/dfusionprotocol">
+                  Chat with us via Telegram
+              </a>
+            </div>
           </div>
         </div>
 

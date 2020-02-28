@@ -39,41 +39,32 @@ function Help(props) {
       <Container className="mainContainer documentContainer postContainer">
         <div className="index-info-block grid-blocks two-blocks-grid">
           <div className="index-info-block-title">
-            Conditional Token Use Cases
+            Use cases for the dƒusion protocol
           </div>
           <div className="index-info-block-text">
             <p>
-            Learn about the different Use Cases of Conditional Tokens.
+            Here we will introduce different concepts to use the mechanism, as well as an overivew of a few potential use cases and dapp integrations.
             </p>
           </div>
         </div>
 
         <div className="inner index-section-boxes grid-blocks three-blocks-grid">
-          <a href={docUrl("game1")} className="white-box">
+          <a href={docUrl("liquidity1")} className="white-box">
             <h3>
-              Tokens, Gaming, and Forking Gardens
+              Simple liquidity provision
             </h3>
             <p>
-              How prediction market tools like conditional tokens can change gaming
+              Provide liquidity for stablecoins, while making use of the fluctuation around 1USD
             </p>
           </a>
-          <a href={docUrl("X")} className="white-box">
+          <a className="white-box">
             <h3>
-              Futarchy
+              To be continued... 
             </h3>
             <p>
-              Make decission based on prediction markets 
+               More use cases will be added over time. Make sure to come back and learn more about the dƒusion protocol.
             </p>
           </a>
-          <a href={docUrl("doc5")} className="white-box">
-            <h3>
-              Games
-            </h3>
-            <p>
-              How can Conditional Tokens be used for Games
-            </p>
-          </a>
-        
         </div>
       </Container>
     </div>
