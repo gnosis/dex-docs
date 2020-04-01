@@ -23,8 +23,8 @@ const users = [
 const siteConfig = {
   title: 'Gnosis Developer Portal Gnosis Protocol ', // Title for your website.
   tagline: 'Gnosis Protocol',
-  url: 'https://docs.gnosis.io/gnosisprotocol/', // Your website URL
-  baseUrl: '/gnosisprotocol/', // Base URL for your project */
+  url: 'https://docs.gnosis.io/protocol/', // Your website URL
+  baseUrl: '/protocol/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
