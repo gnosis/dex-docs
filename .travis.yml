@@ -41,7 +41,7 @@ deploy:
     secret_access_key: $AWS_SECRET_ACCESS_KEY
     skip_cleanup: true
     local_dir: website/build/dfusion-docs
-    upload-dir: dfusion
+    upload-dir: protocol
     on:
       branch: develop
       node: '12'
@@ -51,7 +51,7 @@ deploy:
     secret_access_key: $AWS_SECRET_ACCESS_KEY
     skip_cleanup: true
     local_dir: website/build/dfusion-docs
-    upload-dir: current/dfusion
+    upload-dir: current/protocol
     on:
       branch: master
       node: '12'

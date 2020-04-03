@@ -40,7 +40,10 @@ class Footer extends React.Component {
           <div>
             
           </div>
-          <div></div>
+
+          <div><a href={this.docUrl('privacy')}>
+              Privacy Policy
+            </a></div>
           <div></div>
           <div></div>
           <div>

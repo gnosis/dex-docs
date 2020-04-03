@@ -47,7 +47,21 @@ Additionally, users trading on dƒusion do not have any gas costs, and the user 
 
 In conclusion, the dƒusion protocol proposes a new decentralized trading mechanism, which can lead to fairer prices due to greatly diminished price discrimination and significantly increased volume facilitated by the multi-dimensional orderbook. Any asset can be exchanged for any other asset without the need to go through (W)ETH or another token. It is fully smart contract compatible, which means that other applications can use,  integrate and build on the protocol.
 
+A recap looking deeper into the benefits of dƒusion protocol can be found here: 
 
+<figure class="video_container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hpTh_iVUOq0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
+
+<br>
+An overview how the fair pricing works can be seen here: 
+
+
+<figure class="video_container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hyF-z3Exhc4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</figure>
+
+<br>
 For a more mathematical description of the dƒusion protocol please refer to following document: https://github.com/gnosis/dex-research/blob/master/dFusion/dfusion.v1.pdf
 
 
