@@ -21,10 +21,10 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'Gnosis Developer Portal dƒusion ', // Title for your website.
-  tagline: 'Dfusion',
-  url: 'https://dfusion-docs.gnosis.io', // Your website URL
-  baseUrl: '/', // Base URL for your project */
+  title: 'Gnosis Developer Portal Gnosis Protocol ', // Title for your website.
+  tagline: 'Gnosis Protocol',
+  url: 'https://docs.gnosis.io/protocol/', // Your website URL
+  baseUrl: '/protocol/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
@@ -42,7 +42,7 @@ const siteConfig = {
     {page: 'use-case', label: 'Use Case'},
     {doc: 'devguide01', label: 'Documentation'},
     {page: 'tutorials', label: 'Tutorials'},
-    {href: "/#support", label: 'Support'},
+    {href: "/dfusion/#support", label: 'Support'},
   ],
 
   // If you have users set above, you add it here:
