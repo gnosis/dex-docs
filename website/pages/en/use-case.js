@@ -39,11 +39,12 @@ function Help(props) {
       <Container className="mainContainer documentContainer postContainer">
         <div className="index-info-block grid-blocks two-blocks-grid">
           <div className="index-info-block-title">
-            Use cases for the dƒusion protocol
+            Use cases for Gnosis Protocol
           </div>
+          
           <div className="index-info-block-text">
             <p>
-            Here we will introduce different concepts to use the mechanism, as well as an overivew of a few potential use cases and dapp integrations.
+              Here you can learn more about different applications of the Gnosis Protocol.
             </p>
           </div>
         </div>
@@ -51,10 +52,10 @@ function Help(props) {
         <div className="inner index-section-boxes grid-blocks three-blocks-grid">
           <a href={docUrl("liquidity1")} className="white-box">
             <h3>
-              Simple liquidity provision
+              Simple Liquidity Provision
             </h3>
             <p>
-              Provide liquidity for stablecoins, while making use of the fluctuation around 1USD
+              You could employ a simple liquidity provision strategy for stablecoins, and make use of their fluctuation around 1 USD.
             </p>
           </a>
           <a className="white-box">
@@ -62,7 +63,7 @@ function Help(props) {
               To be continued... 
             </h3>
             <p>
-               More use cases will be added over time. Make sure to come back and learn more about the dƒusion protocol.
+               More use cases will be added over time. Be sure to come back soon.
             </p>
           </a>
         </div>
