@@ -3,7 +3,7 @@ id: devguide03
 title: Smart Contracts
 sidebar_label: Smart Contracts
 ---
-The main smart contracts for the *dƒusion* are the *EpochTokenLocker* and *BatchExchange*. 
+The main smart contracts for Gnosis Protocol are the *EpochTokenLocker* and *BatchExchange*. 
 
 As mentioned before, trading happens in batches. While a batch is being solved it is important that information about this batch (such as the account balances and orders) is immutable. Finding the optimal settlement is a computationally expensive process and changes in, e.g. available balance, would influence the optimal solution. Note, however, that the smart contract does accept balance and order updates for the next batch. Therefore, balance updates and order adjustments need to be managed in a particular manner. 
 
