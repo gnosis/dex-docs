@@ -233,7 +233,7 @@ class HomeSplash extends React.Component {
           <div className="index-support-boxes grid-blocks">
             <div id="index-support-telegram">
               <a href="https://chat.gnosis.io">
-                  Chat with us on Discord
+                  Join our Discord community chat.
               </a>
             </div>
           </div>

@@ -1,68 +1,89 @@
 ---
 id: introduction1
-title: An excursion into the dƒusion trading protocol
-sidebar_label: An excursion into the dƒusion trading protocol
+title: Introduction to Gnosis Protocol
+sidebar_label: Introduction to Gnosis Protocol
 ---
-Dƒusion is a protocol which introduces a new, decentralized trading mechanism for ERC20 tokens. A core goal is to have a global permissionless liquidity pool and a fair matching engine that does not require a trusted operator while still maximizing trader welfare. This is realized through batch auctions with multi-dimensional order books and uniform clearing prices in every batch. 
+Gnosis Protocol is a fully permissionless DEX, which has been in research and development over the course of the last two years. Gnosis Protocol enables ring trades to maximize liquidity. Ring trades are order settlements which share liquidity across all orders, rather than a single token pair, and uniquely suited for trading prediction market tokens and the long tail of all tokenized assets.
 
-In order to more closely understand how the Dƒusion protocol works, let’s take a deeper lookr into the different mechanisms and concepts involved. 
+Now let's step into the ring, and take a closer look at the basics.
 
 ## Trades
- Let’s start with the basics. 
 
-Dƒusion is a trading protocol for ERC20 tokens. The protocol is compatible with any ERC20 token, but only registered tokens can be traded. Token registration is permissionless and can be done by anyone. However, a spam protection fee of 10 OWL is required to register new tokens. Learn more about how to register tokens in this <a href="addtoken1">tutorial</a>.
+Gnosis Protocol is a trading protocol for ERC-20 tokens. The protocol is technically compatible with any ERC-20 token, but only tokens listed on the protocol can be traded. Token listing is permissionless and can be done by anyone. However, a spam protection fee of 10 <a href="https://blog.gnosis.pm/owl-token-use-cases-6094027ecb37">OWL</a> is required to list new tokens. You can learn more about how to list tokens in this <a href="addtoken1">tutorial</a>.
 
-To trade on dƒusion, a user can simply place an order for one token in exchange for another. An order is an instruction as to what token a user wants to sell under a given price condition, thereby defining  a limit price within the order, which indicates the absolute worst price a user will receive.  The protocol levies a fee of 0.1% on a trade, which incurs on only on executed orders/ volume. It’s important to note that fee costs are calculated as part of and already included in an order’s limit price.
+To trade on Gnosis Protocol, a user can simply place an order for one token in exchange for another. An order is an instruction as to what token a user wants to sell under a given price condition, thereby defining  a limit price within the order, which indicates the absolute worst price a user will receive.  The protocol levies a fee of 0.1% on a trade on the volume of an executed trade. Fee costs are calculated as part of and already included in an order’s limit price.
 
-In a perfect, Dfusive world, traders would place sell orders that exactly match available buy orders and vice versa. This, however, is usually not the case. Imagine we have four parties selling one token for another token: Alice wants to exchange DAI for OWL, Bob and Cary both want to exchange USDC for DAI, and Daniel OWL for USDC. Using a conventional exchange, those trades wouldn’t be filled or would likely need to go through one dominant token. In such a case, Daniel would need to make an additional trade, turning OWL into DAI, which will then enable him to trade DAI for USDC. 
+In a perfect Gnostic world, traders would place sell orders that exactly match available buy orders, and all trades would be executed directly and seamlessly. This, however, is usually not the case. Imagine we have four parties selling one token for another token: Alice would like to exchange DAI for OWL; Bob and Cary both would like to exchange USDC for DAI; and Daniel would like to OWL for USDC. Most traditional exchanges wouldn’t be able to directly fill these orders. In this example, Daniel might make an additional trade, exchanging their OWL for DAI to then complete the desired trade by exchanging DAI for USDC.
 
 <img src="/img/orders.png">
 
-Dƒusion’s order book, however, has multiple buy and sell dimensions (hence the term multidimensional order book). The trades outlined above can be executed directly, without requiring an intermediary trade, using dƒusion. 
-
-This means, firstly, all the sell order tokens are collected. Next, the most optimal way to satisfy all buy and sell orders will be calculated, in order to fulfill all orders (e.g. DAI to OWL, OWL to USDC, and USDC to DAI), while providing uniform clearing prices across all token pairs.   
+By enabling ring trades, however, Gnosis Protocol can fill these orders with uniform clearing prices and without requiring additional work from the trader. 
 
 <img src="/img/ringtrade.png">
 
 ## Trading Cycles
-Let’s take a closer look at the recurring process of trading cycles.
+Let’s get an owl’s eye view on how the protocol's trading cycles work to make this possible.
 
-A full trading cycle on dƒusion consists of three user actions: deposit, order, and withdrawal.  Users’ orders are matched in batches. At any time, userstraders can place limit sell orders on-chain, which will to be included in the next batch(es)Batches run deterministically and consecutively in 5 minute intervals. 
+*  Users can place limit sell orders on-chain at any time;
+*  Every 5 minutes, a **batch auction** runs;
+*  At the start of an auction, all currently open orders on the protocol are considered;
+*  For each auction, an open competition to submit order settlement solutions by **solvers** takes place;
+*  The protocol selects an order settlement solution that maximizes trader welfare and provides single clearing prices;
+*  All matched orders are settled on-chain and filled;
+*  The next batch auction begins.
+
+From a users' perspective, a full trading cycle on Gnosis Protocol consists of three user actions: deposit, order, and withdrawal. However, there's still a lot going on under the transparent hood.
+
 
 ### Solvers
-For each batch, proposals can be submitted for settling orders in a collected batch. In dƒusion, those who submit proposals for order settlement are referred to as solvers. Anyone can become a solver by submitting a proposal for order settlement, although significant technical and computational capacity would be required for it to be in their economic interest.
+On Gnosis Protocol, a central operator is replaced by an open competition for order matching, and the term solver refers to anyone who submits an order settlement solution for a batch auction. In principle, anyone can become a solver by submitting a proposal for order settlement, although significant technical and computational capacity is required for it to be in their economic interest.
 
-Solvers’ proposals compete to provide the best order settlement for a given batch, with the term “best” meaning it satisfies pre-defined optimization criteria. As a simple overview, it can be said the best solving proposals maximize the trading volume and individual traders’ profit.
+Solvers’ proposals compete to provide the best order settlement for a given batch, with the term “best” meaning it satisfies pre-defined optimization criteria. As a simple definition, it can be said the best proposals maximize "trader welfare" as determined by volume and profit. You can learn more about this optimization criteria in a <a href="https://www.youtube.com/embed/hyF-z3Exhc4">recent talk</a> by Gnosis Engineer Felix Leupold.
 
-Solvers can submit valid order settlements within the first 4 minutes of every batch (each batch has 5 minute total runtime). Solvers can include any valid orders with available deposits in a batch’s order settlement. Solvers may match not only countertrades (A for B with B for A), but also ring trades such as A for B, B for C, and C for A. The more orders and tokens involved in a batch’s order settlement, the greater the calculation’s difficulty becomes. A solution contains a list of orders that should be executed and a list of clearing prices. A single solution is only allowed to settle up to 25 orders. This is because higher numbers of orders would make it significantly harder for such a transaction to be mined within the 4 minute timeframe for submitting solutions.
+Solvers can submit valid order settlements within the first 4 minutes of every batch auction, which in total run for 5 minutes each. Solvers can include any valid open orders with available deposits in a batch auction’s order settlement. Solvers do not have to match only countertrades (token A for token B with token B for token A), but can also match ring trades such as token A for token B, token B for token C, and token C for A token. However, the more orders and distinct tokens involved in a batch auction’s order settlement, the greater the calculation’s difficulty becomes.
 
-The solver that provides the best order settlement solution for a given batch is determined by the protocol, and the order settlement is then settled on-chain, resulting in all matched trades being executed. Lastly, users can withdraw their funds from fulfilled orders. 
+A valid solution contains (1) a list of orders that should be executed and (2) a list of clearing prices. A single solution is only allowed to settle up to 25 orders. This is because a greater number of orders would make it significantly harder for such a transaction to be mined within the 4 minute timeframe for submitting solutions.
+
+The solver that provides the best order settlement solution for a given batch auction is selected by the protocol, and the order settlement is then settled on-chain, resulting in all matched trades being executed.
+
+After this, users can withdraw their funds from filled orders. 
 
 ## Benefits
 
-One of the main benefits of the dfusion protocol is the ability to trade any token with any other token, without needing an intermediary trade as is the case on most centralized exchanges. For example, converting to LTC in order to hedge between different stablecoins. 
-Another advantage is that, in comparison to other comparable trading protocols, dƒusion offers a fairer price finding mechanism. The fairer prices are due to greatly diminished price discrimination and significantly increased volume facilitated by the multi-dimensional orderbook. 
-Additionally, users trading on dƒusion do not have any gas costs, and the user experience includes fee costs in the displayed limit order price. 
+*  **Fully permissionless DEX** on which anyone can list tokens and build integrations;
+*  **Maximized liquidity** through **ring trades**, in which liquidity is shared among all traded assets; 
+*  First implementation of **batch auctions** promoting fairer, uniform clearing prices and front-running resistance; 
+*  There is a guaranteed orderbook to **trade any token pair** without having to use an intermediary token or centralized exchange to convert your asset;
+*  **Fair, decentralized settlement** in which an open competition for order matching replaces an operator;
+*  Fees are included in your limit price and paid in OWL, which can be generated from GNO, and there are **no gas costs** for executed trades. 
 
 
-In conclusion, the dƒusion protocol proposes a new decentralized trading mechanism, which can lead to fairer prices due to greatly diminished price discrimination and significantly increased volume facilitated by the multi-dimensional orderbook. Any asset can be exchanged for any other asset without the need to go through (W)ETH or another token. It is fully smart contract compatible, which means that other applications can use,  integrate and build on the protocol.
+## Conclusion
 
-A recap looking deeper into the benefits of dƒusion protocol can be found here: 
+We believe Gnosis Protocol is critical infrastructure for open finance, which will see the creation of more and more tokenized assets. For example, the number of unique prediction market conditional tokens, each representing a unique outcome in the world, could grow exponentially in size. In order to ensure marketplaces exist for the “long tail” of prediction market and all tokenized assets, it is necessary to have market mechanisms built precisely for handling large numbers of unique, and often illiquid, tokens. To this end, we built the Gnosis Protocol to become the standard for trading prediction market conditional tokens and providing access to their global liquidity pool. 
+
+Ultimately, Gnosis Protocol is built in the spirit of permissionless innovation. Its fully decentralized architecture means you don’t need to trust us at Gnosis to build on our protocol.
+
+<hr>
+
+## Additional Resources
+
+A deeper look into Gnosis Protocol (formerly Dfusion Protocol) by Gnosis Product Manager Chris Ernst:
 
 <figure class="video_container">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hpTh_iVUOq0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </figure>
 
-<br>
-An overview how the fair pricing works can be seen here: 
+<br><br>
+A deeper look into fair price finding and Gnosis Protocol's optimization criteria by Gnosis Engineer Felix Leupold:
 
 
 <figure class="video_container">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hyF-z3Exhc4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </figure>
 
-<br>
-For a more mathematical description of the dƒusion protocol please refer to following document: https://github.com/gnosis/dex-research/blob/master/dFusion/dfusion.v1.pdf
+<br><br>
+For a more rigorous mathematical description of Gnosis Protocol (formerly Dfusion Protocol) please refer to the research paper: https://github.com/gnosis/dex-research/blob/master/dFusion/dfusion.v1.pdf.
 
 
 
