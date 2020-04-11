@@ -1,14 +1,14 @@
 ---
 id:addtoken3
-title: Getting Owl
-sidebar_label: Getting Owl
+title: Getting OWL
+sidebar_label: Getting OWL
 ---
 
-You will need the 10 OWL to pay the spam protection fee, which is required to register (=add) a token. Keep it in your wallet with which you are planning to do the transactions.
+You will need 10 OWL to pay the costs for listing a token, which functions as a spam protection fee. Keep the OWL in the wallet that you are planning to use for transactions during this process. There are two ways to obtain OWL:
 
-a. Get OWL here on the Dfusion [link coming]
+1. Get OWL using [Mesa](https://mesa.eth.link), the first dapp built on Gnosis Protocol.
 
-b. [Get OWL here](https://uniswap.exchange/swap) on Uniswap (by entering the [OWL address](https://etherscan.io/token/0x1a5f9352af8af974bfc03399e3767df6370d82e4) manually)
+2. [Get OWL using](https://uniswap.exchange/swap) on Uniswap. You must manually enter the [OWL token address](https://etherscan.io/token/0x1a5f9352af8af974bfc03399e3767df6370d82e4).
 
 
 <img src="/img/addtutorial_gettingOWL.png">

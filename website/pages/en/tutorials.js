@@ -24,12 +24,14 @@ function Tutorial(props) {
       <Container className="mainContainer documentContainer postContainer">
        <div className="index-info-block grid-blocks two-blocks-grid">
           <div className="index-info-block-title">
-            Tutorials
+            Gnosis Protocol Tutorials
           </div>
           <div className="index-info-block-text">
             <p>
-            OK, enough about contracts, trades and optimization criterias. <br></br>
-            Let’s start with some hands on examples on how to interact with the dƒusion protocol 
+            Enough for now with concepts, contracts, and criteria?
+            </p>
+            <p>
+            Let’s get started with some basic tutorials on how to interact with Gnosis Protocol.
             </p>
           </div>
         </div>
@@ -38,24 +40,24 @@ function Tutorial(props) {
         <div className="inner grid-blocks four-blocks-grid tutorials-boxes">
           <a href={docUrl("addtoken1")} className="white-box">
             <h3>
-             How to add any ERC20 to the dFusion Protocol
+             Adding ERC-20 Tokens
             </h3>
             <p>
-              This tutorial will teach you how to add any ERC20 token to the dƒusion protocol using Etherscan.  
+              This tutorial will teach you how to list any ERC-20 token on Gnosis Protocol using Etherscan.  
             </p>
             <p className="box-icons">
               <i className="icon icon-small icon-time"></i>
               &nbsp;
-              10min
+              10 min
               &nbsp;
               &nbsp;
               <i className="icon icon-small icon-star"></i>
               &nbsp;
-              easy
+              Easy
               &nbsp;
               &nbsp;
               <i className="icon icon-small icon-pen"></i>
-              none
+              None
             </p>
           </a>
 
@@ -64,7 +66,7 @@ function Tutorial(props) {
               Looking for a specific tutorial? 
             </h3>
             <p>
-             Reach out to us and tell us what tutorial you would like to see here.
+             Click here to access our request form, and let us know about what Gnosis Protocol tutorials you'd like to see.
             </p>
           </a>
 
@@ -73,7 +75,7 @@ function Tutorial(props) {
               To be continued...
             </h3>
             <p>
-             More tutorials will be added over time. Make sure to come back and learn more about the dƒusion protocol.
+             More tutorials will be added over time. Be sure to come back soon.
             </p>
           </a>
           
