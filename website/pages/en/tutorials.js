@@ -48,7 +48,7 @@ function Tutorial(props) {
             <p className="box-icons">
               <i className="icon icon-small icon-time"></i>
               &nbsp;
-              10 min
+              10min
               &nbsp;
               &nbsp;
               <i className="icon icon-small icon-star"></i>
@@ -58,6 +58,29 @@ function Tutorial(props) {
               &nbsp;
               <i className="icon icon-small icon-pen"></i>
               None
+            </p>
+          </a>
+
+          <a href={docUrl("limitorder1")} className="white-box">
+            <h3>
+             Submit a limit order
+            </h3>
+            <p>
+              This tutorial will teach you how to place one (standing) limit order using Etherscan, including deposit and withdrawal.
+            </p>
+            <p className="box-icons">
+              <i className="icon icon-small icon-time"></i>
+              &nbsp;
+              15min
+              &nbsp;
+              &nbsp;
+              <i className="icon icon-small icon-star"></i>
+              &nbsp;
+              Medium
+              &nbsp;
+              &nbsp;
+              <i className="icon icon-small icon-pen"></i>
+              Intro
             </p>
           </a>
 
