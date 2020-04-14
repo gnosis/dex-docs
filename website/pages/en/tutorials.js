@@ -61,7 +61,7 @@ function Tutorial(props) {
             </p>
           </a>
 
-          <a href={docUrl("limitorder1")} className="white-box">
+          <a href={docUrl("tutorial-limit-orders")} className="white-box">
             <h3>
              Submit a limit order
             </h3>
