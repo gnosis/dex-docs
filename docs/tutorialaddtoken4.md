@@ -8,7 +8,7 @@ In the next step, you have to approve spending from your wallet.
 
 1. Go to https://etherscan.io/token/0x1a5f9352af8af974bfc03399e3767df6370d82e4#writeContract.
 
-2. Connect to your web 3.0 wallet provider.
+2. Connect to your web3 wallet provider.
 
 <img src="/img/addtutorial_setapproval1.png">
 

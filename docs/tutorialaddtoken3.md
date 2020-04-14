@@ -8,7 +8,7 @@ You will need 10 OWL to pay the costs for listing a token, which functions as a 
 
 1. Get OWL using [Mesa](https://mesa.eth.link), the first dapp built on Gnosis Protocol.
 
-2. [Get OWL using](https://uniswap.exchange/swap) on Uniswap. You must manually enter the [OWL token address](https://etherscan.io/token/0x1a5f9352af8af974bfc03399e3767df6370d82e4).
+2. Or [get OWL using](https://uniswap.exchange/swap) on Uniswap. You must manually enter the [OWL token address](https://etherscan.io/token/0x1a5f9352af8af974bfc03399e3767df6370d82e4).
 
 
 <img src="/img/addtutorial_gettingOWL.png">
