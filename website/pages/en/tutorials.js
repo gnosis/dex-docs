@@ -86,7 +86,7 @@ function Tutorial(props) {
 
           <a href={docUrl("tutorial-multiple-orders")} className="white-box">
             <h3>
-             Submit multiple limit orders or pre-schedule orders
+             Submit multiple orders
             </h3>
             <p>
               This tutorial will teach you how to place multiple orders or pre-schedule orders using Etherscan.
