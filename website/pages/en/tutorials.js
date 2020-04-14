@@ -84,21 +84,35 @@ function Tutorial(props) {
             </p>
           </a>
 
+          <a href={docUrl("tutorial-multiple-orders")} className="white-box">
+            <h3>
+             Submit multiple limit orders or pre-schedule orders
+            </h3>
+            <p>
+              This tutorial will teach you how to place multiple orders or pre-schedule orders using Etherscan.
+            </p>
+            <p className="box-icons">
+              <i className="icon icon-small icon-time"></i>
+              &nbsp;
+              15min
+              &nbsp;
+              &nbsp;
+              <i className="icon icon-small icon-star"></i>
+              &nbsp;
+              Medium
+              &nbsp;
+              &nbsp;
+              <i className="icon icon-small icon-pen"></i>
+              Limit Orders
+            </p>
+          </a>
+
            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfubvD9WsgCS8EbB-VeTWtzUSw5Mk1-s66BuZik0GHuvQZhAw/viewform"  className="white-box">
             <h3>
               Looking for a specific tutorial? 
             </h3>
             <p>
              Click here to access our request form, and let us know about what Gnosis Protocol tutorials you'd like to see.
-            </p>
-          </a>
-
-          <a className="white-box">
-            <h3>
-              To be continued...
-            </h3>
-            <p>
-             More tutorials will be added over time. Be sure to come back soon.
             </p>
           </a>
           

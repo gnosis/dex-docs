@@ -5,7 +5,7 @@ sidebar_label: Getting Started
 ---
 
 ## Requirements
-1. In order to pay for the costs for listing a new token, you need to have 10 [OWL](https://blog.gnosis.pm/owl-token-use-cases-6094027ecb37) available at your disposal. There are two ways to obtain OWL:
+1. In order to pay for the costs for listing a new token, you need to have 10 [OWL](https://blog.gnosis.pm/owl-token-use-cases-6094027ecb37) available at your disposal. There are two ways to obtain OWL:	
 
 	a. Get OWL using [Mesa](https://mesa.eth.link), the first dapp built on Gnosis Protocol.
 
