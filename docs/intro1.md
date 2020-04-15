@@ -15,11 +15,11 @@ To trade on Gnosis Protocol, a user can simply place an order for one token in e
 
 In a perfect Gnostic world, traders would place sell orders that exactly match available buy orders, and all trades would be executed directly and seamlessly. This, however, is usually not the case. Imagine we have four parties selling one token for another token: Alice would like to exchange DAI for OWL; Bob and Cary both would like to exchange USDC for DAI; and Daniel would like to OWL for USDC. Most traditional trading protocols wouldn’t be able to directly fill these orders. In this example, Daniel might make an additional trade, exchanging their OWL for DAI to then complete the desired trade by exchanging DAI for USDC.
 
-<img src="/img/orders.png">
+![](assets/orders.png)
 
 By enabling ring trades, however, Gnosis Protocol can fill these orders with uniform clearing prices and without requiring additional work from the trader. 
 
-<img src="/img/ringtrade.png">
+![](assets/ringtrade.png)
 
 ## Trading Cycles
 Let’s get an owl’s eye view on how the protocol's trading cycles work to make this possible.

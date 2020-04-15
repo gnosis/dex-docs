@@ -115,7 +115,7 @@ Note, that the limit price specified in an order includes the fee. This means th
 Fees are collected in Gnosis’ OWL token (a derivative of the GNO token - for more information cf. the whitepaper).
 OWL serves as the reference token of the exchange (tokenId 0) with a fixed price of 10^18. As fees are deducted from each trade, they intuitively create a surplus in each trade’s sell token balance (more tokens are sold than their equivalent bought). That surplus, however, can be shifted in a way that the only imbalance in the sum of tokens bought and sold ends up in a single token (cf. solution submission - validity for more information on the balance criteria).  The example below exemplifies a ring trade between stable coins where the only surplus results in the OWL token.
 
-<img src="/img/orderdetails.png">
+![](assets/orderdetails.png)
 
 A trader therefore doesn’t have to own any fee token in order to trade. Merely, there has to exist some sell order connecting OWL to each connected subgraphs in the batch.
 
@@ -239,7 +239,7 @@ Each solution submitter has the risk that their transaction might be front-run. 
 A special market maker could exploit market orders by using the limitations of the disregarded volume calculations. Here is an example:
 Imagine we have two market maker orders selling token A a little bit below the observed market price on other exchanges. Also, there is one market order, selling token B much below the observed market price. Now, it would be expected from a fair trading mechanism that the price of the auction would be close to the market makers’ orders and that the market order is not exploited. This is shown in the following graphic. The optimization function “disregarded utility on matched orders”, would find this solution, as this price is the only solution generating a  maximal trading utility and can be achieved with a disregarded utility of 0.
 
-<img src="/img/usualbehaviour.png">
+![](assets/usualbehaviour.png)
 
 However, a clever market maker could insert, at the last second, another order into the batch, such that their order and the first market maker order match up exactly the volume of the market sell order with the limit price of the market order.
 
@@ -247,7 +247,7 @@ If they then submit the solution that trades their order and the first market ma
 
 This is a high priority issue and will be immediately addressed in the future versions of the contract.
 
-<img src="/img/manipulation.png">
+![](assets/manipulation.png)
 
 ### Withdraw delaying attack
 Withdraws that were requested in a previous batch and are thus valid in the current batch can be postponed by a malicious actor assuming the person wishing to withdraw has a matchable order in the auction. An attacker can credit a small buy amount to that order. This would increase the tokens balance and thus postpone the withdrawal to the next batch. The withdrawal would remain postponed, even if the solution was later overridden by a better solution not touching that balance. To remedy this, the trader would have to also cancel all pending orders that could lead to an increase to their balance.

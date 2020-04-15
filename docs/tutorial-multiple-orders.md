@@ -34,7 +34,7 @@ To place multiple orders or to pre-schedule orders, go to the [Gnosis Protocol E
 2. Use the function Nr. 6 ‘placeValidFromOrder’. Although the name may be confusing, this function can be used for two purposes including a) pre-scheduling order(s) to be valid in the future or (b) submitting many different orders at once..
 3. Information you need to know is displayed here: 
 
-<img src="/img/tutorial_mo_1.png">
+![](assets/tutorial_mo_1.png)
 
 **This function allows you to place several orders in a single transaction. The orders entered must be separated by a comma “,” within an array [ ] without any spaces.** Each position within the array [ ] corresponds to the same position in every other array [ ]. Every field has to include the same amount of order details.
 
@@ -46,7 +46,7 @@ validUntils: This is the batchID when your orders will expire. Note that you can
 
 This can be most easily demonstrated with an example.
 
-<img src="/img/tutorial_mo_2.png">
+![](assets/tutorial_mo_2.png)
 
 Essentially, in the image above, if you take the first entry of each array you will see the details of  the first order:
 *  buyTokens: 4

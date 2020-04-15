@@ -26,13 +26,13 @@ Useful links:
 
 You can confirm this easily by going to Etherscan, and selecting tab ‘contract’, ‘read contract’:
 
-<img src="/img/tutorial_lo_1.png">
+![](assets/tutorial_lo_1.png)
 
 Scroll down to Nr. 27, which is ‘tokenAddressToIdMap’ which maps each token listed on Gnosis Protocol’s address to a unique ID. 
 
 In this example, GNO is listed as ID18, so we know that it is available for trading. 
 
-<img src="/img/tutorial_lo_2.png">
+![](assets/tutorial_lo_2.png)
 
 If the token is not listed on the protocol, you receive an error message and not a number in this step.
 
@@ -45,7 +45,7 @@ Go to its token address. In this example, [GNO](https://etherscan.io/address/0x6
 
 1. Navigate to tab ‘contract’, ‘write contract’ and click on ‘connect to Web3’.
 
-<img src="/img/tutorial_lo_3.png">
+![](assets/tutorial_lo_3.png)
 
 
 2.  Use the 1. ‘Approve’ function.  
@@ -53,7 +53,7 @@ Go to its token address. In this example, [GNO](https://etherscan.io/address/0x6
     b. ‘Value’ is the amount you approve that the contract is allowed to spend on your behalf. (Consider that you may want to set a higher value if you foresee depositing more in the future). Important: be sure to use the correct amount of decimals. (If you are unsure, go to ‘read contract’, ‘decimals’). For example, GNO has 18 decimals. If I want to sell 50 GNO, I set the ‘value’ to 50000000000000000000.   
     c. Click ‘write’, and confirm the transaction via your web 3 provider.
 
-<img src="/img/tutorial_lo_4.png">
+![](assets/tutorial_lo_4.png)
 		
 ### Deposit the sell token 
 
@@ -64,7 +64,7 @@ Again, go to the [Gnosis Protocol Etherscan link](https://etherscan.io/address/0
 2. Use function Nr. 4 ‘deposit’, and fill in the token’s Ethereum address and the amount you’d like to deposit. (Important: make sure you’ve entered the correct number of decimals corresponding to the token as explained in the last step).
 3. Click ‘write’, and confirm the transaction via your web 3 provider.
 
-<img src="/img/tutorial_lo_5.png">
+![](assets/tutorial_lo_5.png)
 
 
 #### Optional: verify your deposit. 
@@ -72,7 +72,7 @@ Again, go to the [Gnosis Protocol Etherscan link](https://etherscan.io/address/0
 2. Navigate to tab ‘contract’, ‘read contract’.
 3. In Nr. 21. ‘getBalance’, enter your own Ethereum wallet address and your deposited token’s address:
 
-<img src="/img/tutorial_lo_6.png">
+![](assets/tutorial_lo_6.png)
 
 
 Deduct the relevant amount of decimals from the number returned to calculate the total amount of tokens. This example highlights a 30 GNO deposit.
@@ -84,7 +84,7 @@ To place a single order, go to the [Gnosis Protocol Etherscan link](https://ethe
 2. Use the function Nr. 1 ‘placeOrder’
 3. Information you need to know is displayed here: 
 
-<img src="/img/tutorial_lo_7.png">
+![](assets/tutorial_lo_7.png)
 
 
 **buyToken** and **sellToken**: Note that this is not the token’s address. It’s the unique ID associated with each token listed on the Gnosis Protocol. (In the step 1, we already looked this up for GNO to verify that the token is indeed listed on the protocol). To make sure, we will repeat this step for DAI. Make sure to always check for both your sell and buy tokens: 
@@ -95,7 +95,7 @@ Again, go to the [Gnosis Protocol Etherscan link](https://etherscan.io/address/0
 2. Use the function Nr. 4 ‘tokenIDtoAddressMap’.
 3. Enter the token address.
 
-<img src="/img/tutorial_lo_8.png">
+![](assets/tutorial_lo_8.png)
 
 From the number returned, we therefore know that DAI has ID7.
 
@@ -107,7 +107,7 @@ To set a meaningful number, you should know what number batch is currently runni
 1. Navigate to tab ‘contract’, ‘read contract’.
 2. Read Nr. 25 ‘GetCurrentBatchId’.
 
-<img src="/img/tutorial_lo_9.png">
+![](assets/tutorial_lo_9.png)
 
 
 Each batch runs for 5 minutes. Let’s assume that you want to have your order valid for approximately 2 hours, so that is 120 minutes in total. Divided by 5 (for the 5 minute batch interval), that means the duration of your order should be 24 batches. Therefore, if you add 24 to the current batchID, you get 5286437. This is the number you want to enter to set until when the order is valid. You can set any length you would like. If you would like to create a standing order that basically does not expire, you will need to set a very large number for the batchID. For example, the batchID 6100848 corresponds to an order expiring at the end of 2027, and could be considered for placing standing orders that do not expire soon. Note: if you have a particular time in mind for the order to expire, such as 12:00 UTC, rather than a duration, you can also use the Unix converter. Learn more on this in the [tutorial on submitting multiple orders](https://docs.gnosis.io/protocol/docs/tutorial-multiple-orders).
@@ -121,7 +121,7 @@ Before we input all information, please be aware that if you want to submit an o
 
 Below is what the function would now look like this standing limit order: I want to sell at most 30000 GNO for at least 300000 DAI.
 
-<img src="/img/tutorial_lo_10.png">
+![](assets/tutorial_lo_10.png)
 
 
 Once you have confirmed with your web3 provider, you’re done. 
@@ -137,7 +137,7 @@ Again, go to the [Gnosis Protocol Etherscan link](https://etherscan.io/address/0
 2. Use function Nr. 3 ‘requestWithdraw’, and fill in the token’s address and the amount you’d like to deposit (remember to take note of the correct number of decimals as explained above).
 3. Click ‘write’ and confirm the transaction via your web3 provider.
 
-<img src="/img/tutorial_lo_11.png">
+![](assets/tutorial_lo_11.png)
 
 
 You can either wait for 10 minutes (the duration of two batches), so that you may be certain a withdrawal request was processed, or you can optionally check whether you have something called a pendingDeposit, meaning the amount available and ready for you to withdraw.
@@ -147,7 +147,7 @@ To check your pending deposit:
 2. Use function Nr. 18 ‘get pending Deposit’ and fill in your wallet address and the address of the token you would like to withdraw.
 From the number returned, deduct the number off decimals of that token has to learn of the actual amount.
 
-<img src="/img/tutorial_lo_12.png">
+![](assets/tutorial_lo_12.png)
 
 
 Now, finally, you can withdraw funds:
@@ -157,7 +157,7 @@ Again, go to the [Gnosis Protocol Etherscan link](https://etherscan.io/address/0
 2. Use function Nr. 10 ‘withdraw’ and fill in your address and the address of the token you would like to withdraw.
 3. Click ‘write’ and confirm the transaction via your web3 provider.
 
-<img src="/img/tutorial_lo_13.png">
+![](assets/tutorial_lo_13.png)
 
 
 That’s it. You’re done!
