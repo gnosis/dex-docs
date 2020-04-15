@@ -6,7 +6,7 @@ sidebar_label: Questions and Considerations
 
 ## What are the advantages of the simple liquidity provision? 
 
-There are several advatanges to simple liquidity provision. First of all, your spread can be your gain. The setup requires only one deposited token (not of all included in the provision), and therefore has no maintenance. This makes it an extremely efficient, low-risk use of “locked” capital. Of course, it can be cancelled anytime, 
+There are several advantages to simple liquidity provision. First of all, your spread can be your gain. The setup requires only one deposited token (not of all included in the provision), and therefore has no maintenance. This makes it an extremely efficient, low-risk use of “locked” capital. Of course, it can be cancelled anytime, 
 can be tailored to individual preferences, and incurs no gas costs.
 
 ## Why would someone take the counter position, if from my standing orders I can only gain?

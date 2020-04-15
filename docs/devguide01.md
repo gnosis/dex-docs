@@ -5,7 +5,7 @@ sidebar_label: Introduction
 ---
 Gnosis Protocol is a fully permissionless DEX, which has been in research and development over the course of the last two years. Gnosis Protocol enables ring trades to maximize liquidity. Ring trades are order settlements which share liquidity across all orders, rather than a single token pair.
 
-On Gnosis Protocol, the settlement of trades happens in discrete intervals (batches) of roughly 5 minutes. A settlement consists of:
+On Gnosis Protocol, the settlement of trades happens in discrete intervals (batches) of 5 minutes. A settlement consists of:
 
 1. *A Price Vector:* A vector with a single clearing price for each token that was exchanged in the batch. Given the vector representation, exchange rates are arbitrage-free within a settlement (e.g. <span style="color:#DB3A3D">`p(t_1,t_2) * p(t_2, t_3) == p(t_1, t_3)`</span>)
 2. *Trade Execution Information:* Provided as the executed buy amounts of the orders in the batch. 
