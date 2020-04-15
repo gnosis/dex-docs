@@ -3,7 +3,9 @@
     "Introduction": ["introduction1"]
   },
   "docs-other": {
-    "How to add any ERC20 token to the dƒusion Protocol": ["addtoken1","addtoken2","addtoken3","addtoken4","addtoken5","addtoken6"]
+    "List any ERC-20 token on Gnosis Protocol": ["addtoken1","addtoken2","addtoken3","addtoken4","addtoken5","addtoken6"],
+    "Submit a limit order": ["tutorial-limit-orders"],
+    "Submit multiple limit orders or pre-schedule orders": ["tutorial-multiple-orders"]
   },
   "developer-guide": {
   	"Developer Guide": ["devguide01", "devguide02", "devguide03", "devguide04"]

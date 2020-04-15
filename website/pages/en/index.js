@@ -34,14 +34,15 @@ class HomeSplash extends React.Component {
         <div className="inner index-info-block grid-blocks two-blocks-grid">
           <div 
           className="index-info-block-title">
-           Trade on the dƒusion protocol: Our decentralized exchange is built using market mechanisms designed to counter low liquidity in environments where there are an increasing number of tokenized assets.
+           Build on Gnosis Protocol: A fully permissionless DEX that enables ring trades to maximize liquidity.
           </div>
           <div className="index-info-block-text">
             <p>
-            Here we will introduce the concept and novel mechanism behind the dƒusion trading protocol.</p> 
-            You’ll have all the tools you need to interact, inspect, and build on the dƒusion protocol. Additionally, we will introduce different concepts to use the mechanism, as well as an overivew of a few potential use cases and dapp integrations.
-            
-        
+              Gnosis Protocol is built in the spirit of permissionless innovation. Its fully decentralized architecture means you don’t need to trust us at Gnosis to build on our protocol. Not only can anyone list tokens or build integrations, Gnosis Protocol's order settlement process does not rely on any operator. 
+            </p>
+            <p>
+              Here you can learn more about the protocol and everything you need to start building. Start with the introduction, use cases, or a deep dive into the contracts.
+            </p>
           </div>
         </div>
 
@@ -51,7 +52,7 @@ class HomeSplash extends React.Component {
               Introduction
             </h3>
             <p>
-              Exploring the <strong>concept</strong> behind the dƒusion 
+              Understand the <strong>mechanism</strong> behind Gnosis Protocol 
             </p>
           </a>
           <a href={pageUrl("use-case")} className="white-box">
@@ -59,7 +60,7 @@ class HomeSplash extends React.Component {
               Use Cases
             </h3>
             <p>
-              Making use of the dƒusion <strong>mechanism</strong>
+              Create <strong>applications</strong> using the Gnosis Protocol
             </p>
           </a>
           <a href={docUrl("devguide01")} className="white-box">
@@ -67,7 +68,7 @@ class HomeSplash extends React.Component {
               Documentation
             </h3>
             <p>
-              <strong>Deep dive</strong> into the dƒusion contracts
+              <strong>Deep dive</strong> into Gnosis Protocol contracts
             </p>
           </a>
           <a href={pageUrl("tutorials")} className="white-box">
@@ -75,7 +76,7 @@ class HomeSplash extends React.Component {
               Tutorials
             </h3>
             <p>
-              <strong>Get started</strong> and work with the dƒusion contracts
+              <strong>Get started</strong> building on Gnosis Protocol contracts
             </p>
           </a>
         </div>
@@ -95,7 +96,7 @@ class HomeSplash extends React.Component {
               Projects
             </h3>
             <p>
-              <strong>Explore</strong> existing dƒusion integrations
+              <strong>Explore</strong> existing Gnosis Protocol integrations
             </p>
           </a>
         </div>
@@ -103,55 +104,59 @@ class HomeSplash extends React.Component {
         <div className="inner index-what-are grid-blocks two-blocks-grid">
           <div>
             <h2>
-              What is the dƒusion?
+              What is Gnosis Protocol?
             </h2>
           </div>
           <div>
-          <p>  With the dƒusion protocol Gnosis introduces a new decentralized trading mechanism for ERC20 tokens. </p>
-          The Dƒusion protocol realizes a global permissionless liquidity pool and a fair matching engine that does not require a trusted operator, while maximizing trader welfare. The mechanism combines ring trades with batch auctions for a multi-dimensional order book with uniform clearing prices.  
+            <p>
+              Gnosis Protocol is a fully permissionless DEX, which has been in research and development over the course of the last two years.
+            </p>
+            <p>
+              Gnosis Protocol enables ring trades to maximize liquidity. Ring trades are order settlements which share liquidity across all orders, rather than a single token pair, and uniquely suited for trading prediction market tokens and the long tail of all tokenized assets.
+            </p>
           </div>
         </div>
 
         <div className="inner index-advantages grid-blocks two-blocks-grid">
           <div>
             <h2>
-              Advantages of <br></br>the dƒusion protocol
+              Advantages of <br></br>Gnosis Protocol
             </h2>
           </div>
           <div className="index-advantages-boxes  grid-blocks two-blocks-grid">
             <a className="white-box">
               <h3>
-                Better Price Finding
+                Maximized Liquidity
               </h3>
               <p>
-              The dƒusion protocol can lead to fairer prices with its multidimensional orderbook <strong>diminishing price discrimination</strong> and signifcantly increasing volume.
+                The protocol maximizes liquidity through <strong>ring trades</strong>, in which liquidity is shared among all traded assets.
               </p>
             </a>
 
             <a className="white-box">
               <h3>
-              Liquidity Maximization
+              Permissionless Innovation
               </h3>
               <p>
-               Users can <strong>easily provide liquidity</strong> through simple  trading strategies.
+               Anyone can list tokens, build integrations, and submit order settlements on the <strong>fully decentralized</strong> protocol.
               </p>
             </a>
 
             <a className="white-box">
               <h3>
-                Smart Contract Integrations
+                Uniform Prices
               </h3>
               <p>
-              Other protocols and dapps can easily <strong>use, integrate, and build </strong> on the protocol. 
+                The protocol is the first implementation of <strong>batch auctions</strong>, which promote uniform clearing prices and front-running resistance. 
               </p>
             </a>
 
             <a className="white-box">
               <h3>
-                Full Decentralization
+                Long Tail Markets
               </h3>
               <p>
-                Both order matching and asset management <strong>do not require a centralized party</strong> to steer the operations. 
+                <strong>Trade any token pair</strong> without having to use an intermediary token or centralized exchange to convert your asset.
               </p>
             </a>
           </div>
@@ -170,14 +175,14 @@ class HomeSplash extends React.Component {
           <div className="index-projects-boxes grid-blocks three-blocks-grid">
                       
             <a href="https://explore.duneanalytics.com/public/dashboards/I43OkDWnojXZYm8vmdBDcLz5UsS3Tn0cx1xU8Hcg" className="white-box">
-             <strong> Dune Analytics </strong>
+             <strong>Dune Analytics </strong>
             </a>
 
-            <a href="https://thegraph.com/explorer/subgraph/gnosis/dfusion" className="white-box">
-              <strong> The Graph Mainnet </strong>
+            <a href="https://thegraph.com/explorer/subgraph/gnosis/protocol" className="white-box">
+              <strong>The Graph Mainnet</strong>
             </a>
 
-            <a href="https://thegraph.com/explorer/subgraph/gnosis/dfusion-rinkeby" className="white-box">
+            <a href="https://thegraph.com/explorer/subgraph/gnosis/protocol-rinkeby" className="white-box">
               <strong> The Graph Rinkeby </strong>
             </a>
             
@@ -188,18 +193,22 @@ class HomeSplash extends React.Component {
           <div>
            <a name="projects">
             <h2>
-              Projects building on<br></br> the dƒusion protocol
+              Projects building on<br></br>Gnosis Protocol
             </h2>
             </a>
             <p>
-              The dƒusion contracts are already used by those projects.
+              Check out who's already on building on Gnosis.
             </p>
 
           </div>
           <div className="index-projects-boxes grid-blocks two-blocks-grid">
-          <a href="https://github.com/gnosis/GECO" className="white-box">
-             <strong> Want to be the first?</strong> <br></br> Apply with your project to the <strong>Gnosis Ecosystem Fund</strong>!
-          </a>
+            <a href="https://mesa.eth.link" className="white-box">
+               <strong> Mesa</strong> <br></br>
+               The Mesa dapp supports simple market making strategies for stablecoins on the Gnosis Protocol.
+            </a>            
+            <a href="https://github.com/gnosis/GECO" className="white-box">
+               <strong> Want to be the next?</strong> <br></br> Apply with your project to the <strong>Gnosis Ecosystem Fund</strong>!
+            </a>
           </div>
         </div>
 
@@ -223,8 +232,8 @@ class HomeSplash extends React.Component {
           </div>
           <div className="index-support-boxes grid-blocks">
             <div id="index-support-telegram">
-              <a href="https://discord.gg/tNSk3K">
-                  Chat with us on Discord
+              <a href="https://chat.gnosis.io">
+                  Join our Discord community chat.
               </a>
             </div>
           </div>

@@ -6,15 +6,15 @@ sidebar_label: Questions and Considerations
 
 ## What are the advantages of the simple liquidity provision? 
 
-Different advantages for the user providing the liquidity can be attributed to the simple  liquidity provision. First of all, can your spread can be your gain. The setup requires only one deposited token (not of all included in the provision), thus has no maintenance, is efficient to use of “locked” capital and as a low risk attached to it. Furthermore it can be cancelled anytime, 
-can be tailored to individual preferences and no gas costs incur for a running liquidity provision
+There are several advantages to simple liquidity provision. First of all, your spread can be your gain. The setup requires only one deposited token (not of all included in the provision), and therefore has no maintenance. This makes it an extremely efficient, low-risk use of “locked” capital. Of course, it can be cancelled anytime, 
+can be tailored to individual preferences, and incurs no gas costs.
 
-Why would someone take the counter position, if from my standing orders I can only gain?
-Your gain is based on your opinion that the selected stablecoin should be valued at 1 USD. For example, since stablecoins fluctuate, it could happen that another trader, based on a different price source than yours, acts on a temporarily different valuation. 
+## Why would someone take the counter position, if from my standing orders I can only gain?
+Your gain is based on your belief that the selected stablecoin should be valued at 1 USD. For example, since stablecoins fluctuate, it could happen that another trader, based on a different price source than yours, acts on a temporarily different valuation. 
 
-During the time period in which you consider the true value of your selected stablecoins are each 1 USD, you will not have to perform any maintenance of your simple liquidity provision and continue to let the trades execute automatically based on your standing orders. 
+During the time period in which you consider the true value of your selected stablecoins are each 1 USD, you will not have to perform any maintenance of your simple liquidity provision, and continue to let the trades execute automatically based on your standing orders. 
 
-## How do I choose the spread?
+## How do I choose a spread?
 
 If you choose a lower percentage of spread:
 - Your strategy will likely result in participating in relatively more trades, because this means that  every time this relatively smaller spread threshold is reached, trades may be automatically executed. You would thereby, gain this spread on each such trade. 
@@ -22,8 +22,7 @@ If you choose a lower percentage of spread:
 If you choose a higher percentage spread:
 - Your strategy will likely result in participating in fewer trades. However, you will profit more every time the spread it matched and a trade is executed. 
 
-
-Both strategies have their own advantages, and it’s your choice in how you want to participate. We only provide the software to facilitate your participation. You can always have multiple strategies on multiple accounts, but **please note that if you confirm several strategies with one account, your deposits will be shared between all strategies and thus effectively only used for the strategy with the lesser spread**
+Both strategies have their own advantages, and it’s your choice in how you want to participate. We only provide the software to facilitate your participation. You can always have multiple strategies on multiple accounts, but **please note that if you confirm several strategies with one account, your deposits will be shared between all strategies and thus effectively only used for the strategy with the lesser spread**.
 
 ## Are there costs involved in participating?
 
@@ -33,7 +32,7 @@ Gas costs to participate in the simple liquidity provision occur only while sett
 
 ## Once I set up a strategy, how much maintenance do I have to do?
 
-None, as long as your assumption that the valuation of your chosen stablecoins does not change! 
+None, as long as your belief that the valuation of your chosen stablecoins does not change! 
 You can cancel your orders, or a subset of your orders, at any time. 
 
 ## How can I stop a strategy?
@@ -42,10 +41,10 @@ At any time, by cancelling a subselection or all of your standing orders. Cancel
 
 ## How much did I make?
 
-In the future there might likely be some analytics tool available for you. For the moment, you will have to look at your trading wallet and see how much funds you have available in the trading protocol. You should remember how much you deposited so you may assess your success based on the difference! For this evaluation, it is easier to not mix the same account with other regular trades on the protocol. Of course you should track how much and when you deposited, in order to have a proper assessment.
+In the future, there will be more analytics tools available. For the moment, you will have to look at your trading wallet to see how much funds you currently have available in the trading protocol. You should remember how much you deposited, so that you may assess your success based on the difference! For this evaluation, it is easier to not mix the same wallet account with other regular trades on the protocol. Of course, you should track how much and when you deposited, in order to have a proper assessment.
 
 ## What are the risks associated with participating in this simple liquidity provision?
 
-As always, there is associated risk with using smart contracts; for further detail, please see the  the code and  audit report.
+As always, there is associated risk with using smart contracts; for further detail, please see the the code and  audit report.
 
-You assume the risk that one of your trusted stablecoins drops below 1 USD per unit and does not recover, in a case of permanent devaluation. If this happens,  your entire deposit would over time be converted into this lesser valued stablecoin unless you amend your standing orders before this occurs. This would indicate that your initial assumption that 1 unit of the given stablecoin would remain equivalent to 1 USD did not prove true. 
+You assume the risk that one of your trusted stablecoins drops below 1 USD per unit and does not recover, in the case of permanent devaluation. If this happens,  your entire deposit would over time be converted into this lesser valued stablecoin unless you amend your standing orders before this occurs. This would indicate that your initial belief that 1 unit of the given stablecoin would remain equivalent to 1 USD did not prove true. 
