@@ -1,10 +1,14 @@
 ---
 id: addtoken4
-title: Seting approval for your OWL to be spent
+title: Setting approval for your OWL to be spent
 sidebar_label: Setting Approval
 ---
 
 In the next step, you have to approve spending from your wallet. 
+
+Note: An alternative to setting approval using Etherscan, as explained below, is via the user friendly interface [Mesa](https://mesa.eth.link), the first dapp built on Gnosis Protocol. To perform this step on Mesa, head to the 'Balances' tab. 
+
+To continue with this step using Etherscan:
 
 1. Go to https://etherscan.io/token/0x1a5f9352af8af974bfc03399e3767df6370d82e4#writeContract.
 
