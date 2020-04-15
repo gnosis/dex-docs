@@ -14,7 +14,7 @@ To continue with this step using Etherscan:
 
 2. Connect to your web3 wallet provider.
 
-<img src="/img/addtutorial_setapproval1.png">
+![](assets/addtutorial_setapproval1.png)
 
 3. Use the “approve” functionality: 
 
@@ -24,4 +24,4 @@ To continue with this step using Etherscan:
 
     c. Click write and approve the transaction via your wallet provider.
 
-<img src="/img/addtutorial_setapproval2.png">
+![](assets/addtutorial_setapproval2.png)

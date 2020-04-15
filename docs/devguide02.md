@@ -4,7 +4,7 @@ title: Trading Process
 sidebar_label: Trading Process
 ---
 
-<img src="/img/tradingprocess.png">
+![](assets/tradingprocess.png)
 
 The trading process is divided into 5 minute long batches (epochs). In order to trade, users need to deposit funds into the exchange and place a limit sell-order. Funds and orders submitted in a given batch are only tradeable once the order collection phase of this batch concludes (max. 5 minutes later).
 
