@@ -13,7 +13,7 @@ Gnosis Protocol is a trading protocol for ERC-20 tokens. The protocol is technic
 
 To trade on Gnosis Protocol, a user can simply place an order for one token in exchange for another. An order is an instruction as to what token a user wants to sell under a given price condition, thereby defining  a limit price within the order, which indicates the absolute worst price a user will receive. The protocol levies a fee of 0.1% on the volume of an executed trade. Fee costs are calculated as part of and already included in an order’s limit price.
 
-In a perfect Gnostic world, traders would place sell orders that exactly match available buy orders, and all trades would be executed directly and seamlessly. This, however, is usually not the case. Imagine we have four parties selling one token for another token: Alice would like to exchange DAI for OWL; Bob and Cary both would like to exchange USDC for DAI; and Daniel would like to OWL for USDC. Most traditional exchanges wouldn’t be able to directly fill these orders. In this example, Daniel might make an additional trade, exchanging their OWL for DAI to then complete the desired trade by exchanging DAI for USDC.
+In a perfect Gnostic world, traders would place sell orders that exactly match available buy orders, and all trades would be executed directly and seamlessly. This, however, is usually not the case. Imagine we have four parties selling one token for another token: Alice would like to exchange DAI for OWL; Bob and Cary both would like to exchange USDC for DAI; and Daniel would like to OWL for USDC. Most traditional trading protocols wouldn’t be able to directly fill these orders. In this example, Daniel might make an additional trade, exchanging their OWL for DAI to then complete the desired trade by exchanging DAI for USDC.
 
 <img src="/img/orders.png">
 
@@ -53,7 +53,7 @@ After this, users can withdraw their funds from filled orders, as well as unfill
 *  **Fully permissionless DEX** on which anyone can list tokens and build integrations;
 *  **Maximized liquidity** through **ring trades**, in which liquidity is shared among all traded assets; 
 *  First implementation of **batch auctions** promoting fairer, uniform clearing prices and front-running resistance; 
-*  There is a guaranteed orderbook to **trade any token pair** without having to use an intermediary token or centralized exchange to convert your asset;
+*  There is a guaranteed orderbook to **trade any token pair** without having to use an intermediary token or centralized trading protocol to convert your asset;
 *  **Fair, decentralized settlement** in which an open competition for order matching replaces an operator;
 *  Fees are included in your limit price and paid in OWL, which can be generated from GNO, and there are **no gas costs** for executed trades. 
 
@@ -62,7 +62,7 @@ After this, users can withdraw their funds from filled orders, as well as unfill
 
 We believe Gnosis Protocol is critical infrastructure for open finance, which will see the creation of more and more tokenized assets. For example, the number of unique prediction market conditional tokens, each representing a unique outcome in the world, could grow exponentially in size. In order to ensure marketplaces exist for the “long tail” of prediction market and all tokenized assets, it is necessary to have market mechanisms built precisely for handling large numbers of unique, and often illiquid, tokens. To this end, we built the Gnosis Protocol to become the standard for trading prediction market conditional tokens and providing access to their global liquidity pool. 
 
-Ultimately, Gnosis Protocol is built in the spirit of permissionless innovation. Its fully decentralized architecture means you don’t need to trust us at Gnosis to build on our protocol.
+Ultimately, Gnosis Protocol is built in the spirit of permissionless innovation. Its fully decentralized architecture means you don’t need Gnosis to build on our protocol.
 
 <hr>
 
@@ -71,19 +71,22 @@ Ultimately, Gnosis Protocol is built in the spirit of permissionless innovation.
 **How does the Gnosis Protocol relate to prediction markets?**  
 Core to the success and utility of prediction markets, is liquidity. Without lower spread order books, permissionless prediction markets will continue to fail to capture expert knowledge on future events. 
 
-Our existing [conditional token framework](https://docs.gnosis.io/conditionaltokens/) allows anyone to create crypto assets that represent information about future events with conditional outcomes. In essence, the conditional token framework enables the creation of prediction market assets, which could be traded on any exchange, not solely on a prediction market platform. However, the number of unique conditional tokens, each representing a unique outcome in the world, could grow exponentially in size. In order to ensure marketplaces exist for the “long tail” of prediction market assets, it is necessary to have market mechanisms built precisely for handling large numbers of unique, and often illiquid, tokens. To this end, we built the Gnosis Protocol to become the standard for trading prediction market conditional tokens and providing access to their global liquidity pool. 
+Our existing [conditional token framework](https://docs.gnosis.io/conditionaltokens/) allows anyone to create crypto assets that represent information about future events with conditional outcomes. In essence, the conditional token framework enables the creation of prediction market assets, which could be traded on any trading protocol, not solely on a prediction market platform. However, the number of unique conditional tokens, each representing a unique outcome in the world, could grow exponentially in size. In order to ensure marketplaces exist for the “long tail” of prediction market assets, it is necessary to have market mechanisms built precisely for handling large numbers of unique, and often illiquid, tokens. To this end, we built the Gnosis Protocol to become the standard for trading prediction market conditional tokens and providing access to their global liquidity pool. 
+
+Note: Prediction markets may constitute a regulated activity depending on the jurisdiction and depending on the market design and market topic, so that in these cases they may only be set up with the corresponding authorisation of the competent supervisory authority.
 
 
-**What role does GNO play on the Gnosis Protocol?**  
-On each trade, the protocol takes only a 0.1% fee on trading volume. Fees are included in a trader’s limit price and paid in their sell token. All fees are then converted into [OWL](https://blog.gnosis.pm/owl-token-use-cases-6094027ecb37), which is a token [generated](https://blog.gnosis.pm/owl-generation-2019-85be92d18552) by locking the Gnosis token, GNO. 50% of the fee is paid to the selected order settlement provider, while the remaining 50% of the fee is burnt.
 
-
-**What is Gnosis Protocol’s fee model?**  
-Fees are used to incentivize an open competition in which anyone can submit an order settlement solution for every batch auction and be rewarded. Additionally, the fee model aims to bring value to all GNO token holders. In detail, on each trade, the protocol takes only a 0.1% fee on trading volume. Fees are included in a trader’s limit price and paid in their sell token. All fees are then converted into [OWL](https://blog.gnosis.pm/owl-token-use-cases-6094027ecb37), which is a token [generated](https://blog.gnosis.pm/owl-generation-2019-85be92d18552) by locking the Gnosis token, GNO. 50% of the fee is paid to the selected order settlement provider, while the remaining 50% of the fee is burnt.
+**What is Gnosis Protocol’s fee model and what role does GNO play?**  
+Fees are used to incentivize an open competition in which anyone can submit an order settlement solution for every batch auction and be rewarded. Additionally, the fee model aims to bring value to all GNO token holders. In detail, on each trade, the protocol takes only a 0.1% fee on trading volume. Fees are included in a trader’s limit price and paid in their sell token. All fees are then converted into [OWL](https://blog.gnosis.pm/owl-token-use-cases-6094027ecb37), which is a token [generated](https://blog.gnosis.pm/owl-generation-2019-85be92d18552) by locking the Gnosis token, GNO. 50% of the fee is paid as an incentive to the provider of the selected order settlement solution (“solver”), while the remaining 50% of the fee is burnt. 
 
 
 **How does Gnosis Protocol relate to Gnosis’ earlier DEX product, the DutchX trading protocol?**  
-Both the DutchX trading protocol and the Gnosis Protocol come from a similar motivation: to implement batch auctions with uniform clearing prices, because it is unfair to have different prices for the same asset in the same block, as frequently may occur on Uniswap and other exchanges. While the DutchX implemented batch auctions using a traditional single order book with uniform clearing prices, Gnosis Protocol’s order book enables ring trades and greater liquidity. Due to this and other core advantages, Gnosis Protocol’s design brings a wider feature set and robust long term infrastructure to Ethereum.
+Both the DutchX trading protocol and Gnosis Protocol come from a similar motivation: to implement batch auctions with uniform clearing prices. Gnosis Protocol keeps all the advantages of the DutchX trading protocol but adds: shorter trading times, allowing every participant to set a limit price (i.e. on the DutchX, sellers could only place market orders), and thanks to the ring trades, Gnosis Protocol does not split liquidity into separate trading pairs.
+
+
+**Will there be a version 2 of Gnosis Protocol?**  
+Gnosis protocol has now admin key or other ability to upgrade, However, we will continue to innovate and suggest users to switch to a newer version if it can offer significant improvements over the previous one. A few areas of improvement could be: increased scalability and lower gas costs for usage, higher expressibility of orders, or the ability to submit sealed bids.
 
 
 **Is Gnosis Protocol secure?**  
@@ -93,10 +96,9 @@ Since the end of January 2020, a Gnosis Protocol [bug bounty program](https://bl
 
 
 **What is Mesa?**  
-[Mesa](https://mesa.eth.link/) is the first dapp built on the Gnosis Protocol. Mesa supports simple market making strategies for stablecoins. Mesa was launched by the [dxDAO](https://twitter.com/Dxdao_), an organization leading the evolution toward a more "de"-centralized DeFi.
+[Mesa](https://mesa.eth.link/) is the first dapp built on the Gnosis Protocol. Mesa is a general trading interface that supports simple market making strategies for stablecoins. Mesa was launched by the [dxDAO](https://twitter.com/Dxdao_), an organization leading the evolution toward a more "de"-centralized DeFi.
 
-The dxDAO is a decentralized organization initialized in May of 2019, with over 400 unique stakeholder addresses. With a potential to grow its membership into the thousands, the community-owned and operated organization develops, governs, and promotes DeFi protocols. The dxDAO owns the DutchX trading protocol, and community members are working to launch a prediction market platform (Omen), a state of the art DEX (Mesa), a privacy-centric DeFi dashboard (Mix), and a fundraiser. With these efforts, the dxDAO is leading the evolution toward a more "de"-centralized DeFi.
-
+The dxDAO is a decentralized organization initialized in May of 2019, with over 400 unique stakeholder addresses. With a potential to grow its membership into the thousands, the community-owned and operated organization develops, governs, and promotes DeFi protocols. The dxDAO owns the DutchX trading protocol, and community members are working to launch a prediction market platform (Omen), a state of the art DEX (Mesa), a privacy-centric DeFi dashboard (Mix), and a fundraiser. 
 
 
 ## Additional Resources
