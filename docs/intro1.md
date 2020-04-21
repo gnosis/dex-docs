@@ -86,7 +86,7 @@ Both the DutchX trading protocol and Gnosis Protocol come from a similar motivat
 
 
 **Will there be a version 2 of Gnosis Protocol?**  
-Gnosis protocol has now admin key or other ability to upgrade, However, we will continue to innovate and suggest users to switch to a newer version if it can offer significant improvements over the previous one. A few areas of improvement could be: increased scalability and lower gas costs for usage, higher expressibility of orders, or the ability to submit sealed bids.
+Gnosis protocol has no admin key or other ability to upgrade, However, we will continue to innovate and suggest users to switch to a newer version if it can offer significant improvements over the previous one. A few areas of improvement could be: increased scalability and lower gas costs for usage, higher expressibility of orders, or the ability to submit sealed bids.
 
 
 **Is Gnosis Protocol secure?**  
