@@ -70,7 +70,7 @@ yarn run networks-inject
 ```
 
 `yarn install` will install all dependencies needed and `npx truffle compile` will compile your the necessary contracts.
-`yarn run networks-inject` will make sure that you will work with the correct contracts - it will inject the network addresses into your truffle builds.
+`yarn run networks-inject` ensures you are working with the correct contracts - it will inject the network addresses into your truffle builds.
 
 You find the core script placing orders for the basic liquidity strategy in the folder `scripts/complete_liquidity_provision.js`.
 
