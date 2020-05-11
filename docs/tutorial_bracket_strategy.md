@@ -213,7 +213,7 @@ The actual withdraw transaction transferring the tokens back into the MASTER_SAF
 npx truffle exec scripts/withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma separated brackets]  --tokenIds=[indices] --withdraw --network=$MASTER_SAFE
 ```
 
-The parameters are basically the same as in the requesting withdraw script, besides the new flag `--withdraw` instead of `--withdrawRequest`.
+The parameters are essentially the same as in the requesting withdraw script, except for the new flag `--withdraw` instead of `--withdrawRequest`.
 
 ## Even more secure setup with more owners
 
