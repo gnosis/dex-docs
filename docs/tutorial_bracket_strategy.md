@@ -91,7 +91,7 @@ The `NETWORK_NAME` should be set to "mainnet" or "rinkeby". The gas price should
 The `MASTER_SAFE` is the safe address from the Gnosis Safe created in the previous section.
 The `PK` is the private key of your proposer account used as an owner in the Gnosis Safe.
 Note that in our current setup the proposer account's private key is not handled safely, since it's available as an environment variable and in the command-line history.
-Hence, do not deposit more funds than some deployment ETH into this account.
+Hence, it would be unwise to transfer more ETH than required for deployment into this account.
 
 ### Script parameters
 
