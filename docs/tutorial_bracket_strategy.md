@@ -84,7 +84,7 @@ Run the following commands in your console:
 export NETWORK_NAME=rinkeby
 export GAS_PRICE_GWEI=<gas price>
 export MASTER_SAFE=<your safe address>
-export PK=<your private key of the proposer-account>
+export PK=<private key of the proposer-account>
 ```
 
 The `NETWORK_NAME` should be set to Mainnet or Rinkeby. The gas price should be set in a way that your transaction gets mined in a reasonable time. Check out reasonable gas prices on [ethgasstation](https://ethgasstation.info/).
