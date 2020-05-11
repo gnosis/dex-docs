@@ -144,7 +144,7 @@ The script will first make some plausibility checks as the mentioned price check
 
 It will then create a transaction deploying new safes. All new deployed Safe addresses will be printed on the screen.
 
-Afterwards, the transaction containing all the orders will be build.
+Afterwards, the transaction containing all the orders is built.
 All the order placements are bundled into one transaction, appearing first in the Gnosis Safe Interface.
 Before you sign the transaction, make sure to check the correctness of the displayed orders of the script output.
 
