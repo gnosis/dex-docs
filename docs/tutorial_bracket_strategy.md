@@ -28,7 +28,7 @@ The prerequisites to this tutorial are:
 1.  Have a _proposer-account_: You should generate a new Ethereum-account via your preferred tool (e.g., MetaMask) and fund this account with a little bit of Ether. 0.2 ETH should suffice.
     This account will be used for two tasks: First, to deploy new proxy-contracts. Secondly, it is used to propose transaction to the Gnosis-Safe interface.
 
-2.  Have a _signer-account_: You should have one designated signer Ethereum-account. This account can be an already given account, and most people would probably prefer to use their usual MetaMask account. This signer-account will be added as an owner to your MASTER_SAFE and you will sign transactions with it.
+2.  Have a _signer-account_: You should have one designated signer Ethereum-account. This account can be an already existing account, and most people would probably prefer to use their usual MetaMask account. This signer-account will be added as an owner to your MASTER_SAFE and you will sign and execute transactions with it.
 
 3.  Investment-tokens: Have the tokens you want to invest in the liquidity provision ready.
 
