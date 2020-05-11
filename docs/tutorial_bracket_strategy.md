@@ -54,7 +54,7 @@ First, we will generate a Gnosis-Safe account. This account is needed to bundle 
 
 3. Finish the setup process by signing the MetaMask transaction
 
-4. Now, you should see your brand new gnosis-safe. Congrats. Send the funds you want to invest into the bracket strategy to the Gnosis-Safe.
+4. Now, you should see your brand new Gnosis Safe. Congrats! Send the funds you want to invest into the bracket strategy to the Gnosis Safe.
 
 ## Liquidity Provision
 
