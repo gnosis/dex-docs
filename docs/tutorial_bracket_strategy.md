@@ -113,7 +113,7 @@ All token that have been added to the Gnosis protocol get a unique `tokenIndex`.
 
 ![Read Etherscan contract](assets/tutorial_bracket_strategy-etherscan-read.png)
 
-Then, you want to go down to the function: `tokenAddressToIdMap` and paste the token address of your token into the parameter field and run the query.
+Then go down to the function: `tokenAddressToIdMap` and paste the token address of your token into the parameter field and run the query.
 In the following image, we used the WETH address in Rinkeby, which happens to have the index 1.
 
 ![Read tokenAddressToIdMap](assets/tutorial_bracket_strategy-tokenAddressToIdMap.png)
