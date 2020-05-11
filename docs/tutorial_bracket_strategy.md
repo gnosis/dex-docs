@@ -145,7 +145,7 @@ The script will first make some plausibility checks as the mentioned price check
 It will then create a transaction deploying new safes. All new deployed Safe addresses will be printed on the screen.
 
 Afterwards, the transaction containing all the orders will be build.
-All the order placements will be bundled into one transaction, which will appear first in the Gnosis-Interface.
+All the order placements are bundled into one transaction, appearing first in the Gnosis Safe Interface.
 Before you sign the transaction, make sure to check the correctness of the displayed orders of the script output.
 
 Also, the transaction sending the DAI and WETH into the brackets and depositing it on behalf of the brackets into the GP exchange contract is built in parallel.
