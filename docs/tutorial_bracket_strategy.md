@@ -37,7 +37,7 @@ The prerequisites to this tutorial are:
 ## Setting up a MASTER_SAFE
 
 In the upcoming sections, all scripts are executed on Rinkeby only.
-In order to perform the steps on Mainnet, you need to do some obvious modifications. For example, you would want to go to [https://gnosis-safe.io/](https://gnosis-safe.io/) instead of [https://rinkeby.gnosis-safe.io/](https://rinkeby.gnosis-safe.io/).
+In order to perform the steps on Mainnet, you need to do some simple modifications. For example, you would want to go to [https://gnosis-safe.io/](https://gnosis-safe.io/) instead of [https://rinkeby.gnosis-safe.io/](https://rinkeby.gnosis-safe.io/).
 
 First, we will generate a Gnosis-Safe account. This account is needed to bundle a lot of Ethereum transactions to 2 only transactions to simplify the whole setup process and to save gas.
 
