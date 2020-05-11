@@ -140,7 +140,7 @@ yarn run networks-inject
 npx truffle exec scripts/complete_liquidity_provision.js --targetToken=0 --stableToken=7 --lowestLimit=150 --highestLimit=260 --currentPrice=200 --masterSafe=$MASTER_SAFE --investmentTargetToken=5 --investmentStableToken=1000 --fleetSize=20 --network=$NETWORK_NAME
 ```
 
-The script will first make some plausibility checks as the mentioned price check and that the boundaries - highestLimit and lowerLimit - are set reasonable for the current price.
+The script will first make some plausibility checks as the mentioned price check and that the boundaries - highestLimit and lowerLimit - are reasonably set for the current price.
 
 Then, it will create a transaction deploying new safes. All the address of the Gnosis-Safes will be printed on the screen.
 
