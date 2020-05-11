@@ -26,7 +26,7 @@ In this tutorial uses mainly two tools: The normal truffle scripts to build comp
 The prerequisites to this tutorial are:
 
 1.  Have a _proposer-account_: You should generate a new Ethereum-account via your preferred tool (e.g., MetaMask) and fund this account with a little bit of Ether. 0.2 ETH should suffice.
-    This account will be used for two tasks: Firstly, it will be used to deploy new proxy-contracts. Secondly, it is used to propose transaction to the Gnosis-Safe interface.
+    This account will be used for two tasks: First, to deploy new proxy-contracts. Secondly, it is used to propose transaction to the Gnosis-Safe interface.
 
 2.  Have a _signer-account_: You should have one designated signer Ethereum-account. This account can be an already given account, and most people would probably prefer to use their usual MetaMask account. This signer-account will be added as an owner to your MASTER_SAFE and you will sign transactions with it.
 
