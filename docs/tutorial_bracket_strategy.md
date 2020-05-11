@@ -180,7 +180,7 @@ Congrats! You just provided liquidity and have a chance to earn some passive inc
 
 ## Withdrawing liquidity
 
-The withdrawal from the Gnosis Protocol is always done in two step: requesting withdrawals and the actual withdrawal transferring the funds.
+The withdrawal from the Gnosis Protocol is always done in two steps: Requesting and Claiming.
 
 ### Withdraw request
 
