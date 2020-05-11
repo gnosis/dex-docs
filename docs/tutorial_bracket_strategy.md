@@ -87,7 +87,7 @@ export MASTER_SAFE=<your safe address>
 export PK=<private key of the proposer-account>
 ```
 
-The `NETWORK_NAME` should be set to Mainnet or Rinkeby. The gas price should be set in a way that your transaction gets mined in a reasonable time. Check out reasonable gas prices on [ethgasstation](https://ethgasstation.info/).
+The `NETWORK_NAME` should be set to "mainnet" or "rinkeby". The gas price should be set in a way that your transaction is mined in a reasonable amount of time. Check out current gas prices on [ethgasstation](https://ethgasstation.info/).
 The `MASTER_SAFE` should be the safe address from the Gnosis-Safe created in the previous section.
 The `PK` should be the private key of your proposer account used as an owner in the Gnosis-Safe.
 Note, that in our current setup the PK is not secured with the highest standards.
