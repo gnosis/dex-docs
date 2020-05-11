@@ -21,7 +21,7 @@ If you have any questions, don't hesitate to visit us in the [Gnosis discord cha
 
 ## Prerequisites
 
-In this tutorial uses mainly two tools: The normal truffle scripts to build complicated and bundled ethereum transactions and the Gnosis-Safe interface to sign most of these transactions. In the Gnosis-Safe interface, we will generate a MASTER_SAFE, which will own all other accounts required for the liquidity provision and has full control over the funds involved in the liquidity provision.
+In this tutorial uses mainly two tools: The normal Truffle scripts to build complicated and bundled Ethereum transactions and the Gnosis-Safe interface to sign most of these transactions. In the Gnosis-Safe interface, we will generate a MASTER_SAFE, which will own all other accounts required for the liquidity provision and has full control over the funds involved in the liquidity provision.
 
 The prerequisites to this tutorial are:
 
