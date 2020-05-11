@@ -207,7 +207,7 @@ In the next batch you will be able to withdraw your funds.
 
 ### Withdrawing funds
 
-The actual withdraw transaction transferring the tokens back into the MASTER SAFE from the Gnosis Protocol can be initiated with the following command.
+The actual withdraw transaction transferring the tokens back into the MASTER_SAFE from the Gnosis Protocol can be initiated with the following command.
 
 ```ssh
 npx truffle exec scripts/withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma separated brackets]  --tokenIds=[indices] --withdraw --network=$MASTER_SAFE
