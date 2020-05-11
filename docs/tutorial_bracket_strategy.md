@@ -1,4 +1,4 @@
-# Tutorial: Liquidity provision on Gnosis Protocol
+# Tutorial: Liquidity Provision on Gnosis Protocol
 
 Before you get started, make sure you have familiarized yourself with the Gnosis Protocol [introduction](https://docs.gnosis.io/protocol/docs/introduction1).
 
