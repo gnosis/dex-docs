@@ -39,7 +39,7 @@ The prerequisites to this tutorial are:
 In the upcoming sections, all scripts are executed on Rinkeby only.
 In order to perform the steps on Mainnet, you need to do some obvious modifications. For example, you would want to go to [https://gnosis-safe.io/](https://gnosis-safe.io/) instead of [https://rinkeby.gnosis-safe.io/](https://rinkeby.gnosis-safe.io/).
 
-First, we will generate a Gnosis-Safe account. This account is needed to bundle a lot of Ethereum transactions to 2 only transactions to simplify the whole setup process and to safe gas.
+First, we will generate a Gnosis-Safe account. This account is needed to bundle a lot of Ethereum transactions to 2 only transactions to simplify the whole setup process and to save gas.
 
 1. Visit: https://rinkeby.gnosis-safe.io/ and sign into MetaMask with your "signer account".
 
