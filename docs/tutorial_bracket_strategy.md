@@ -12,7 +12,7 @@ This concept is well explained in the documentation of [programmable orders](htt
 This tutorial will cover the following steps:
 
 1. Prerequisites
-2. Setting up a MASTER-SAFE
+2. Setting up a MASTER_SAFE
 3. Liquidity provision
 4. Withdrawing liquidity
 5. Securing your setup with more owners
