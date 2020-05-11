@@ -1,6 +1,6 @@
 # Tutorial: Liquidity Provision on Gnosis Protocol
 
-Before you get started, make sure you have familiarized yourself with the Gnosis Protocol [introduction](https://docs.gnosis.io/protocol/docs/introduction1).
+Before getting started, make sure you have familiarized yourself with the Gnosis Protocol [introduction](https://docs.gnosis.io/protocol/docs/introduction1).
 
 This tutorial explains how to provide liquidity passively via standing orders with a so-called "bracket-liquidity strategy". This strategy deploys several "brackets" - Gnosis-Safe contracts -, which hold and trade two tokens `(token_1, token_2)` against each other on the Gnosis Protocol.
 They are called brackets, as their orders are opening and closing like brackets:
