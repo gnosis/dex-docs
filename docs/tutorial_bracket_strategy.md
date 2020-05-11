@@ -120,7 +120,7 @@ In the following image, we used the WETH address in Rinkeby, which happens to ha
 
 If your tokens have not been added to the Gnosis-protocol, please follow this [tutorial](https://docs.gnosis.io/protocol/docs/addtoken1/).
 
-### Running the script and place your first liquidity strategy
+### Run the script and place your first liquidity strategy
 
 The following script will place programmable orders for the pair DAI-WETH on a price range [150,260] on Rinkeby.
 You will invest 1000 [DAI](https://rinkeby.etherscan.io/address/0x5592EC0cfb4dbc12D3aB100b257153436a1f0FEa) and 5 [WETH](https://rinkeby.etherscan.io/address/0xc778417E063141139Fce010982780140Aa0cD5Ab).
