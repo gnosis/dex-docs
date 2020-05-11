@@ -61,7 +61,7 @@ First, we will generate a Gnosis-Safe account. This account is needed to bundle 
 Get the code of github repo: https://github.com/gnosis/dex-liquidity-provision by running:
 
 ```ssh
-cd <your preferred dictionary>
+cd <your preferred directory>
 git clone git@github.com:gnosis/dex-liquidity-provision.git
 cd dex-liquidity-provision
 yarn install
