@@ -15,7 +15,7 @@ This tutorial will cover the following steps:
 2. Setting up a MASTER-SAFE
 3. Liquidity provision
 4. Withdrawing liquidity
-5. Even more secure setup with more owners
+5. Securing your setup with more owners
 
 If you have any questions, don't hesitate to visit us in the [Gnosis discord channel](https://chat.gnosis.io/)
 
