@@ -74,7 +74,7 @@ yarn run networks-inject
 
 You find the core script placing orders for the basic liquidity strategy in the folder `scripts/complete_liquidity_provision.js`.
 
-Before you start this script, you need to export some environment variables and prepare the parameters.
+Before running this script, you will need to export some environment variables and prepare the parameters.
 
 ### Env variables
 
