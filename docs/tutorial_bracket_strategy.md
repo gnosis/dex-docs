@@ -102,7 +102,7 @@ The script `complete_liquidity_provision` takes the following non-optional param
 - _targetToken_: You are specifying two tokens you want to provide liquidity for, the _targetToken_ and the _stableToken_ via their indices. In order to get the `tokenIndex` of a token, follow the next section. If you specify the more stable token via stableToken and the more volatile token via targetToken, then most likely the price parameter is more intuitive. Eg., if you are trading `ETH/DAI` with `stableToken=Index(DAI)`, then the parameter `currentPrice` can be specified as a number > 1.
 - _stableToken_: specifies the second token you want to trade via its `tokenIndex`. In order to determine the tokenIndex, see the section.
 - _investmentTargetToken_: This is the cumulative sum of all targetTokens you want to invest in all brackets
-- investmentStableToken: This is the cumulative sum of all stableTokens you want to invest in all brackets
+- _investmentStableToken_: This is the cumulative sum of all stableTokens you want to invest in all brackets
 - _currentPrice_: Please provide the current price of the trading pair: [ targetToken ] / [ stableToken ]. Your input will be checked for plausibility by the script via the price of dex.ag
 - _lowestLimit_: The liquidity provided will be split over the a price range of [lowestLimit, highestLimit]. Hence, the lowestLimit specifies the lowest price any bracket should trade.
 - _highestLimit_: The liquidity provided will be split over the a price range of [lowestLimit, highestLimit]. Hence, the highestLimit specifies the highest price any bracket should trade.
