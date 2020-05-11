@@ -142,7 +142,7 @@ npx truffle exec scripts/complete_liquidity_provision.js --targetToken=0 --stabl
 
 The script will first make some plausibility checks as the mentioned price check and that the boundaries - highestLimit and lowerLimit - are reasonably set for the current price.
 
-Then, it will create a transaction deploying new safes. All the address of the Gnosis-Safes will be printed on the screen.
+It will then create a transaction deploying new safes. All new deployed Safe addresses will be printed on the screen.
 
 Afterwards, the transaction containing all the orders will be build.
 All the order placements will be bundled into one transaction, which will appear first in the Gnosis-Interface.
