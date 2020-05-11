@@ -76,7 +76,7 @@ You find the core script placing orders for the basic liquidity strategy in the 
 
 Before running this script, you will need to export some environment variables and prepare the parameters.
 
-### Env variables
+### Environment Variables
 
 Run the following commands in your console:
 
