@@ -98,7 +98,7 @@ Hence, it would be unwise to transfer more ETH than required for deployment into
 The script `complete_liquidity_provision` takes the following non-optional parameters:
 
 - _masterSafe_: This is the `MASTER_SAFE` you generated and exported in the previous step. You should set the value to $MASTER_SAFE
-- _fleetSize_: The fleet size determines how many brackets you want to deploy. This number must be even and smaller than 20.
+- _fleetSize_: The fleet size determines how many brackets you want to deploy. This number must be _even_ and less than or equal to 20.
 - _targetToken_: You are specifying two tokens you want to provide liquidity for, the _targetToken_ and the _stableToken_ via their indices. In order to get the `tokenIndex` of a token, follow the next section. If you specify the more stable token via stableToken and the more volatile token via targetToken, then most likely the price parameter is more intuitive. Eg., if you are trading `ETH/DAI` with `stableToken=Index(DAI)`, then the parameter `currentPrice` can be specified as a number > 1.
 - _stableToken_: specifies the second token you want to trade via its `tokenIndex`. In order to determine the tokenIndex, see the section.
 - _investmentTargetToken_: This is the cumulative sum of all targetTokens you want to invest in all brackets
