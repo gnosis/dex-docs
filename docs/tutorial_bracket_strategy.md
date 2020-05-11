@@ -149,7 +149,7 @@ All the order placements are bundled into one transaction, appearing first in th
 Before you sign the transaction, make sure to check the correctness of the displayed orders from the script's output.
 
 Also, the transaction sending the DAI and WETH into the brackets and depositing it on behalf of the brackets into the GP exchange contract is built in parallel.
-This is the second transaction send to the interface.
+This is the second transaction sent to the interface.
 
 If everything goes smoothly, you should see the two transaction initiations confirmed like that:
 
