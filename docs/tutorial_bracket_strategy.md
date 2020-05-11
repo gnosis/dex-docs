@@ -203,7 +203,7 @@ npx truffle exec scripts/get_deployed_brackets.js --masterSafe=$MASTER_SAFE --ne
 which will display all your previously written brackets and generate a CSV listing the brackets with more information.
 
 By running the withdraw request script, you have generated a transaction within your Gnosis-safe interface. Execute this transaction and wait - maximal 5 minutes after the transaction gets mined - until the Gnosis Protocol closes the current auction batch.
-In the next batch you will be able to withdraw your funds.
+In the next batch you will be able to claim your funds.
 
 ### Withdrawing funds
 
