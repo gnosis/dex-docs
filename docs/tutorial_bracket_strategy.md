@@ -129,7 +129,7 @@ You will invest 1000 [DAI](https://rinkeby.etherscan.io/address/0x5592EC0cfb4dbc
 export NETWORK_NAME=rinkeby
 export GAS_PRICE_GWEI=1
 export MASTER_SAFE=<your master safe>
-export PK=<your private key of the proposer account>
+export PK=<the private key of the proposer account>
 ```
 
 ```ssh
