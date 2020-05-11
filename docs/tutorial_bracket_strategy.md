@@ -200,7 +200,7 @@ In case you don't remember them, you would have to run the following command:
 npx truffle exec scripts/get_deployed_brackets.js --masterSafe=$MASTER_SAFE --network=$NETWORK_NAME
 ```
 
-which will display all your previously written brackets and generate a csv listing the brackets with more information.
+which will display all your previously written brackets and generate a CSV listing the brackets with more information.
 
 By running the withdraw request script, you have generated a transaction within your Gnosis-safe interface. Execute this transaction and wait - maximal 5 minutes after the transaction gets mined - until the gnosis protocol closes its batch.
 In the next batch you will be able to withdraw your funds.
