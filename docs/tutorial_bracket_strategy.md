@@ -7,7 +7,7 @@ They are called brackets, as their orders are opening and closing like brackets:
 One order is selling `token_1` for `token_2` for a certain price, while the second order is buying `token_1` for `token_2` at a little bit lower rate.
 If the price moves in way such that both orders are traded one after the other, the passive liquidity provider earns the spread of their orders.
 
-This concept is well explained in the documentation of [the programmable-orders](https://docs.google.com/document/d/1_zTkuhWioTbRsbwKnBi5gEi3m7-bFcPyikQid7EUA2M/edit). Please study this article carefully before proceeding with this tutorial.
+This concept is well explained in the documentation of [programmable orders](https://docs.google.com/document/d/1_zTkuhWioTbRsbwKnBi5gEi3m7-bFcPyikQid7EUA2M/edit). Please study this article carefully before proceeding with this tutorial.
 
 This tutorial will cover the following steps:
 
