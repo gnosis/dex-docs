@@ -176,7 +176,7 @@ For executing, just press the button _confirm_.
 If you are executing the second transaction with a lower gasPrice than the first one, then you can sign it immediately.
 Otherwise, you should wait until the first one is mined. This works as the gas price usually determines the mining order of the transaction.
 
-Congrats. You managed to provide liquidity and have a chance to earn a passive income, if the prices are moving and returning back to your initial currentPrice.
+Congrats! You just provided liquidity and have a chance to earn some passive income if the prices are moving and returning back to your initial `currentPrice`.
 
 ## Withdrawing liquidity
 
