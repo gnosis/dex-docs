@@ -193,7 +193,7 @@ npx truffle exec scripts/withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma
 Here, the flag `--requestWithdraw` is very important part, which tells the script to initiate the the withdraw request.
 The `tokenIndices` of the tokens, which you want to withdraw from the brackets need to be specified via the flag `--tokenIds=[indices]`.
 Under normal usage, these are the exact same indices, which were used during the liquidity provision.
-The flag `--brackets=[comma separated brackets]` needs to contain the brackets that were deployed during the liquidity provision.
+The flag `--brackets=[comma separated brackets]` must contain the brackets that were deployed during the liquidity provision.
 In case you don't remember them, you would have to run the following command:
 
 ```ssh
