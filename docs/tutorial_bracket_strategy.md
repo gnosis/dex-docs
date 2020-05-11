@@ -48,7 +48,7 @@ First, we will generate a Gnosis-Safe account. This account is needed to bundle 
 2. Create a new Gnosis-Safe by following the steps on the display:
 
 - give your Gnosis-Safe a name: `MASTER_SAFE`
-- add a second owner, the "proposer account"
+- add a second owner, the "proposer-account"
 - set the threshold for executing transactions to 2
   ![Owners and confirmation](assets/tutorial_bracket_strategy_safe-setup.png)
 
