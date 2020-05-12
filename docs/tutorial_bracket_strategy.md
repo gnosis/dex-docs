@@ -103,11 +103,11 @@ The script `complete_liquidity_provision` takes the following non-optional param
 
 - _masterSafe_: This is the `MASTER_SAFE` you generated and exported in the previous step. You should set the value to \$MASTER_SAFE
 - _fleetSize_: The fleet size determines how many brackets you want to deploy. This number must be _even_ and less than or equal to 20.
-- _targetToken_: You are specifying two tokens you want to provide liquidity for, the _targetToken_ and the _stableToken_ via their indices. In order to get the index of a token, follow the next section. If you specify the more stable token via stableToken and the more volatile token via targetToken, then most likely the price parameter is more intuitive. Eg., if you are trading `ETH/DAI` with `stableToken=Index(DAI)`, then the parameter `currentPrice` can be specified as a number > 1.
-- _stableToken_: specifies the second token you want to trade via its index. In order to determine the index, see the [section](####-Getting-the-index-of-your-tokens).
-- _investmentTargetToken_: This is the cumulative sum of all targetTokens you want to invest in all brackets
-- _investmentStableToken_: This is the cumulative sum of all stableTokens you want to invest in all brackets
-- _currentPrice_: Please provide the current price of the trading pair: [ targetToken ] / [ stableToken ]. Your input will be checked for plausibility by the script via the price of dex.ag
+- _baseTokenId_: You are specifying two tokens you want to provide liquidity for, the baseToken and the _quoteTokenId_ via their indices. In order to get the index of a token, follow the next section. If you specify the more stable token via quoteTokenId and the more volatile token via baseToken, then most likely the price parameter is more intuitive. Eg., if you are trading `ETH/DAI` with `stableToken=Index(DAI)`, then the parameter `currentPrice` can be specified as a number > 1.
+- _quoteTokenId_: specifies the second token you want to trade via its index. In order to determine the index, see the [section](####-Getting-the-index-of-your-tokens).
+- _depositBaseToken_: This is the cumulative sum of all baseTokens you want to invest in all brackets
+- _depositQuoteToken_: This is the cumulative sum of all quoteTokens you want to invest in all brackets
+- _currentPrice_: Please provide the current price of the trading pair: [ baseToken ] / [ quoteTokenId ]. Your input will be checked for plausibility by the script via the price of dex.ag
 - _lowestLimit_: The liquidity provided will be split over the a price range of [lowestLimit, highestLimit]. Hence, the lowestLimit specifies the lowest price any bracket should trade.
 - _highestLimit_: The liquidity provided will be split over the a price range of [lowestLimit, highestLimit]. Hence, the highestLimit specifies the highest price any bracket should trade.
 
@@ -141,7 +141,7 @@ cd dex-liquidity-provision
 yarn install
 yarn compile
 yarn run networks-inject
-npx truffle exec scripts/complete_liquidity_provision.js --targetToken=0 --stableToken=7 --lowestLimit=150 --highestLimit=260 --currentPrice=200 --masterSafe=$MASTER_SAFE --investmentTargetToken=5 --investmentStableToken=1000 --fleetSize=20 --network=$NETWORK_NAME
+npx truffle exec scripts/complete_liquidity_provision.js --baseTokenId=0 --quoteTokenId=7 --lowestLimit=150 --highestLimit=260 --currentPrice=200 --masterSafe=$MASTER_SAFE --depositBaseToken=5 --depositQuoteToken=1000 --fleetSize=20 --network=$NETWORK_NAME
 ```
 
 The script will first make some plausibility checks as the mentioned price check and that the boundaries - highestLimit and lowerLimit - are reasonably set for the current price.
