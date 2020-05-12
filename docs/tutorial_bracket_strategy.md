@@ -19,6 +19,8 @@ This tutorial will cover the following steps:
 
 If you have any questions, don't hesitate to visit us in the [Gnosis discord channel](https://chat.gnosis.io/)
 
+This tutorial is for informational purposes only. It is not a risk assessment, nor investment advice! It is not intended to substitute for the advice of licensed professionals. Gnosis believes that the information is accurate as of the date of publication. No warranty of accuracy is given, and no liability for any error or omission is accepted by Gnosis Ltd. and/or its affiliates.
+
 ## Prerequisites
 
 In this tutorial uses mainly two tools: The normal Truffle scripts to build complicated and bundled Ethereum transactions and the Gnosis-Safe interface to sign most of these transactions. In the Gnosis-Safe interface, we will generate a MASTER_SAFE, which will own all other accounts required for the liquidity provision and has full control over the funds involved in the liquidity provision.
@@ -30,9 +32,11 @@ The prerequisites to this tutorial are:
 
 2.  Have a _signer-account_: You should have one designated signer Ethereum-account. This account can be an already existing account, and most people would probably prefer to use their usual MetaMask account. This signer-account will be added as an owner to your MASTER_SAFE and you will sign and execute transactions with it.
 
-3.  Investment-tokens: Have the tokens you want to invest in the liquidity provision ready.
+3.  Tokens: Have the tokens you want to deposit into the liquidity provision ready.
 
-4.  Token-listing: Once you have decided for a token pair to provide liquidity for, you need to make sure that both tokens are already listed on the exchange. Listing is a permissionless process and is explained [here](https://docs.gnosis.io/protocol/docs/addtoken1/).
+4.  Token-listing: Once you have decided for a token pair to provide liquidity for, you need to make sure that both tokens are already listed on the exchange. For mainnet, an overview of the listed tokens in provided in the [dune dashboard](https://explore.duneanalytics.com/public/dashboards/ZGPuC2oB9yainys924GW6G280Pmaq0HBB7sk7ABP) and in the table "Listed tokens". For rinkeby, take a look at the section: [Getting the index of tokens](###Getting-the-index-of-your-tokens). Listing is a permissionless process and is explained [here](https://docs.gnosis.io/protocol/docs/addtoken1/).
+
+5.  Install [git](https://git-scm.com/), [yarn](https://yarnpkg.com/), [npm](https://www.npmjs.com/) and [node](https://nodejs.org/en/) with a version higher than 10.
 
 ## Setting up a MASTER_SAFE
 
@@ -54,7 +58,7 @@ First, we will generate a Gnosis-Safe account. This account is needed to bundle 
 
 3. Finish the setup process by signing the MetaMask transaction
 
-4. Now, you should see your brand new Gnosis Safe. Congrats! Send the funds you want to invest into the bracket strategy to the Gnosis Safe.
+4. Now, you should see your brand new Gnosis Safe. Congrats! Send the funds you want to deposit into the bracket strategy to the Gnosis Safe.
 
 ## Liquidity Provision
 
@@ -65,11 +69,11 @@ cd <your preferred directory>
 git clone git@github.com:gnosis/dex-liquidity-provision.git
 cd dex-liquidity-provision
 yarn install
-npx truffle compile
+yarn compile
 yarn run networks-inject
 ```
 
-`yarn install` will install all dependencies needed and `npx truffle compile` will compile your the necessary contracts.
+`yarn install` will install all dependencies needed and `yarn compile` will compile your the necessary contracts.
 `yarn run networks-inject` ensures you are working with the correct contracts - it will inject the network addresses into your truffle builds.
 
 You find the core script placing orders for the basic liquidity strategy in the folder `scripts/complete_liquidity_provision.js`.
@@ -97,23 +101,23 @@ Hence, it would be unwise to transfer more ETH than required for deployment into
 
 The script `complete_liquidity_provision` takes the following non-optional parameters:
 
-- _masterSafe_: This is the `MASTER_SAFE` you generated and exported in the previous step. You should set the value to $MASTER_SAFE
+- _masterSafe_: This is the `MASTER_SAFE` you generated and exported in the previous step. You should set the value to \$MASTER_SAFE
 - _fleetSize_: The fleet size determines how many brackets you want to deploy. This number must be _even_ and less than or equal to 20.
-- _targetToken_: You are specifying two tokens you want to provide liquidity for, the _targetToken_ and the _stableToken_ via their indices. In order to get the `tokenIndex` of a token, follow the next section. If you specify the more stable token via stableToken and the more volatile token via targetToken, then most likely the price parameter is more intuitive. Eg., if you are trading `ETH/DAI` with `stableToken=Index(DAI)`, then the parameter `currentPrice` can be specified as a number > 1.
-- _stableToken_: specifies the second token you want to trade via its `tokenIndex`. In order to determine the tokenIndex, see the section.
+- _targetToken_: You are specifying two tokens you want to provide liquidity for, the _targetToken_ and the _stableToken_ via their indices. In order to get the index of a token, follow the next section. If you specify the more stable token via stableToken and the more volatile token via targetToken, then most likely the price parameter is more intuitive. Eg., if you are trading `ETH/DAI` with `stableToken=Index(DAI)`, then the parameter `currentPrice` can be specified as a number > 1.
+- _stableToken_: specifies the second token you want to trade via its index. In order to determine the index, see the [section](####-Getting-the-index-of-your-tokens).
 - _investmentTargetToken_: This is the cumulative sum of all targetTokens you want to invest in all brackets
 - _investmentStableToken_: This is the cumulative sum of all stableTokens you want to invest in all brackets
 - _currentPrice_: Please provide the current price of the trading pair: [ targetToken ] / [ stableToken ]. Your input will be checked for plausibility by the script via the price of dex.ag
 - _lowestLimit_: The liquidity provided will be split over the a price range of [lowestLimit, highestLimit]. Hence, the lowestLimit specifies the lowest price any bracket should trade.
 - _highestLimit_: The liquidity provided will be split over the a price range of [lowestLimit, highestLimit]. Hence, the highestLimit specifies the highest price any bracket should trade.
 
-#### Getting the `tokenIndex` of your tokens
+#### Getting the index of your tokens
 
-All token that have been added to the Gnosis protocol get a unique `tokenIndex`. In order to read the `tokenIndex`, visit [Etherscan GP contract(Rinkeby)](https://rinkeby.etherscan.io/address/0xc576ea7bd102f7e476368a5e98fa455d1ea34de2#code) or for mainnet [Etherscan GP contract(Mainnet)](https://etherscan.io/address/0x6f400810b62df8e13fded51be75ff5393eaa841f). Then, click on the tab: _Contract_ and the button "Read Contract":
+All token that have been added to the Gnosis protocol get a unique index. In order to read the index, visit [Etherscan GP contract(Rinkeby)](https://rinkeby.etherscan.io/address/0xc576ea7bd102f7e476368a5e98fa455d1ea34de2#code) or for mainnet [Etherscan GP contract(Mainnet)](https://etherscan.io/address/0x6f400810b62df8e13fded51be75ff5393eaa841f). Then, click on the tab: _Contract_ and the button "Read Contract":
 
 ![Read Etherscan contract](assets/tutorial_bracket_strategy-etherscan-read.png)
 
-Then go down to the function: `tokenAddressToIdMap` and paste the token address of your token into the parameter field and run the query.
+Then go down to the 27.th function: `tokenAddressToIdMap` and paste the token address of your token into the parameter field and run the query.
 In the following image, we used the WETH address in Rinkeby, which happens to have the index 1.
 
 ![Read tokenAddressToIdMap](assets/tutorial_bracket_strategy-tokenAddressToIdMap.png)
@@ -135,14 +139,14 @@ export PK=<the private key of the proposer account>
 ```ssh
 cd dex-liquidity-provision
 yarn install
-npx truffle compile
+yarn compile
 yarn run networks-inject
 npx truffle exec scripts/complete_liquidity_provision.js --targetToken=0 --stableToken=7 --lowestLimit=150 --highestLimit=260 --currentPrice=200 --masterSafe=$MASTER_SAFE --investmentTargetToken=5 --investmentStableToken=1000 --fleetSize=20 --network=$NETWORK_NAME
 ```
 
 The script will first make some plausibility checks as the mentioned price check and that the boundaries - highestLimit and lowerLimit - are reasonably set for the current price.
 
-It will then create a transaction deploying new safes. All new deployed Safe addresses will be printed on the screen.
+It will then create a transaction deploying new safes - one new safe for each bracket. All new deployed Safe addresses will be printed on the screen.
 
 Afterwards, the transaction containing all the orders is built.
 All the order placements are bundled into one transaction, appearing first in the Gnosis Safe Interface.
@@ -174,7 +178,7 @@ Now, you should just follow the link and sign & execute the transaction with the
 For executing, just press the button _confirm_.
 
 If you are executing the second transaction with a lower gasPrice than the first one, then you can sign it immediately.
-Otherwise, you should wait until the first one is mined. This works as the gas price usually determines the mining order of the transaction.
+Otherwise, you should wait until the first one is mined. This works in most cases, as the gas price usually determines the mining order of the transaction.
 
 Congrats! You just provided liquidity and have a chance to earn some passive income if the prices are moving and returning back to your initial `currentPrice`.
 
@@ -187,13 +191,13 @@ The withdrawal from the Gnosis Protocol is always done in two steps: Requesting 
 Withdrawal requests can be made with the following command:
 
 ```ssh
-npx truffle exec scripts/withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma separated brackets]  --tokenIds=[indices] --requestWithdraw --network=$MASTER_SAFE
+npx truffle exec scripts/withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma-separated-brackets]  --tokenIds=[indices] --requestWithdraw --network=$MASTER_SAFE
 ```
 
 Here, the flag `--requestWithdraw` is very important part, which tells the script to initiate the the withdraw request.
-The `tokenIndices` of the tokens, which you want to withdraw from the brackets need to be specified via the flag `--tokenIds=[indices]`.
+The `tokenIndices` of the tokens, which you want to withdraw from the brackets need to be specified via the flag `--tokenIds=[indices]` - do not write the brackets into the command.
 Under normal usage, these are the exact same indices, which were used during the liquidity provision.
-The flag `--brackets=[comma separated brackets]` must contain the brackets that were deployed during the liquidity provision.
+The flag `--brackets=[comma separated brackets]` must contain the brackets that were deployed during the liquidity provision. Please provide these addresses separated by commas and without any spaces.
 In case you don't remember them, you would have to run the following command:
 
 ```ssh
@@ -210,7 +214,7 @@ In the next batch you will be able to claim your funds.
 The actual withdraw transaction transferring the tokens back into the MASTER_SAFE from the Gnosis Protocol can be initiated with the following command.
 
 ```ssh
-npx truffle exec scripts/withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma separated brackets]  --tokenIds=[indices] --withdraw --network=$MASTER_SAFE
+npx truffle exec scripts/withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma-separated-brackets]  --tokenIds=[indices] --withdraw --transferFundsToMaster --network=$MASTER_SAFE
 ```
 
 The parameters are essentially the same as in the requesting withdraw script, except for the new flag `--withdraw` instead of `--withdrawRequest`.
