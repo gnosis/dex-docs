@@ -105,8 +105,8 @@ The script `complete_liquidity_provision` takes the following non-optional param
 - _fleetSize_: The fleet size determines how many brackets you want to deploy. This number must be _even_ and less than or equal to 20.
 - _baseTokenId_: You are specifying two tokens you want to provide liquidity for, the baseToken and the _quoteTokenId_ via their indices. In order to get the index of a token, follow the next section. If you specify the more stable token via quoteTokenId and the more volatile token via baseToken, then most likely the price parameter is more intuitive. Eg., if you are trading `ETH/DAI` with `stableToken=Index(DAI)`, then the parameter `currentPrice` can be specified as a number > 1.
 - _quoteTokenId_: specifies the second token you want to trade via its index. In order to determine the index, see the [section](####-Getting-the-index-of-your-tokens).
-- _depositBaseToken_: This is the cumulative sum of all baseTokens you want to invest in all brackets
-- _depositQuoteToken_: This is the cumulative sum of all quoteTokens you want to invest in all brackets
+- _depositBaseToken_: This is the cumulative sum of all baseTokens you want to deposit into all brackets
+- _depositQuoteToken_: This is the cumulative sum of all quoteTokens you want to deposit into all brackets
 - _currentPrice_: Please provide the current price of the trading pair: [ baseToken ] / [ quoteTokenId ]. Your input will be checked for plausibility by the script via the price of dex.ag
 - _lowestLimit_: The liquidity provided will be split over the a price range of [lowestLimit, highestLimit]. Hence, the lowestLimit specifies the lowest price any bracket should trade.
 - _highestLimit_: The liquidity provided will be split over the a price range of [lowestLimit, highestLimit]. Hence, the highestLimit specifies the highest price any bracket should trade.
@@ -127,7 +127,7 @@ If your tokens have not been added to the Gnosis-protocol, please follow this [t
 ### Run the script and place your first liquidity strategy
 
 The following script will place programmable orders for the pair DAI-WETH on a price range [150,260] on Rinkeby.
-You will invest 1000 [DAI](https://rinkeby.etherscan.io/address/0x5592EC0cfb4dbc12D3aB100b257153436a1f0FEa) and 5 [WETH](https://rinkeby.etherscan.io/address/0xc778417E063141139Fce010982780140Aa0cD5Ab).
+You will deposit 1000 [DAI](https://rinkeby.etherscan.io/address/0x5592EC0cfb4dbc12D3aB100b257153436a1f0FEa) and 5 [WETH](https://rinkeby.etherscan.io/address/0xc778417E063141139Fce010982780140Aa0cD5Ab).
 
 ```ssh
 export NETWORK_NAME=rinkeby
