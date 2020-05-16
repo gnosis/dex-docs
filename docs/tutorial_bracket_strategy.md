@@ -2,12 +2,12 @@
 
 Before getting started, make sure you have familiarized yourself with the Gnosis Protocol [introduction](https://docs.gnosis.io/protocol/docs/introduction1).
 
-This tutorial explains how to provide liquidity passively via standing orders with a so-called "bracket-liquidity strategy". This strategy deploys several "brackets" (Gnosis-Safe contracts), which hold and trade two tokens `(token_1, token_2)` against each other on the Gnosis Protocol.
+This tutorial explains how to provide liquidity passively via standing orders with a so-called passive Customized Market Marketing (CMM). This strategy deploys several "brackets" (Gnosis-Safe contracts), which hold and trade two tokens `(token_1, token_2)` against each other on the Gnosis Protocol.
 They are called brackets, as their orders are opening and closing like brackets:
 One order is selling `token_1` for `token_2` for a certain price, while the second order is buying `token_1` for `token_2` at a little bit lower rate.
 If the price moves in way such that both orders are traded one after the other, the passive liquidity provider earns the spread of their orders.
 
-This concept is well explained in the documentation of [programmable orders](https://docs.google.com/document/d/1_zTkuhWioTbRsbwKnBi5gEi3m7-bFcPyikQid7EUA2M/edit). Please study this article carefully before proceeding with this tutorial.
+This concept is well explained in the documentation of [Customized Market Maker](https://docs.google.com/document/d/1_zTkuhWioTbRsbwKnBi5gEi3m7-bFcPyikQid7EUA2M/edit). Please study this article carefully before proceeding with this tutorial.
 
 This tutorial will cover the following steps:
 
@@ -23,7 +23,7 @@ This tutorial is for informational purposes only. It is not a risk assessment, n
 
 ## Prerequisites
 
-In this tutorial uses mainly two tools: The normal Truffle scripts to build complicated and bundled Ethereum transactions and the Gnosis-Safe interface to sign most of these transactions. In the Gnosis-Safe interface, we will generate a MASTER_SAFE, which will own all other accounts required for the liquidity provision and has full control over the funds involved in the liquidity provision.
+In this tutorial uses mainly two tools: The normal Truffle scripts to build sophisticated and bundled Ethereum transactions and the Gnosis-Safe interface to sign most of these transactions. In the Gnosis-Safe interface, we will generate a MASTER_SAFE, which will own all other accounts required for the liquidity provision and has full control over the funds involved in the liquidity provision.
 
 The prerequisites to this tutorial are:
 
@@ -102,12 +102,12 @@ Hence, it would be unwise to transfer more ETH than required for deployment into
 The script `complete_liquidity_provision` takes the following non-optional parameters:
 
 - _masterSafe_: This is the `MASTER_SAFE` you generated and exported in the previous step. You should set the value to \$MASTER_SAFE
-- _fleetSize_: The fleet size determines how many brackets you want to deploy. This number must be _even_ and less than or equal to 20.
-- _baseTokenId_: You are specifying two tokens you want to provide liquidity for, the baseToken and the _quoteTokenId_ via their indices. In order to get the index of a token, follow the next section. If you specify the more stable token via quoteTokenId and the more volatile token via baseToken, then most likely the price parameter is more intuitive. Eg., if you are trading `ETH/DAI` with `stableToken=Index(DAI)`, then the parameter `currentPrice` can be specified as a number > 1.
+- _numBrackets_: The fleet size determines how many brackets you want to deploy. This number must be _even_ and less than or equal to 20.
+- _baseTokenId_: You are specifying two tokens you want to provide liquidity for, the baseToken and the _quoteTokenId_ via their indices. In order to get the index of a token, look into the next section.
 - _quoteTokenId_: specifies the second token you want to trade via its index. In order to determine the index, see the [section](####-Getting-the-index-of-your-tokens).
 - _depositBaseToken_: This is the cumulative sum of all baseTokens you want to deposit into all brackets
 - _depositQuoteToken_: This is the cumulative sum of all quoteTokens you want to deposit into all brackets
-- _currentPrice_: Please provide the current price of the trading pair: [ baseToken ] / [ quoteTokenId ]. Your input will be checked for plausibility by the script via the price of dex.ag
+- _currentPrice_: Please provide the current price of the trading pair: [ baseToken ] / [ quoteToken ]. Your input will be checked for plausibility by the script via the price of dex.ag
 - _lowestLimit_: The liquidity provided will be split over the a price range of [lowestLimit, highestLimit]. Hence, the lowestLimit specifies the lowest price any bracket should trade.
 - _highestLimit_: The liquidity provided will be split over the a price range of [lowestLimit, highestLimit]. Hence, the highestLimit specifies the highest price any bracket should trade.
 
@@ -141,7 +141,7 @@ cd dex-liquidity-provision
 yarn install
 yarn compile
 yarn run networks-inject
-npx truffle exec scripts/complete_liquidity_provision.js --baseTokenId=0 --quoteTokenId=7 --lowestLimit=150 --highestLimit=260 --currentPrice=200 --masterSafe=$MASTER_SAFE --depositBaseToken=5 --depositQuoteToken=1000 --fleetSize=20 --network=$NETWORK_NAME
+npx truffle exec scripts/complete_liquidity_provision.js --baseTokenId=0 --quoteTokenId=7 --lowestLimit=150 --highestLimit=260 --currentPrice=200 --masterSafe=$MASTER_SAFE --depositBaseToken=5 --depositQuoteToken=1000 --numBrackets=20 --network=$NETWORK_NAME
 ```
 
 The script will first make some plausibility checks as the mentioned price check and that the boundaries - highestLimit and lowerLimit - are reasonably set for the current price.
