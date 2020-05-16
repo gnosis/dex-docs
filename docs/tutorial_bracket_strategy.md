@@ -36,7 +36,7 @@ The prerequisites to this tutorial are:
 
 4.  Token-listing: Once you have decided for a token pair to provide liquidity for, you need to make sure that both tokens are already listed on the exchange. For mainnet, an overview of the listed tokens in provided in the [dune dashboard](https://explore.duneanalytics.com/public/dashboards/ZGPuC2oB9yainys924GW6G280Pmaq0HBB7sk7ABP) and in the table "Listed tokens". For rinkeby, take a look at the section: [Getting the index of tokens](###Getting-the-index-of-your-tokens). Listing is a permissionless process and is explained [here](https://docs.gnosis.io/protocol/docs/addtoken1/).
 
-5.  Install [git](https://git-scm.com/), [yarn](https://yarnpkg.com/), [npm](https://www.npmjs.com/) and [node with version 10](https://nodejs.org/en/blog/release/v10.18.0/).
+5.  Install [git](https://git-scm.com/), [yarn](https://yarnpkg.com/), [npm](https://www.npmjs.com/) and [node](https://nodejs.org/en/).
 
 ## Setting up a MASTER_SAFE
 
@@ -102,7 +102,7 @@ Hence, it would be unwise to transfer more ETH than required for deployment into
 The script `complete_liquidity_provision` takes the following non-optional parameters:
 
 - _masterSafe_: This is the `MASTER_SAFE` you generated and exported in the previous step. You should set the value to \$MASTER_SAFE
-- _numBrackets_: The fleet size determines how many brackets you want to deploy. This number must be _even_ and less than or equal to 20.
+- _numBrackets_: The fleet size determines how many brackets you want to deploy. This number must be less than or equal to 20.
 - _baseTokenId_: You are specifying two tokens you want to provide liquidity for, the baseToken and the _quoteTokenId_ via their indices. In order to get the index of a token, look into the next section.
 - _quoteTokenId_: specifies the second token you want to trade via its index. In order to determine the index, see the [section](####-Getting-the-index-of-your-tokens).
 - _depositBaseToken_: This is the cumulative sum of all baseTokens you want to deposit into all brackets
