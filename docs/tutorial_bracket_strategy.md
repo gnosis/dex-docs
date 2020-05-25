@@ -102,7 +102,7 @@ The script `complete_liquidity_provision` takes the following non-optional param
 
 - _masterSafe_: This is the `MASTER_SAFE` you generated and exported in the previous step. You should set the value to \$MASTER_SAFE
 - _numBrackets_: The fleet size determines how many brackets you want to deploy. This number must be less than or equal to 20.
-- _baseTokenId_: You are specifying two tokens you want to provide liquidity for, the baseToken and the _quoteTokenId_ via their indices. In order to get the index of a token, look into the next section.
+- _baseTokenId_: You are specifying two tokens you want to provide liquidity for, the base token and the quote token, via their indices. This is the id of the first token you want to trade. In order to get the index of a token, look into the next section.
 - _quoteTokenId_: specifies the second token you want to trade via its index. In order to determine the index, see the [section](####-Getting-the-index-of-your-tokens).
 - _depositBaseToken_: This is the cumulative sum of all baseTokens you want to deposit into all brackets
 - _depositQuoteToken_: This is the cumulative sum of all quoteTokens you want to deposit into all brackets
