@@ -15,7 +15,6 @@ This tutorial will cover the following steps:
 2. Setting up a MASTER_SAFE
 3. Liquidity provision
 4. Withdrawing liquidity
-5. Securing your setup with more owners
 
 If you have any questions, don't hesitate to visit us in the [Gnosis discord channel](https://chat.gnosis.io/)
 
@@ -141,7 +140,7 @@ cd dex-liquidity-provision
 yarn install
 yarn compile
 yarn run networks-inject
-npx truffle exec scripts/complete_liquidity_provision.js --baseTokenId=0 --quoteTokenId=7 --lowestLimit=150 --highestLimit=260 --currentPrice=200 --masterSafe=$MASTER_SAFE --depositBaseToken=5 --depositQuoteToken=1000 --numBrackets=20 --network=$NETWORK_NAME
+npx truffle exec scripts/complete_liquidity_provision.js --baseTokenId=1 --quoteTokenId=7 --lowestLimit=150 --highestLimit=260 --currentPrice=200 --masterSafe=$MASTER_SAFE --depositBaseToken=5 --depositQuoteToken=1000 --numBrackets=20 --network=$NETWORK_NAME
 ```
 
 The script will first make some plausibility checks as the mentioned price check and that the boundaries - highestLimit and lowerLimit - are reasonably set for the current price.
@@ -177,8 +176,7 @@ Now, you should just follow the link and sign & execute the transaction with the
 
 For executing, just press the button _confirm_.
 
-If you are executing the second transaction with a lower gasPrice than the first one, then you can sign it immediately.
-Otherwise, you should wait until the first one is mined. This works in most cases, as the gas price usually determines the mining order of the transaction.
+Once this first transaction is mined, execute the second one.
 
 Congrats! You just provided liquidity and have a chance to earn some passive income if the prices are moving and returning back to your initial `currentPrice`.
 
@@ -195,9 +193,9 @@ npx truffle exec scripts/withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma
 ```
 
 Here, the flag `--requestWithdraw` is very important part, which tells the script to initiate the the withdraw request.
-The `tokenIndices` of the tokens, which you want to withdraw from the brackets need to be specified via the flag `--tokenIds=[indices]` - do not write the brackets into the command.
+The `tokenIndices` of the tokens, which you want to withdraw from the brackets need to be specified via the flag `--tokenIds=[indices]` - do not write the square brackets into the command.
 Under normal usage, these are the exact same indices, which were used during the liquidity provision.
-The flag `--brackets=[comma separated brackets]` must contain the brackets that were deployed during the liquidity provision. Please provide these addresses separated by commas and without any spaces.
+The flag `--brackets=[comma separated brackets]` must contain the brackets that were deployed during the liquidity provision. Please provide these addresses separated by commas, without any spaces, and without any square brackets.
 In case you don't remember them, you would have to run the following command:
 
 ```ssh
@@ -217,11 +215,7 @@ The actual withdraw transaction transferring the tokens back into the MASTER_SAF
 npx truffle exec scripts/withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma-separated-brackets]  --tokenIds=[indices] --withdraw --transferFundsToMaster --network=$MASTER_SAFE
 ```
 
-The parameters are essentially the same as in the requesting withdraw script, except for the new flag `--withdraw` instead of `--withdrawRequest`.
-
-## Even more secure setup with more owners
-
-(coming soon)
+The parameters are essentially the same as in the requesting withdraw script, except for the two flag `--withdraw` and `--transferFundsToMaster` replacing `--withdrawRequest`.
 
 ## Useful links
 
