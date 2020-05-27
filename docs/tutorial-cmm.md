@@ -170,7 +170,7 @@ Signing and posting multi-send transaction 0x09cb78a5a49f10305a2f108d45e8fa059e4
 Transaction awaiting execution in the interface https://rinkeby.gnosis-safe.io/app/#/safes/$MASTER_SAFE/transactions
 ```
 
-Now, you should just follow the link, and sign and execute the transaction with the lower transaction- ID first. It should look like this:
+Now, you should just follow the link, and sign and execute the transaction with the lower transaction-ID first. It should look like this:
 
 ![Read tokenAddressToIdMap](assets/tutorial_bracket_strategy_signing.png)
 
@@ -213,7 +213,7 @@ The actual withdrawal transaction transferring the tokens back into the MASTER_S
 npx truffle exec scripts/claim_withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma-separated-brackets]  --tokenIds=[indices] --network=$NETWORK_NAME
 ```
 
-The parameters are essentially the same as in the requesting withdrawal script above.
+The parameters are the same as for the requesting withdrawal script above.
 The script `claim_withdraw.js` will not withdraw any funds if run before requesting a withdrawal.
 
 ## Useful links
