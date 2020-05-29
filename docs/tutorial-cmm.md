@@ -210,7 +210,7 @@ By running the withdraw request script, you have generated a transaction within 
 The actual withdrawal transaction transferring the tokens back into the MASTER_SAFE from Gnosis Protocol can be initiated with the following command.
 
 ```ssh
-npx truffle exec scripts/claim_withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma-separated-brackets]  --tokenIds=[indices] --network=$NETWORK_NAME
+npx truffle exec scripts/claim_withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma-separated brackets]  --tokenIds=[comma-separated indices] --network=$NETWORK_NAME
 ```
 
 The parameters are the same as for the requesting withdrawal script above.
