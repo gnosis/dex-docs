@@ -170,7 +170,7 @@ Signing and posting multi-send transaction 0x09cb78a5a49f10305a2f108d45e8fa059e4
 Transaction awaiting execution in the interface https://rinkeby.gnosis-safe.io/app/#/safes/$MASTER_SAFE/transactions
 ```
 
-Now, you should just follow the link, and sign and execute the transaction with the lower transaction-ID first. It should look like this:
+Now, you should just follow the link, and sign and execute the transaction with the lower transaction ID first. It should look like this:
 
 ![Read tokenAddressToIdMap](assets/tutorial_bracket_strategy_signing.png)
 
