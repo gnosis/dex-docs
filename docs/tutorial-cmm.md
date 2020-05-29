@@ -54,9 +54,9 @@ First, we will setup a new Gnosis Safe Multisig account. This account is needed 
 
 2. Create a new Gnosis Safe Multisig by following the steps on the display:
 
-* Give your Safe Multisig a name: `MASTER_SAFE`
-* Add a second owner, the "proposer-account"
-* Set the threshold for executing transactions to 2
+- Give your Safe Multisig a name: `MASTER_SAFE`
+- Add a second owner, the "proposer-account"
+- Set the threshold for executing transactions to 2
 
 ![Owners and confirmation](assets/tutorial_bracket_strategy_safe-setup.png)
 
@@ -95,11 +95,11 @@ export MASTER_SAFE=<your safe address>
 export PK=<private key of the proposer-account>
 ```
 
-*  The `NETWORK_NAME` should be set to "mainnet" or "rinkeby". The gas price should be set in a way that your transaction is mined in a reasonable amount of time. Check out current gas prices on [ethgasstation](https://ethgasstation.info/).
-*  The `MASTER_SAFE` is the Safe address from the Safe Multisig created in the previous section.
-*  The `PK` is the private key of your proposer account used as an owner in the Safe Multisig.
-*  Note that in our current setup, the proposer account's private key is not handled safely, since it's available as an environment variable and in the command line history.
-*  **Important: due to the above, it would be unwise to transfer more ETH than required for deployment into this account.**
+- The `NETWORK_NAME` should be set to "mainnet" or "rinkeby". The gas price should be set in a way that your transaction is mined in a reasonable amount of time. Check out current gas prices on [ethgasstation](https://ethgasstation.info/).
+- The `MASTER_SAFE` is the Safe address from the Safe Multisig created in the previous section.
+- The `PK` is the private key of your proposer account used as an owner in the Safe Multisig.
+- Note that in our current setup, the proposer account's private key is not handled safely, since it's available as an environment variable and in the command line history.
+- **Important: due to the above, it would be unwise to transfer more ETH than required for deployment into this account.**
 
 ### Script parameters
 
@@ -170,7 +170,7 @@ Signing and posting multi-send transaction 0x09cb78a5a49f10305a2f108d45e8fa059e4
 Transaction awaiting execution in the interface https://rinkeby.gnosis-safe.io/app/#/safes/$MASTER_SAFE/transactions
 ```
 
-Now, you should just follow the link, and sign and execute the transaction with the lower transaction-	ID first. It should look like this:
+Now, you should just follow the link, and sign and execute the transaction with the lower transaction ID first. It should look like this:
 
 ![Read tokenAddressToIdMap](assets/tutorial_bracket_strategy_signing.png)
 
@@ -189,12 +189,11 @@ Withdrawing from Gnosis Protocol is always done in two steps: Requesting and Cla
 Withdrawal requests can be made with the following command:
 
 ```ssh
-npx truffle exec scripts/withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma-separated-brackets]  --tokenIds=[indices] --requestWithdraw --network=$MASTER_SAFE
+npx truffle exec scripts/request_withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma-separated brackets]  --tokenIds=[comma-separated indices] --network=$NETWORK_NAME
 ```
 
-Here, the flag `--requestWithdraw` is the most important part, which tells the script to initiate the the withdraw request.
-The `tokenIndices` of the tokens, which you want to withdraw from the brackets need to be specified via the flag `--tokenIds=[indices]`. Do **not** write the square brackets into the command. Under normal usage, these are the exact same indices that were provided when setting up the CMM.
-The flag `--brackets=[comma separated brackets]` must contain the brackets that the CMM deployed. Please provide these addresses separated by commas, without any spaces, and without any square brackets.
+The indices of the tokens that you want to withdraw from the brackets need to be specified via the flag `--tokenIds=[comma-separated indices]`. Do **not** write the square brackets into the command. Under normal usage, these are the exact same indices that were provided when setting up the CMM.
+The flag `--brackets=[comma-separated brackets]` must contain the brackets that the CMM deployed. Please provide these addresses separated by commas, without any spaces, and without any square brackets.
 
 In case you don't remember them, you can run the following command:
 
@@ -211,11 +210,13 @@ By running the withdraw request script, you have generated a transaction within 
 The actual withdrawal transaction transferring the tokens back into the MASTER_SAFE from Gnosis Protocol can be initiated with the following command.
 
 ```ssh
-npx truffle exec scripts/withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma-separated-brackets]  --tokenIds=[indices] --withdraw --transferFundsToMaster --network=$MASTER_SAFE
+npx truffle exec scripts/claim_withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma-separated brackets]  --tokenIds=[comma-separated indices] --network=$NETWORK_NAME
 ```
 
-The parameters are essentially the same as in the requesting withdrawal script above, except for the two flags `--withdraw` and `--transferFundsToMaster` replacing `--withdrawRequest`.
+The parameters are the same as for the requesting withdrawal script above.
+The script `claim_withdraw.js` will not withdraw any funds if run before requesting a withdrawal.
 
 ## Useful links
 
+- [Readme of scripts](https://github.com/gnosis/dex-liquidity-provision/blob/master/scripts/README.md)
 - [Etherscan verified Mainnet OWL token contract](https://etherscan.io/token/0x1a5f9352af8af974bfc03399e3767df6370d82e4)
