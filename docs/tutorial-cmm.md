@@ -192,7 +192,7 @@ Withdrawal requests can be made with the following command:
 npx truffle exec scripts/request_withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma-separated brackets]  --tokenIds=[comma-separated indices] --network=$NETWORK_NAME
 ```
 
-The `tokenIndices` of the tokens, which you want to withdraw from the brackets, need to be specified via the flag `--tokenIds=[indices]`. Do **not** write the square brackets into the command. Under normal usage, these are the exact same indices that were provided when setting up the CMM.
+The indices of the tokens that you want to withdraw from the brackets need to be specified via the flag `--tokenIds=[comma-separated indices]`. Do **not** write the square brackets into the command. Under normal usage, these are the exact same indices that were provided when setting up the CMM.
 The flag `--brackets=[comma separated brackets]` must contain the brackets that the CMM deployed. Please provide these addresses separated by commas, without any spaces, and without any square brackets.
 
 In case you don't remember them, you can run the following command:
