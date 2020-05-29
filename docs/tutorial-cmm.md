@@ -189,7 +189,7 @@ Withdrawing from Gnosis Protocol is always done in two steps: Requesting and Cla
 Withdrawal requests can be made with the following command:
 
 ```ssh
-npx truffle exec scripts/request_withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma-separated-brackets]  --tokenIds=[indices] --network=$NETWORK_NAME
+npx truffle exec scripts/request_withdraw.js --masterSafe=$MASTER_SAFE --brackets=[comma-separated brackets]  --tokenIds=[comma-separated indices] --network=$NETWORK_NAME
 ```
 
 The `tokenIndices` of the tokens, which you want to withdraw from the brackets, need to be specified via the flag `--tokenIds=[indices]`. Do **not** write the square brackets into the command. Under normal usage, these are the exact same indices that were provided when setting up the CMM.
