@@ -76,7 +76,7 @@ function Tutorial(props) {
               &nbsp;
               <i className="icon icon-small icon-star"></i>
               &nbsp;
-              Medium
+              Med
               &nbsp;
               &nbsp;
               <i className="icon icon-small icon-pen"></i>
@@ -99,7 +99,7 @@ function Tutorial(props) {
               &nbsp;
               <i className="icon icon-small icon-star"></i>
               &nbsp;
-              Medium
+              Med
               &nbsp;
               &nbsp;
               <i className="icon icon-small icon-pen"></i>
@@ -107,6 +107,32 @@ function Tutorial(props) {
             </p>
           </a>
 
+          <a href={docUrl("tutorial-cmm")} className="white-box">
+            <h3>
+             Set up the custom market maker
+            </h3>
+            <p>
+              This tutorial will teach you how to set up the CMM for liquidity provision.
+            </p>
+            <p className="box-icons">
+              <i className="icon icon-small icon-time"></i>
+              &nbsp;
+              15min
+              &nbsp;
+              &nbsp;
+              <i className="icon icon-small icon-star"></i>
+              &nbsp;
+              Med
+              &nbsp;
+              &nbsp;
+              <i className="icon icon-small icon-pen"></i>
+              CMM Intro
+            </p>
+          </a>
+
+          </div>
+
+          <div className="inner grid-blocks four-blocks-grid tutorials-boxes">
            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfubvD9WsgCS8EbB-VeTWtzUSw5Mk1-s66BuZik0GHuvQZhAw/viewform"  className="white-box">
             <h3>
               Looking for a specific tutorial? 
