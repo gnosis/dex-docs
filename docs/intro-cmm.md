@@ -13,7 +13,8 @@ _**Disclaimer**: This summary is for informational purposes only. It is not a ri
 *  Efficient use of inventory (locked capital)
 *  Can be set up any time: it does not depend on current market price, but instead future price ranges you define
 *  Can be cancelled at any time 
-*  Highly flexible tailored price rangesUseful for volatile tokens
+*  Highly flexible tailored price ranges
+*  Useful for volatile tokens
 *  No gas costs are incurred for after the CMM is set
 
 ## Overview
