@@ -6,7 +6,7 @@ sidebar_label: Setting Approval
 
 In the next step, you have to approve spending from your wallet. 
 
-Note: An alternative to setting approval using Etherscan, as explained below, is via the user friendly interface [Mesa](https://mesa.eth.link), the first dapp built on Gnosis Protocol. To perform this step on Mesa, head to the 'Balances' tab. 
+Note: An alternative to setting approval using Etherscan, as explained below, is via the user friendly interface [Mesa](https://mesa.eth.link), the first dapp built on Gnosis Protocol. To perform this step on Mesa, head to the 'Balances' tab and click 'enable OWL' and confirm with your web3 provider (no need to deposit). 
 
 To continue with this step using Etherscan:
 

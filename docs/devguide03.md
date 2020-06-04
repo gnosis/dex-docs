@@ -145,7 +145,7 @@ This constraint ensures that, at all times, the amount of tokens owned by the sm
 
 3. **Price vector normalization:** The price of the feeToken has to be 10^18. Otherwise, the objective value (cf. next section) could be scaled arbitrarily.
 
-4. **Size restriction:** Each batch can settle at most 25 orders. This number is arbitrary but ensures that the gas needed for the settlement transaction fits well into one ethereum block (~40%). This creates an even playing field between solvers as otherwise active miners might be able to submit transactions that are close to the block gas limit and thus create “better” solution than other participants.
+4. **Size restriction:** Each batch can settle at most 30 orders. This number is arbitrary but ensures that the gas needed for the settlement transaction fits well into one ethereum block (~40%). This creates an even playing field between solvers as otherwise active miners might be able to submit transactions that are close to the block gas limit and thus create “better” solution than other participants.
 
 5. **Minimal trade amount & price:** All prices and trade amounts need to be larger than 10^4. This guarantees that any benefit from rounding errors are smaller than the fees paid for an order, rendering such attacks uneconomic (cf. remark below).
 
