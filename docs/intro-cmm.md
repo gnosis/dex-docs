@@ -44,7 +44,7 @@ There are only **four main parameters** you need to set to put the CMM script in
 3. Define the **number of brackets** you would like to include. 
 4. The script will calculate the bracket sizes for you based on your upper and lower limits defined previously. Please note each bracket size will be based on percentages rather than constant sizes.
 5. Define the **deposit amount per token**. The script will divide them for you into the specified brackets, and the correct starting side of the brackets.
-In addition to these chosen parameters, you must provide: the **current market price** information for the two selected tokens. How these parameters can be provided for the script is explained in the [cmm-tutorial](/protocol/docs/tutorial-cmm).
+In addition to these chosen parameters, you must provide: the **current market price** information for the two selected tokens. How these parameters can be provided for the script is explained in the [cmm-tutorial](https://docs.gnosis.io/protocol/docs/tutorial-cmm/).
 
 Please see below for a specific example of these four main parameters put into action.
 
