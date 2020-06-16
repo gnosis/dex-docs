@@ -172,7 +172,7 @@ class HomeSplash extends React.Component {
             </a>
           </div>
           
-          <div className="index-projects-boxes grid-blocks three-blocks-grid">
+          <div className="index-projects-boxes grid-blocks four-blocks-grid">
                       
             <a href="https://explore.duneanalytics.com/public/dashboards/I43OkDWnojXZYm8vmdBDcLz5UsS3Tn0cx1xU8Hcg" className="white-box">
              <strong>Dune Analytics </strong>
@@ -184,6 +184,10 @@ class HomeSplash extends React.Component {
 
             <a href="https://thegraph.com/explorer/subgraph/gnosis/protocol-rinkeby" className="white-box">
               <strong> The Graph Rinkeby </strong>
+            </a>
+
+            <a href="https://defipulse.com" className="white-box">
+              <strong>DeFi Pulse</strong>
             </a>
             
           </div>
