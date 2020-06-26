@@ -6,7 +6,7 @@ sidebar_label: Overview
 
 This tutorial will teach you how to set up a Telegram bot that will notify you of important activities on Gnosis Protocol.
 
-Prerequisite:
+Prerequisites:
 
 - Telegram client: <https://desktop.telegram.org/>
 
@@ -96,7 +96,7 @@ Edit the administrators:
 
 <img src="assets/tutorial-telegram-bot/telegram-bot-permissions-2.png" width="450" />
 
-Add it as administrator:
+Add the bot as administrator:
 
 <img src="assets/tutorial-telegram-bot/telegram-bot-permissions-3.png" width="450" />
 
@@ -110,11 +110,11 @@ You should now have a new administrator in the channel:
 
 ## 🧠 4\. Setup the bot (create a config file)
 
-You'll need to clone the git project from <https://github.com/gnosis/dex-telegram>
+First, you'll need to clone the git repository <https://github.com/gnosis/dex-telegram>.
 
-The _README_ contains all relevant instructions to continue from this point and get the bot up and running.
+The _README_ file in the repository contains all relevant instructions to continue from this point, and get the bot up and running.
 
-We'll go over the steps without too much detail.
+We'll go over the steps here without too much detail.
 
 Clone the project:
 
@@ -135,29 +135,29 @@ The file has comments that will guide you through the configuration.
 
 A small highlight of the most important ones:
 
-- `TELEGRAM_TOKEN`: This is where you add the Auth token you created in the step 1
+- `TELEGRAM_TOKEN`: This is where you add the authentication token you created in step 1.
 
-- `TELEGRAM_CHANNEL_ID`: This is the identifier of your channel, in this case @potato_token
+- `TELEGRAM_CHANNEL_ID`: This is the identifier of your channel, in this case @potato_token, from step 2.
 
-- `NODE_URL`: It's the Url to an Ethereum node. It requires to have Websocket API enabled. You can use Infura if you don't have your own node. Just create an account in [https://infura.io](https://infura.io/). i.e. wss://mainnet.infura.io/ws/v3/<your-api-key>
+- `NODE_URL`: This is the URL for an Ethereum node. It requires having the Websocket API enabled. You can use Infura if you don't have your own node. Just create an account at [https://infura.io](https://infura.io/), i.e. wss://mainnet.infura.io/ws/v3/<your-api-key>.
 
-- `TOKEN_IDS_FILTER`: (optional) Allows you to filter the notifications, and only submit orders for a list of tokens of your liking. Tokens are identified in Gnosis Protocol by a unique ID intrinsic to the protocol. If you are only interested in specific token(s), like the **Potato Token** you will need to first find out the tokenID(s).
+- `TOKEN_IDS_FILTER`: (Optional) This allows you to filter the notifications, such as only send notifications for orders according to a custom list of tokens. Tokens are identified in Gnosis Protocol by a unique ID intrinsic to the protocol. If you are only interested in specific token(s), like the **Potato Token**, you will need to first find out the tokenID(s) on Gnosis Protocol.
 
   You can do this on [Etherscan](https://etherscan.io/address/0x6f400810b62df8e13fded51be75ff5393eaa841f#readContract):
 
-  - Navigate to tab **Contract**, **Read contract**.
+  - Navigate to tab **Contract**, **Read contract**
 
   - Use the function **Nr. 4** `tokenIDtoAddressMap`
 
-  - Enter the token address of **Potato Token**.
+  - Enter the token address of **Potato Token**
 
-  The query will return you a specific ID (if the token is indeed listed on Gnosis Protocol. If that is not the case, consider reading this Tutorial on [listing an ERC20 token.](https://docs.gnosis.io/protocol/docs/addtoken1/)
+  The query will return a specific ID. (Note: the ID will be returned only if the token is indeed listed on Gnosis Protocol. If that is not the case, consider following this tutorial on [listing an ERC20 token](https://docs.gnosis.io/protocol/docs/addtoken1/).
 
-- `WEB_BASE_URL`: When the bot notifies for a new order, it generates a link that allows users to fill that order. The link will take you to any defined instance of a Dapp for Gnosis Protocol Dapp (<https://github.com/gnosis/dex-react>) such as [dxDAO's Mesa](http://mesa.eth.link).
+- `WEB_BASE_URL`: When the bot sends a notification of a new order, it generates a link that allows users to fill that order. The link will take you to any defined instance of a dapp built on Gnosis Protocol (<https://github.com/gnosis/dex-react>) such as [dxDAO's Mesa dapp](http://mesa.eth.link).
 
-  You do not have to rely on Mesa. Anyone can also fork this Open Source Dapp, and customize a specific graphical user interface (front-end) for Gnosis Protocol (optional). Let's assume you have forked the Dapp and have called it 🥔 **Potato Exchange**.
+  You do not have to rely on Mesa, however. Anyone can also fork this open source dapp built on Gnosis Protocol, and customize a specific graphical user interface (front-end) for Gnosis Protocol. While this is not required, let's assume you have forked the dapp and have called it 🥔 **Potato Exchange**.
 
-## 🚀 5\. Run the bot (in your server)
+## 🚀 5\. Run the bot on your server)=
 
 ### Run it with node.js
 
@@ -174,7 +174,7 @@ yarn start:env
 yarn dev
 ```
 
-If everything go as planned, you should see something similar to this:
+If everything runs as planned, you should see something similar to this:
 
 <img src="assets/tutorial-telegram-bot/telegram-run-output.png" width="10024" />
 
@@ -182,9 +182,11 @@ If everything go as planned, you should see something similar to this:
 
 This actually makes it easier if you don't want to run it from your local source code, or if you don't want to install Node.js.
 
-You would use the docker image published in [@gnosispm/dex-telegram (Docker Hub)'](https://hub.docker.com/r/gnosispm/dex-telegram/tags).
+To do this, use the Docker image published in [@gnosispm/dex-telegram (Docker Hub)'](https://hub.docker.com/r/gnosispm/dex-telegram/tags).
 
-You would still need to provide the configuration file, and provide the tagged version you want to use (please check the latest version and keep up eye if new versions are published and what's in them):
+You would still need to provide the configuration file, and provide the tagged version you want to use. (Note: please check the latest version and keep up eye on if new versions are published).
+
+To run the dapp using Docker:
 
 ```bash
 # Run with docker:
@@ -192,9 +194,9 @@ You would still need to provide the configuration file, and provide the tagged v
 docker run --env-file .env gnosispm/dex-telegram:v0.9.0
 ```
 
-## 🧪 6\. Test the bot: Create an order (in Gnosis Protocol)
+## 🧪 6\. Test the bot by creating an order on Gnosis Protocol
 
-Go to any Gnosis Protocol Dapp like the Potato Exchange or [Mesa](http://mesa.eth.link/) and create an order.
+Visit any Gnosis Protocol dapp like the Potato Exchange or [Mesa](http://mesa.eth.link/), and create an order.
 
 The channel should now receive a notification from the bot:
 
@@ -204,20 +206,20 @@ If it does not work or you need help, find us on [Discord](http://chat.gnosis.io
 
 ## ✨BONUS: About command
 
-The bot, as any piece of software using the network, can have connectivity issues.
+The bot, like any piece of software relying on network access, can have connectivity issues.
 
 One nice thing about the bot, is that we can can try to talk to it, and see if it replies:
 
 <img src="assets/tutorial-telegram-bot/telegram-about-command-1.png" width="650" />
 
-Also, it has a convenient `/about` command that would give you a lot of useful information, such us the running version of the bot, the contract that it is watching, the network it is listening to, and the last mined Ethereum block that it is aware of:
+Also, it has a convenient `/about` command that would give you a lot of useful information, such us the running version of the bot, the contract that it is watching, the network it's listening to, and the last mined Ethereum block that it is aware of:
 
 <img src="assets/tutorial-telegram-bot/telegram-about-command-2.png" width="650" />
 
-The last mined block can be useful, if we suspect that for some reason, the bot is disconnected from the node. This way, we can check if this block is recent or not, for example comparing with the last mined block we see in [https://etherscan.io](https://etherscan.io/)
+The last mined block can be useful if we suspect that for some reason the bot is disconnected from the node. This way, we can check if this block is recent or not, for example by comparing it with the last mined block we see on [etherscan.io](https://etherscan.io/).
 
 ## Wrapping up
 
-In this tutorial, you've learned how to create our own channel, and run a telegram bot that would publish important information from Gnosis Protocol.
+In this tutorial, you've learned how to create your own Telgram channel, and run a bot that posts important trading information from Gnosis Protocol.
 
-This bot, and the companion Dapp is Open Source: they can be forked and adjusted to your individual needs. If you fork the project, we would appreciate it if you bring back added functionality in the form of PRs. Your contribution and comments makes Gnosis Protocol stronger! Always let us know what you think. Join us on [Discord](http://chat.gnosis.io).
+This bot, and the available dapp Mesa, are open source. This means they can be forked and adjusted to your individual needs. If you fork the project, we would appreciate it if you contribute any added functionality back to the repository in the form of PRs. Your contribution and comments make Gnosis Protocol stronger! Always let us know what you think, and join us on the Gnosis [Discord](http://chat.gnosis.io) chat.
