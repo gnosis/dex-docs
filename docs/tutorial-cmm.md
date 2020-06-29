@@ -101,7 +101,7 @@ export PK=<private key of the proposer-account>
 - Note that in our current setup, the proposer account's private key is not handled safely, since it's available as an environment variable and in the command line history.
 - **Important: due to the above, it would be unwise to transfer more ETH than required for deployment into this account.**
 
-Note:
+**Note**:
 It is recommended to use your own infura-token
 
 ```
