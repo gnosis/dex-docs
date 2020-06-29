@@ -101,6 +101,19 @@ export PK=<private key of the proposer-account>
 - Note that in our current setup, the proposer account's private key is not handled safely, since it's available as an environment variable and in the command line history.
 - **Important: due to the above, it would be unwise to transfer more ETH than required for deployment into this account.**
 
+**Note**:
+It is recommended to use your own infura-token
+
+```
+export INFURA_KEY=<Your infura key>
+```
+
+You can get your own infura token [here](https://infura.io/register). If you don't use your own infura key, it might happen that you will get timeouts with the following error message:
+
+```
+There was a timeout while attempting to connect to the network.
+```
+
 ### Script parameters
 
 The script `complete_liquidity_provision` takes the following non-optional parameters:
