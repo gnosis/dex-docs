@@ -2,6 +2,8 @@ if: (branch = develop) OR (branch = master) OR (type = pull_request) OR (tag IS 
 sudo: required
 dist: bionic
 language: node_js
+env:
+  BASE_URL: /protocol/
 before_install:
   # Needed to deploy pull request and releases
   - npm i -g yarn

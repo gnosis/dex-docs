@@ -20,11 +20,13 @@ const users = [
   // },
 ];
 
+const baseUrl = process.env.BASE_URL || "/";
+
 const siteConfig = {
   title: 'Gnosis Developer Portal Gnosis Protocol ', // Title for your website.
   tagline: 'Gnosis Protocol',
   url: 'https://docs.gnosis.io/protocol/', // Your website URL
-  baseUrl: '/protocol/', // Base URL for your project */
+  baseUrl, // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
@@ -42,7 +44,7 @@ const siteConfig = {
     {page: 'use-case', label: 'Use Case'},
     {doc: 'devguide01', label: 'Documentation'},
     {page: 'tutorials', label: 'Tutorials'},
-    {href: "/protocol/#support", label: 'Support'},
+    {href: baseUrl + "#support", label: 'Support'},
   ],
 
   // If you have users set above, you add it here:
