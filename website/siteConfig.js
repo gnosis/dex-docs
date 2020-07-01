@@ -20,7 +20,7 @@ const users = [
   // },
 ];
 
-const baseUrl = process.env.BASE_URL || "/";
+const baseUrl = process.env.BASE_URL || '/protocol/';
 
 const siteConfig = {
   title: 'Gnosis Developer Portal Gnosis Protocol ', // Title for your website.
