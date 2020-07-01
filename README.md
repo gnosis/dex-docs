@@ -18,9 +18,13 @@ cd website
 # Run it for development
 yarn start
 
-# It can be convenient to make sure the paths and links are ok even when we change the base url
-BASE_URL=/protocol/ yarn start
+# It you want to try with a different base url
+BASE_URL=/ yarn start
 ```
+
+**Gotchas**: If in production you have some issues displaying some images, and it doesn't reproduce in the local dev
+server, try to add a `/` at the end of the problematic URL. Docusaurus v1 can have issues serving static files from
+those URLs.
 
 # Build for production
 
@@ -33,13 +37,13 @@ specially related to resource paths and links:
 
 ```bash
 # Build and run app changing the base url
-BASE_URL=/protocol/ yarn build && \
+yarn build && \
   rm -rf protocol && \
   mv build/dfusion-docs protocol \
   && npx serve .
 ```
 
-Then access <http://localhost:5000/protocol>
+Then access <http://localhost:5000/protocol/>
 
 ## More info
 
