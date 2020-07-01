@@ -15,8 +15,11 @@ Prerequisites:
 
 ### What is a Gnosis Protocol (GP) Telegram Bot?
 
-<img src="assets/tutorial-telegram-bot/telegram-messages.png" width="450" align="right" />
-GP Telegram bot is an open source Node.js app that listens for Ethereum events on Gnosis Protocol smart contracts, and sends notifications in a clear format to any Telegram channel.
+<img src="/protocol/docs/assets/tutorial-telegram-bot/telegram-messages.png" width="450" align="right" />
+
+GP Telegram bot is an open source Node.js app that listens for Ethereum events on
+Gnosis Protocol smart contracts, and sends notifications in a clear format to any
+Telegram channel.
 
 At the time of writing (June 2020), the bot is configured to send a notification every time any user **submits a new order** on the protocol (_Note: Submitting an order is independent of a user's balance on the protocol, and the order may also be cancelled_). Using the bot, you can watch all markets, or you can specify a list of tokens for your Telegram channel to watch.
 
@@ -62,7 +65,7 @@ The process for creating a bot is super simple:
 
 The entire process should look like this:
 
-<img src="assets/tutorial-telegram-bot/telegram-create-bot.png" width="400" />
+<img src="/protocol/docs/assets/tutorial-telegram-bot/telegram-create-bot.png" width="400" />
 
 Notice the red arrow. That's your authentication token. It's required to authenticate your bot's services and notifications.
 
@@ -71,14 +74,25 @@ Notice the red arrow. That's your authentication token. It's required to authent
 You will need to have a Telegram channel in which the bot sends notifications.
 
 Create a channel using your Telegram client:\
-<img src="assets/tutorial-telegram-bot/telegram-create-channel-1.png" width="650" />
+
+<img
+  src="/protocol/docs/assets/tutorial-telegram-bot/telegram-create-channel-1.png"
+  width="650"
+/>
 
 Give the channel a name:\
-<img src="assets/tutorial-telegram-bot/telegram-create-channel-2.png" width="650" />
+
+<img
+  src="/protocol/docs/assets/tutorial-telegram-bot/telegram-create-channel-2.png"
+  width="650"
+/>
 
 Make sure the channel is public, and it has a name you like:
 
-<img src="assets/tutorial-telegram-bot/telegram-create-channel-3.png" width="450" />
+<img
+  src="/protocol/docs/assets/tutorial-telegram-bot/telegram-create-channel-3.png"
+  width="450"
+/>
 
 Save the name of the channel for later as we'll need it for the configuration. In this case, we've named our channel `@potato_token`.
 
@@ -90,23 +104,38 @@ Useful resource:
 
 Click on the channel header to enter the bot's details as an administrator:
 
-<img src="assets/tutorial-telegram-bot/telegram-bot-permissions-1.png" width="450" />
+<img
+  src="/protocol/docs/assets/tutorial-telegram-bot/telegram-bot-permissions-1.png"
+  width="450"
+/>
 
 Edit the administrators:
 
-<img src="assets/tutorial-telegram-bot/telegram-bot-permissions-2.png" width="450" />
+<img
+  src="/protocol/docs/assets/tutorial-telegram-bot/telegram-bot-permissions-2.png"
+  width="450"
+/>
 
 Add the bot as administrator:
 
-<img src="assets/tutorial-telegram-bot/telegram-bot-permissions-3.png" width="450" />
+<img
+  src="/protocol/docs/assets/tutorial-telegram-bot/telegram-bot-permissions-3.png"
+  width="450"
+/>
 
 Make sure the bot can post messages:
 
-<img src="assets/tutorial-telegram-bot/telegram-bot-permissions-4.png" width="450" />
+<img
+  src="/protocol/docs/assets/tutorial-telegram-bot/telegram-bot-permissions-4.png"
+  width="450"
+/>
 
 You should now have a new administrator in the channel:
 
-<img src="assets/tutorial-telegram-bot/telegram-bot-permissions-5.png" width="450" />
+<img
+  src="/protocol/docs/assets/tutorial-telegram-bot/telegram-bot-permissions-5.png"
+  width="450"
+/>
 
 ## 🧠 4\. Setup the bot (create a config file)
 
@@ -176,7 +205,7 @@ yarn dev
 
 If everything runs as planned, you should see something similar to this:
 
-<img src="assets/tutorial-telegram-bot/telegram-run-output.png" width="10024" />
+<img src="/protocol/docs/assets/tutorial-telegram-bot/telegram-run-output.png" width="10024" />
 
 ### Alternatively you can run it with Docker
 
@@ -200,7 +229,7 @@ Visit any Gnosis Protocol dapp like the Potato Exchange or [Mesa](http://mesa.et
 
 The channel should now receive a notification from the bot:
 
-<img src="assets/tutorial-telegram-bot/telegram-messages.png" width="650" />
+<img src="/protocol/docs/assets/tutorial-telegram-bot/telegram-messages.png" width="650" />
 
 If it does not work or you need help, find us on [Discord](http://chat.gnosis.io).
 
@@ -210,11 +239,17 @@ The bot, like any piece of software relying on network access, can have connecti
 
 One nice thing about the bot, is that we can can try to talk to it, and see if it replies:
 
-<img src="assets/tutorial-telegram-bot/telegram-about-command-1.png" width="650" />
+<img
+  src="/protocol/docs/assets/tutorial-telegram-bot/telegram-about-command-1.png"
+  width="650"
+/>
 
 Also, it has a convenient `/about` command that would give you a lot of useful information, such us the running version of the bot, the contract that it is watching, the network it's listening to, and the last mined Ethereum block that it is aware of:
 
-<img src="assets/tutorial-telegram-bot/telegram-about-command-2.png" width="650" />
+<img
+  src="/protocol/docs/assets/tutorial-telegram-bot/telegram-about-command-2.png"
+  width="650"
+/>
 
 The last mined block can be useful if we suspect that for some reason the bot is disconnected from the node. This way, we can check if this block is recent or not, for example by comparing it with the last mined block we see on [etherscan.io](https://etherscan.io/).
 
