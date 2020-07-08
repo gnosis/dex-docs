@@ -467,6 +467,10 @@ a{
 
 /* Fix for  Navigation Bar on smaller screens*/
 @media only screen and (max-width: 1023px) {
+   .fixedHeaderContainer {
+      position: relative;
+   }
+   
    .docsNavContainer {
       top: 0;
       position: sticky;
