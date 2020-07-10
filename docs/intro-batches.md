@@ -4,159 +4,143 @@ title: What Is a Batch and a Batch ID?
 sidebar_label: What Is a Batch and a Batch ID?
 ---
 
-## What Is a Batch and a Batch ID?
+## What is a Batch and a Batch ID?
 
-In Gnosis protocol, orders that are sent on chain are not immediately executed, but instead collected and aggregated into batches of 5 minutes.
+On Gnosis Protocol, orders  placed on-chain are not immediately executed, but rather **collected and aggregated to be settled in batches. These batch order settlements occur every 5 minutes consecutively.** This will give you an overview of how batches play a critical role in Gnosis Protocol operations.
 
-Every batch is identified by a batch ID, this identifier tells us exactly from which time and until when a batch was "active". This is explained in more detail in the next section
+Every batch is identified by a **batch ID**. This identifier tells us the exact start and end time during which a batch was "active".
 
-![](https://docs.google.com/drawings/u/1/d/sTFvgp1SyoE9kerlkvlXZVg/image?w=444&h=178&rev=243&ac=1&parent=13dMKSD8lH8ZQ4BTKd_uPDt46KKMJmNEGooa0VsaOexQ)
+![](assets/intro-batches/batches.png)
 
-As soon as a batch is "closed" (does not accept any new orders), so-called solvers can compete to provide solutions for the next four minutes, matching the orders in this closed batch.
+On Gnosis Protocol, a central operator is replaced by an open competition for order matching, and the term **solver** refers to anyone who submits an order settlement solution for a batch.  As soon as a batch is "closed for orders" meaning that it does not consider any new orders, these solvers can compete to provide optimized solutions for the next four minutes, matching the orders in this closed batch.
 
-## 🌘 Phases of a Batch
+**Note**: While out of scope of this explainer on batches, to learn more about solvers visit [this section](https://docs.gnosis.io/protocol/docs/introduction1/#solvers) in the Gnosis Protocol documentation.
 
-Every batch will go through a series of phases. Depending on the phase, the batch will accept orders and solutions or not.
+## 🌘 Phases of a batch
 
-![](https://docs.google.com/drawings/u/1/d/sdK3FfLMkyzJXD5zorja0MA/image?w=632&h=471&rev=908&ac=1&parent=13dMKSD8lH8ZQ4BTKd_uPDt46KKMJmNEGooa0VsaOexQ)
+Every batch on Gnosis Protocol has a series of phases. Depending on its phase, a batch will accept either orders, solutions, or neither.
 
-A batch can be in one of the following phases:
+![](assets/intro-batches/batch_phases.png)
 
-- Collecting orders: A batch is in the collecting orders phase as long as it is a current or future batch. Any user may place an order that is from a batch in this phase. The orders have an expiration batch, so they can span multiple batches.
+In summary, a batch has three phases:
 
-- Accepting Solution: The previous batch doesn't accept orders any more. Solvers will start to find solutions for batch N-1 during the first 4 minutes of batch N. At the end of the 4 minutes, the best solution according to an [objective function](https://docs.gnosis.io/protocol/docs/devguide03/#solution-submission)will define the trades that are executed in that batch. After 4 minutes,  batch N-1 becomes Finalized/Settled, so no more solutions are accepted
+1.  **Collecting orders**: A batch is in the *collecting orders* phase as long as it is the current or future batch. Any user may place an order that qualifies for a batch in this phase. Orders have an expiration batch, so they can be eligible for multiple future batches. This phase is referenced as batch N or N+ in the diagram below.\
+![](assets/intro-batches/collecting_orders.png)
 
-- Finalized/Settled: It doesn't accept solutions or new orders. The batch N-2 and older is always finalized. Also, batch N-1 is finalized at minute 4 of the current batch. A finalized batch, if it contains a solution it'll have a series of trades of some tokens. All trades in the same batch have the same trading price for the same token (uniform clearing price).
+2.  **Accepting solutions**: After collecting orders, a batch closes for orders, meaning that it no longer considers new orders for inclusion in order settlement, and enters the *accepting solutions* phase represented as batch N-1 in the diagram above. During this phase, solvers have 4 minutes to submit order settlement solutions. After the first solution is submitted, to submit a new solution, it must significantly improve (more than 1%) the [objective function](https://docs.gnosis.io/protocol/docs/devguide03/#solution-submission) as defined by the protocol in comparison to the previously submitted solution. At the end of the 4 minutes, the best submitted solution will determine the trades that are executed in that batch.
 
-## ⏱ How Can I Know the Time for a Given Batch ID?
+    While we consider Batch N the Current Batch, solutions are accepted for Batch N-1:
 
-For a given batch ID, we can tell when it was, or it will be, "active" (when we say it's the current batch).
+![](assets/intro-batches/accepting_solutions.png)
 
-Let's see it with an example for the batch 5,312,588
+3.  **Finalized/ Settled**: After the 4 minute accepting solutions phase, a batch then enters the *finalized/ settled* phase in which it no longer accepts order settlement solutions (or new orders), which is shown in the diagram below. Batches including N-2 and older are also always in this finalized/ settled phase. A finalized/ settled batch with a valid order settlement solution will include executed trades.
 
-Since the batches run for 5 min (300 seconds), we can convert the batch into an [epoch](https://en.wikipedia.org/wiki/Epoch):\
-5,312,588 \* 300 = 1,593,776,400
+![](assets/intro-batches/finalized.png)
 
-If we input this epoch in <https://www.epochconverter.com/>
+## ⏱ How can I get the Active time from a given batch ID?
 
-We can see something like this:
+From a given batch ID, we can find when it was or it will be "active" as the "Current Batch."
 
-![](https://lh4.googleusercontent.com/tpn1GYBmSmN7xBQt2x7zT4Co9baCO_tMegJiI6jN3cNZWBlXNPIz34Qc511kzR1trS9fio9lvTFt2XGaipnDaxJZNKM052m-4Blt9LhX8Ai__ZsrksfGya-9Rm7Vu68rnVkvtpWC)
+Batch IDs are based on [Unix Epocs](https://en.wikipedia.org/wiki/Epoch_(computing)). This means batch IDs can be easily converted to Unix timestamps by multiplying the batch ID by its duration in seconds.
 
-This means that batch 5,312,588 was active:
+Let's start with an example for the batch 5,312,588. Since all batches run for 5 minutes (300 seconds), we can always convert a batch into an [Epoch](https://en.wikipedia.org/wiki/Epoch) by using the product of its ID and duration:
 
-- From: Friday, 3 July 2020 11:40 GMT
+```
+Batch ID * 300 seconds = Time in Epoch format
+5,312,588 * 300 = *1,593,776,400*
+```
 
-- Until: Friday, 3 July 2020 11:45 GMT
+If we input this epoch on [epochconverter.com](https://www.epochconverter.com/), we can easily retrieve the human readable time format of the batch:
 
-Note that they provide the date both, in your local time and in GMT.
+![](assets/intro-batches/epochconverter1.png)
 
-## 🆔 How Can I Know the Batch ID for a Given Time?
+This means that batch 5,312,588 was active during the timeframe:
 
-We can also do the opposite, if we want to know the batch number for a given date, we just input the date in <https://www.epochconverter.com/>. Make sure you select GMT or your local time, depending on which date you are inputting.
+-   **From**: Friday, 3 July 2020 11:40 GMT
 
-![](https://lh6.googleusercontent.com/7y9o1sbxxA71ZIyqUCNlonyF1JlWtZOAGTD07uuXBiuhkmVh4wwgH7mGpEFcrxCemL4emc6x7-rBHoKLb0Dl2awP3EFIoO6KuEBTHVnfLmLQ8CkFbaqPxoLQAqRpjxH49DRi2VzZ)
+-   **Until**: Friday, 3 July 2020 11:45 GMT
 
-This would give us the [epoch](https://en.wikipedia.org/wiki/Epoch), 1593776400 in this case. So if we divide by 300, we would get the same batch:
+Note that Epochconverter can provide the time in both your local timezone and in GMT.
 
+## 🆔 How can I get the batch ID for a given time?
+
+If we want to find the batch ID number for a given date and time, we can easily calculate this because batch IDs are based on Unix timestamps.
+
+To get the batch ID, we can input the desired date and time on [epochconverter.com](https://www.epochconverter.com/). Make sure you select GMT or your local timezone, depending on the time for which you are searching.
+
+![](assets/intro-batches/epochconverter2.png)
+
+The example search above returns the time as an [epoch](https://en.wikipedia.org/wiki/Epoch), which is 1593776400 in this case. To retrieve the batch ID, we should divide the epoch time (Unix timestamp) by 300, which is the duration of a batch in seconds:
+
+```
+Epoch time format / 300 seconds = Batch ID
 1593776400 / 300 = 5,312,588
+```
 
-## 📏 How Accurate Is the Time of the Batch ID?
+This returns 5,312,588 as the batch ID, which is the same batch referenced in the previous section on converting from batch ID to human readable time.
 
-The smart contract  uses the Ethereum block time to determine the current batch ID.
+## 📏 How accurate are batch IDs for determining their date and time?
 
-Note that this timestamp can be influenced by miners to some degree and therefore slightly differ from the actual time. However, the current block timestamp must be strictly larger than the timestamp of the last block and miners tend to not mine on blocks with a timestamp too far in the future [[1]](https://ethereum.stackexchange.com/a/428) so the discrepancy will be relatively small (in the order of seconds).
+The Gnosis Protocol smart contract uses the Ethereum block time to determine the current batch ID.
 
-## 🐛 When Does an Order Become Tradeable?
+Note that this timestamp can be influenced by miners to some degree, and therefore can slightly differ from the actual time. However, the current block timestamp must be strictly larger than the timestamp of the previous block, and miners tend to not mine blocks with a timestamp too far in the future [[1]](https://ethereum.stackexchange.com/a/428), so the discrepancy will be relatively small, i.e. on the order of seconds.
 
-![](https://docs.google.com/drawings/u/1/d/s3NV34qNWIEkfWbgLUkuMaQ/image?w=429&h=214&rev=117&ac=1&parent=13dMKSD8lH8ZQ4BTKd_uPDt46KKMJmNEGooa0VsaOexQ)
+## 🐛 When does an order become tradable?
 
-If a new order is submitted to Gnosis Protocol, and the trader wants it to be settled as soon as possible, the order will only be tradeable after the current batch is closed.
+![](assets/intro-batches/tradable_order.png)
 
-This is because, when you send an order to be part of a batch (N), since the solvers only work with closed batches (they try to solve N-1), only when we are in batch N+1 they would consider our order.
+New orders are only tradable---that is, considered for order settlement--- **after** the batch that is current when the order was placed, is closed. This is because solvers only work on order settlement solutions for closed batches. This means that when you place an order to be part of a batch, it can only be considered for the next open batch, e.g. batch N+1.
 
-## 🧮Solving a Batch
-
-Solvers work only with batches in the accepting solutions phase (that don't accept more orders, but they aren't finalized yet). They have 4 minutes to find a solution.
-
-![](https://docs.google.com/drawings/u/1/d/sQtqZMAI6WxdoFq1XG2Oj_Q/image?w=541&h=251&rev=1&ac=1&parent=13dMKSD8lH8ZQ4BTKd_uPDt46KKMJmNEGooa0VsaOexQ)
-
-A the previous batch resolution has two important phases (as explained in § Phases of a Batch):
-
-1.  Open for solutions: Minute 0-4 of every batch
-
-- During this period, the smart contract will accept solutions for the previous batch
-
-- If no-one submitted a solution yet, any solver can send his solution as long as:
-
-- It's feasible (follow the order matching rules)
-
-- We are not in the finality period
-
-- If there's a previous solution, any solver can submit another solution, overriding the previous one if:
-
-- It's feasible (follow the order matching rules)
-
-- We are not in the finality period
-
-- The new solution improves significantly (more than 1%) the [objective function](https://docs.gnosis.io/protocol/docs/devguide03/#solution-submission)
-
-1.  Finality period: Last minute of every batch.
-
-- No more solutions are accepted
-
-- Trades for the last batch are final
-
-## 👀 Where Does the Protocol Use Batch IDs?
+## 👀  How does the protocol use batch IDs?
 
 ### Orders
 
-The order validity is expressed in terms of the batch where you want your order to start being tradeable, and where you want your order to expire. E.g. an order valid from batch 7 to 42 can be traded in solutions for batch 7 (when batch 8 is collecting orders) all the way up to (including) solutions for batch 42.
+Gnosis Protocol uses batch IDs to determine the validity of orders.
 
-This means that Gnosis Protocol allows you to also create orders that can only be executed in the future, and expire automatically after a defined number of batches.
+When placing an order, the order's validity is expressed in terms of the batch ID in which the user would like the order to become tradable and the batch ID by which the order expires.
 
-![](https://docs.google.com/drawings/u/1/d/spaOqZfnhkp_eS4UI1LrYRg/image?w=541&h=212&rev=542&ac=1&parent=13dMKSD8lH8ZQ4BTKd_uPDt46KKMJmNEGooa0VsaOexQ)
+For example, an order valid from batch ID 35 to 42 can be traded in solutions for batch 35 until and including batch 47.
+
+This means that Gnosis Protocol **allows you to also create orders that can only be executed in the future, and expire automatically after a defined number of batches**.
+
+![](assets/intro-batches/orders.png)
 
 ### Trades
 
-The solvers try to submit solutions on every batch, if there is any. When they find a solution,  they submit it to the smart contract that settles the trades. These trades happen all at the same time, thus trades in the same batch have the same batch ID (the one of the batch being solved).
+Gnosis Protocol settles trades in batches, and therefore all trades settled in the same batch have the same batch ID.
 
-![](https://docs.google.com/drawings/u/1/d/sPBBZc4OQGqwNuVMRXU9xrg/image?w=541&h=318&rev=252&ac=1&parent=13dMKSD8lH8ZQ4BTKd_uPDt46KKMJmNEGooa0VsaOexQ)
+![](assets/intro-batches/trades.png)
 
 ### Deposits
 
-![](https://docs.google.com/drawings/u/1/d/sEuJ6qA5WoJ7NXfI6ogM8pg/image?w=429&h=231&rev=1&ac=1&parent=13dMKSD8lH8ZQ4BTKd_uPDt46KKMJmNEGooa0VsaOexQ)
+Gnosis Protocol automatically and implicitly assigns all deposits a batch ID if one isn't specified. The batch ID of a deposit is the current batch ID, the deposit is only tradeable in the following batch, analogously to when orders are submitted to the current batch, as explained in *When does an order become tradeable?*
 
-When you do a deposit, although you don't need to specify one Batch Id, the deposit has an implicit one associated with it (the current one).
-
-The deposit is credited right away, although since the solvers always work with the previous batch, the deposit will only be available for trading when the current batch ends (between 0-5min). Placing an order and a deposit in the same batch ensures both can be settled when this batch is solved.
+![](assets/intro-batches/deposits.png)
 
 ### Withdraw Requests
 
-![](https://docs.google.com/drawings/u/1/d/sxJIA7WJv3Hk71GxEx_qrVg/image?w=429&h=289&rev=323&ac=1&parent=13dMKSD8lH8ZQ4BTKd_uPDt46KKMJmNEGooa0VsaOexQ)
+Gnosis Protocol allows users to optionally specify a batch ID when requesting a withdrawal. When the batch ID is omitted, the withdrawal request defaults to the current batch ID, meaning the withdrawal can happen as soon as the following batch.
 
-When you request a withdrawal, you can optionally specify the batch ID in which you want your withdrawal to happen.
+![](assets/intro-batches/withdraw_requests.png)
 
-When the current batch ID is greater than the one specified in the request, we say the request has matured.
+When the current batch ID is greater than one specified in a withdrawal request, we say the request **has matured**. Before a withdrawal request has matured, the user balance considered by solvers doesn't take the withdrawal request into account. This allows you to schedule a withdrawal effective only in the future. 
 
-Before a request has matured, the effective user balance considered by the solvers doesn't take the withdrawal request into account. This allows you to schedule a future withdrawal.
-
-Alternatively, you can omit the batch ID, to specify the current batch, and therefore withdraw as soon as possible.
-
-When a withdrawal request has matured, the balance from the request is deducted from the effective user balance and the user can do the actual withdrawal.
+When a withdrawal request has matured, the withdrawal amount requested is deducted from the effective user balance, which means the user can then perform the actual withdrawal.
 
 ### Withdrawal
 
-![](https://docs.google.com/drawings/u/1/d/sM1lKXq7TKoeTlwv9cYDPsA/image?w=552&h=289&rev=458&ac=1&parent=13dMKSD8lH8ZQ4BTKd_uPDt46KKMJmNEGooa0VsaOexQ)
+Gnosis Protocol automatically assigns withdrawals the batch ID during which the funds were actually withdrawn, 
 
-This operation executes a pending withdrawal request that has matured, effectively sending the tokens from the Gnosis Protocol smart contract to the user's wallet.
+![](assets/intro-batches/withdrawal.png)
 
-Withdrawals don't need to specify the batch ID, but every withdrawal has an associated batch where the user withdrew his/her funds.
+This withdrawal operation executes a pending withdrawal request that has matured, effectively sending the tokens from the Gnosis Protocol smart contract to the user's wallet.
 
-## Wrapping Up
+Wrapping Up
+-----------
 
-Batches and batch IDs are an important part of the protocol. All the operations in the protocol use the batch ID to define the protocol rules, so users and solvers collaborate in a decentralized way.
+Batches and batch IDs are an important part of Gnosis Protocol. All the operations on the protocol make use of batch IDs to define and enforce the protocol's ruleset, so that users and solvers collaborate in a decentralized way.
 
-We saw how the batch IDs are deterministic, and how you can get the actual time in which these batches were or are going to collect orders. These allow users to pre-commit their actions into the protocol ahead of time.
+In this overview, we saw how you can use deterministic batch IDs to retrieve batch times and place future orders. These unique properties of Gnosis Protocol allow users to essentially create **programmable orders** with complex and conditional executability.
 
-If you want to keep learning about Gnosis Protocol [learn more here](https://docs.gnosis.io/protocol/docs/introduction1/).
+Learn more about Gnosis Protocol [here](https://docs.gnosis.io/protocol/docs/introduction1/).
+
