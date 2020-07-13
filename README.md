@@ -32,8 +32,8 @@ those URLs.
 yarn build
 ```
 
-It's a good idea to preview the production version, because there can be small differences with the development,
-specially related to resource paths and links:
+It's a good idea to preview the production version, because there can be small differences with the development one -
+especially concerning resource paths and links:
 
 ```bash
 # Build and run app changing the base url

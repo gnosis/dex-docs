@@ -186,7 +186,7 @@ A small highlight of the most important ones:
 
   You do not have to rely on Mesa, however. Anyone can also fork this open source dapp built on Gnosis Protocol, and customize a specific graphical user interface (front-end) for Gnosis Protocol. While this is not required, let's assume you have forked the dapp and have called it 🥔 **Potato Exchange**.
 
-## 🚀 5\. Run the bot on your server)=
+## 🚀 5\. Run the bot on your server
 
 ### Run it with node.js
 

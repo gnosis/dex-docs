@@ -464,3 +464,66 @@ a{
    color: $primaryColor;
    text-decoration: underline;
 }
+
+/* Fix for  Navigation Bar on smaller screens*/
+@media only screen and (max-width: 1023px) {
+   .fixedHeaderContainer {
+      position: relative;
+   }
+   
+   .docsNavContainer {
+      top: 0;
+      position: sticky;
+      margin-left: -20px;
+      width: 100vw;
+   }
+
+   .docsSliderActive.docsNavContainer {
+      padding-bottom: 0;
+   }
+
+   .tocActive .onPageNav {
+      position: sticky;
+      top: 48px;
+      width: 100vw;
+      margin-left: -20px;
+  }
+
+  .tocActive .docMainWrapper.wrapper {
+     display: flex;
+     flex-direction: column;
+  }
+
+  .tocActive .mainContainer {
+     order: 2;
+  }
+
+  .docsNavContainer .toc .navBreadcrumb {
+     position: static;
+  }
+
+  .docsSliderActive .toc section .navGroups {
+     padding-top: 0;
+     padding-bottom: 0;
+  }
+
+  .tocToggler {
+     margin-right: 0;
+  }
+
+  .tocActive .toggleNav .navBreadcrumb {
+     margin-bottom: 0;
+   }
+
+   .navPusher {
+      padding-top: 0;
+   }
+
+   .tocActive .docsSliderActive .toggleNav .navGroups {
+      display: none;
+  }
+
+  .line1, .line2, .line3 {
+      transition-property: transfrom;
+   }
+}

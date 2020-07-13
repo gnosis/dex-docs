@@ -53,7 +53,7 @@ deploy:
     secret_access_key: $AWS_SECRET_ACCESS_KEY
     skip_cleanup: true
     local_dir: website/build/dfusion-docs
-    upload-dir: current/protocol
+    upload-dir: protocol
     on:
       branch: master
       node: '12'
