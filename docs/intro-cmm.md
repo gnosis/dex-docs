@@ -1,7 +1,7 @@
 ---
 id: intro-cmm
 title: Custom Market Maker
-sidebar_label: Overview
+sidebar_label: Introduction
 ---
 
 _**Disclaimer**: This summary is for informational purposes only. It is not a risk assessment, nor investment advice! It is not intended to substitute for the advice of licensed professionals. Gnosis believes that the information is accurate as of the date of publication. No warranty of accuracy is given, and no liability for any error or omission is accepted by Gnosis Ltd. and/or its affiliates._
