@@ -10,7 +10,7 @@ This tutorial will walk you through how to create your own fork of a Gnosis Prot
 In summary, this tutorial covers:
 
 
-1. Forking the [https://github.com/gnosis/dex-react](https://github.com/gnosis/dex-react) repository
+1. Forking the [dex-react](https://github.com/gnosis/dex-react) repository
 2. Setting up a custom configuration in `custom/config.yaml`
 3. Making changes to the codebase directly or inside the custom directory
 4. Deploying your modified application
@@ -18,10 +18,10 @@ In summary, this tutorial covers:
 Let us go through these steps one by one.
 
 
-### Forking the [https://github.com/gnosis/dex-react](https://github.com/gnosis/dex-react) repository
+## Forking the dex-react repository
 
 
-1. To fork the repository you will first need to be logged into your GitHub account.
+1. To fork the repository at [https://github.com/gnosis/dex-react](https://github.com/gnosis/dex-react), you will first need to be logged into your GitHub account.
 2. Then, you will click on the **Fork** button in the upper right corner.
 
 
@@ -48,7 +48,7 @@ After the start process, it will be accessible at [http://localhost:8080](http:/
 More information on forking **dex-react** repository can be found on [wiki/Fork-project](https://github.com/gnosis/dex-react/wiki/Fork-project).
 
 
-### Setting up a custom configuration in `custom/config.yaml`
+## Setting up a custom configuration in `custom/config.yaml`
 
 The project’s most important configuration parameters, such as the application **name**, **appId**, and token list, can be specified in a custom configuration file located in the project directory at `custom/config.yaml`. 
 
@@ -79,7 +79,7 @@ You should see the changes already in effect.
 image
 
 
-### Making changes to the codebase directly or inside the `custom` directory
+## Making changes to the codebase directly or inside the `custom` directory
 
 The project implements an _alternative source directory_ to allow for easier override without changing the already present code. You should make changes mainly in this directory in order to easily incorporate any desired updates from the original project repository.
 
@@ -121,7 +121,7 @@ Keep in mind that the _alternative source directory_ only works for absolute pat
 For more details on customizing components, please refer to [wiki/Customize-Components](https://github.com/gnosis/dex-react/wiki/Customize-Components).
 
 
-### Deploying your modified application
+## Deploying your modified application
 
 Now that you have modified your application and want to commit the changes, make sure you delete the `custom/.gitignore` file. It is there to keep the custom directory committed when it’s empty.
 
