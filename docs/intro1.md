@@ -9,7 +9,7 @@ Now let's step into the ring, and take a closer look at the basics.
 
 ## Trades
 
-Gnosis Protocol is a trading protocol for ERC-20 tokens. The protocol is technically compatible with any ERC-20 token, but only tokens listed on the protocol can be traded. Token listing is permissionless and can be done by anyone. However, a spam protection fee of 10 <a href="https://blog.gnosis.pm/owl-token-use-cases-6094027ecb37">OWL</a> is required to list new tokens. You can learn more about how to list tokens in this <a href="addtoken1">tutorial</a>.
+Gnosis Protocol is a trading protocol for ERC-20 tokens. The protocol is technically compatible with any ERC-20 token, but only tokens listed on the protocol can be traded. Token listing is permissionless and can be done by anyone. However, a spam protection fee of 10 <a href="https://blog.gnosis.pm/owl-token-use-cases-6094027ecb37">OWL</a> is required to list new tokens. You can learn more about how to list tokens in this <a href="https://docs.gnosis.io/protocol/docs/addtoken1/">tutorial</a>.
 
 To trade on Gnosis Protocol, a user can simply place an order for one token in exchange for another. An order is an instruction as to what token a user wants to sell under a given price condition, thereby defining  a limit price within the order, which indicates the absolute worst price a user will receive. The protocol levies a fee of 0.1% on the volume of an executed trade. Fee costs are calculated as part of and already included in an order’s limit price.
 

@@ -183,7 +183,7 @@ The tokens do not fluctuate as you assumed, and your capital is idle. This resul
 The prices move in one direction, all of your deposited capital is exchanged into the devalued token, and the price does not recover. This means you are left with depreciated inventory.
 
 ### Who can benefit from using the CMM?
-Anyone can tailor it to their needs. However, there are a few interesting use cases. One common use case could be for ERC-20 projects seeking to provide liquidity for their own token. Learn how to list a token on the Gnosis Protocol this tutorial. 
+Anyone can tailor it to their needs. However, there are a few interesting use cases. One common use case could be for ERC-20 projects seeking to provide liquidity for their own token. Learn how to list a token on the Gnosis Protocol [this tutorial](https://docs.gnosis.io/protocol/docs/addtoken1/). 
 
 ### Are there costs involved in using the CMM?
 There is a 0.1% fee for every trade executed on the protocol. However, there is no need for the liquidity provider (or any user) to worry about setting this, as this fee is already included in the limit orders part of your liquidity provision.
