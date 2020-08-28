@@ -24,8 +24,7 @@ Let us go through these steps one by one.
 1. To fork the repository at [https://github.com/gnosis/dex-react](https://github.com/gnosis/dex-react), you will first need to be logged into your GitHub account.
 2. Then, you will click on the **Fork** button in the upper right corner.
 
-
-image
+![](assets/fork_gnosis_dex-react.png)
 
 3. You will be redirected to your fork of **dex-react** repository at address `https://github.com/<username>/dex-react`, where `<username>` is your account username.
 4. If you have [git](https://git-scm.com/) or another version control system installed, clone the repository with:
@@ -76,7 +75,7 @@ Then, restart the application with `yarn start`, and open your browser at [http:
 
 You should see the changes already in effect.
 
-image
+![](assets/fork_config_change.png)
 
 
 ## Making changes to the codebase directly or inside the `custom` directory
@@ -113,7 +112,7 @@ cp src/pages/About.tsx custom/pages/About.tsx
 3. As before, restart the application with `yarn start` and open your browser at [http://localhost:8080/about](http://localhost:8080/about). You should see the text you just added visible on the interface:
 
 
-image
+![](assets/fork_add_text.png)
 
 
 Keep in mind that the _alternative source directory_ only works for absolute paths. If you want to change something in a file that is imported as `./&lt;path>/&lt;file>`, you will have to change it in place.

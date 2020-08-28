@@ -1,7 +1,7 @@
 ---
 id: intro-batches
-title: What is a Batch and a Batch ID?
-sidebar_label: What is a Batch and a Batch ID?
+title: Batches and batch IDs
+sidebar_label: Batches and batch IDs
 ---
 
 ## What is a Batch and a Batch ID?
