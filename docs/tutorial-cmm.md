@@ -73,12 +73,10 @@ cd <your preferred directory>
 git clone git@github.com:gnosis/dex-liquidity-provision.git
 cd dex-liquidity-provision
 yarn install
-yarn compile
-yarn run networks-inject
+yarn build
 ```
 
-`yarn install` will install all dependencies needed and `yarn compile` will compile the necessary contracts.
-`yarn run networks-inject` ensures you are working with the correct contracts. It will inject the network addresses into your truffle builds.
+`yarn install` will install all dependencies needed and `yarn build` will compile the necessary contracts and inject the network addresses of the contracts into your truffle builds.
 
 You can find the core script that places orders for the basic liquidity provision strategy in the folder `scripts/complete_liquidity_provision.js`.
 
@@ -93,6 +91,7 @@ export NETWORK_NAME=rinkeby
 export GAS_PRICE_GWEI=<gas price>
 export MASTER_SAFE=<your safe address>
 export PK=<private key of the proposer-account>
+export INFURA_KEY=<Your infura key>
 ```
 
 - The `NETWORK_NAME` should be set to "mainnet" or "rinkeby". The gas price should be set in a way that your transaction is mined in a reasonable amount of time. Check out current gas prices on [ethgasstation](https://ethgasstation.info/).
@@ -100,15 +99,7 @@ export PK=<private key of the proposer-account>
 - The `PK` is the private key of your proposer account used as an owner in the Safe Multisig.
 - Note that in our current setup, the proposer account's private key is not handled safely, since it's available as an environment variable and in the command line history.
 - **Important: due to the above, it would be unwise to transfer more ETH than required for deployment into this account.**
-
-**Note**:
-It is recommended to use your own infura-token
-
-```
-export INFURA_KEY=<Your infura key>
-```
-
-You can get your own infura token [here](https://infura.io/register). If you don't use your own infura key, it might happen that you will get timeouts with the following error message:
+- You can get your own infura token [here](https://infura.io/register). If you don't use your own infura key, it might happen that you will get timeouts with the following error message:
 
 ```
 There was a timeout while attempting to connect to the network.
