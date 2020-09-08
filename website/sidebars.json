@@ -1,7 +1,8 @@
 {
   "docs": {
     "Overview": ["introduction1", "intro-batches", "faq"],
-    "Custom Market Maker": ["intro-cmm"]
+    "Custom Market Maker": ["intro-cmm"],
+    "Run your Own Solver": ["tutorial-solver"]
   },
   "docs-other": {
     "List any ERC-20 token on Gnosis Protocol": [

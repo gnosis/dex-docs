@@ -1,4 +1,10 @@
-# Quickstart: Running your own Solver
+---
+id: tutorial-solver
+title: Quickstart - Running your own Solver
+sidebar_label: Quickstart
+---
+
+#
 
 # Contents
 
@@ -7,13 +13,14 @@
 3. [Configuring Environment](#configuring-environment-variables)
 4. [Acquiring the Orderbook](#acquiring-the-orderbook)
 5. [Run the Solver](#run-the-solver)
-   1. [Configuring an Orderbook Filter](#Configuring-an-Orderbook-Filter)
+6. [Advanced Configuration](#advanced-configuration)
+   1. [Orderbook Filter](#Configuring-an-Orderbook-Filter)
 
 ---
 
 ## Installing Driver Tools
 
-Clone the dex-services repository
+Clone the dex-services repository, and acquire the project requirements
 
 ```sh
 git clone git@github.com:gnosis/dex-services.git
@@ -162,6 +169,8 @@ root@d792c990d8bd:/app/dex-services# cargo run --bin driver
 
 and [here](https://rinkeby.etherscan.io/tx/0xef93563c9c79708a613fb77978bff974672679270f9b51f98c19a8ce90d35260) is an example of a successfull solution submission.
 
-## Configuring an Orderbook Filter
+## Advanced Configuration
+
+### Configuring an Orderbook Filter
 
 TODO
