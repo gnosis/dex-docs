@@ -99,7 +99,9 @@ function Tutorial(props) {
               CMM Intro
             </p>
           </a>
+        </div>
 
+        <div className="inner grid-blocks four-blocks-grid tutorials-boxes">
           <a href={docUrl("tutorial-telegram-bot")} className="white-box">
             <h3>Setting up Telegram notifications</h3>
             <p>
@@ -115,13 +117,25 @@ function Tutorial(props) {
               Intro
             </p>
           </a>
-        </div>
 
-        <div className="inner grid-blocks four-blocks-grid tutorials-boxes">
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfubvD9WsgCS8EbB-VeTWtzUSw5Mk1-s66BuZik0GHuvQZhAw/viewform"
-            className="white-box"
-          >
+          <a href={docUrl("tutorial-web-fork")} className="white-box">
+            <h3>Forking a Gnosis Protocol web interface</h3>
+            <p>
+              This tutorial will walk you through how to create your own fork of a
+              Gnosis Protocol web interface.
+            </p>
+            <p className="box-icons">
+              <i className="icon icon-small icon-time"></i>
+              &nbsp; 30min &nbsp; &nbsp;
+              <i className="icon icon-small icon-star"></i>
+              &nbsp; Med &nbsp; &nbsp;
+              <i className="icon icon-small icon-pen"></i>
+              Intro
+            </p>
+          </a>
+
+
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfubvD9WsgCS8EbB-VeTWtzUSw5Mk1-s66BuZik0GHuvQZhAw/viewform" className="white-box">
             <h3>Looking for a specific tutorial?</h3>
             <p>
               Click here to access our request form, and let us know about what
