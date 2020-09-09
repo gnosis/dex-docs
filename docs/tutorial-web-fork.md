@@ -89,7 +89,7 @@ Let’s illustrate this with an example. Given two files:
 *   `src/pages/About.tsx`
 *   `custom/pages/About.tsx`
 
-```
+```ts
 import About from 'pages/About'
 // will try resolving from custom/ first and failing that from src/
 ```
