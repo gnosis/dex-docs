@@ -53,7 +53,7 @@ The project’s most important configuration parameters, such as the application
 
 At a minimum, an **appId** must be specified, and this appId parameter *must* be different from the currently taken Ids. To choose an available **appId,** see [wiki/App-Ids-for-Forks](https://github.com/gnosis/dex-react/wiki/App-Ids-for-Forks).
 
-``custom/config.yaml`` must follow the structure of default configuration file `config-default.yaml`, and can specify all the same fields. At build time, the two configs are merged with fields in custom config overriding those in the default config. While it is recommended to use YAML format for the custom config file, JSON format is also supported (custom/config.json).
+``custom/config.yaml`` must follow the structure of default configuration file `config-default.yaml`, and can specify all the same fields. At build time, the two configs are merged with fields in custom config overriding those in the default config. While it is recommended to use YAML format for the custom config file, JSON format is also supported (`custom/config.json`).
 
 A common change one may want to implement is to set a custom [TCR](https://github.com/gnosis/dex-react/wiki/Config#tcr) for the app to connect to a custom TCR contract to keep a curated list of tokens visible on the interface.
 
