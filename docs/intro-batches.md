@@ -1,7 +1,7 @@
 ---
 id: intro-batches
-title: What Is a Batch and a Batch ID?
-sidebar_label: What Is a Batch and a Batch ID?
+title: Batches and batch IDs
+sidebar_label: Batches and batch IDs
 ---
 
 ## What is a Batch and a Batch ID?
@@ -99,7 +99,7 @@ Gnosis Protocol uses batch IDs to determine the validity of orders.
 
 When placing an order, the order's validity is expressed in terms of the batch ID in which the user would like the order to become tradable and the batch ID by which the order expires.
 
-For example, an order valid from batch ID 35 to 42 can be traded in solutions for batch 35 until and including batch 47.
+For example, an order valid from batch ID 35 to 46 can be traded in solutions for batch 35 until and including batch 46.
 
 This means that Gnosis Protocol **allows you to also create orders that can only be executed in the future, and expire automatically after a defined number of batches**.
 

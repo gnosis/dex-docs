@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Introduction": ["introduction1", "intro-batches"],
+    "Overview": ["introduction1", "intro-batches", "faq"],
     "Custom Market Maker": ["intro-cmm"],
     "Integration Tutorial": ["dex-integration"]
   },
