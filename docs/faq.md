@@ -35,7 +35,7 @@ Since the end of January 2020, a Gnosis Protocol [bug bounty program](https://bl
 
 The dxDAO is a decentralized organization initialized in May of 2019, with over 400 unique stakeholder addresses. With a potential to grow its membership into the thousands, the community-owned and operated organization develops, governs, and promotes DeFi protocols. The dxDAO owns the DutchX trading protocol, and community members are working to launch a prediction market platform (Omen), a state of the art DEX (Mesa), a privacy-centric DeFi dashboard (Mix), and a fundraiser. 
 
-<a name="minimum-order"></a>
+<a id="minimum-order"></a>
 ## Why does the Mesa dapp have a warning regarding a minimum amount for orders?  
 Gnosis Protocol is a fully permissionless DEX, in which a centralized operator is replaced by an open, incentivized competition to which anyone can submit order settlement solutions. Those who submit order settlement solutions are referred to as “solvers.” Solvers are economically incentivized to submit order settlement solutions because half of the protocol’s 0.1% fee on trading volume is paid to the solver who submits the best[1] solution (while the other half of the fee is burnt). This fee is automatically included in limit orders on Mesa.
 
