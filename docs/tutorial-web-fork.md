@@ -39,7 +39,7 @@ Let us go through these steps one by one.
     ```
 6. Check that the application works by running it with:
 
-    ```
+    ```bash
     yarn start
     ```
 After the start process, it will be accessible at [http://localhost:8080](http://localhost:8080).
