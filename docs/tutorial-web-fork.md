@@ -61,7 +61,7 @@ More information on setting up a custom config can be found on [wiki/Config](htt
 
 Now, let’s try changing the project name and **appId** through a custom config file. Create a `custom/config.yaml` file containing:
 
-```
+```bash
 # App Id
 #    Get yours at: https://github.com/gnosis/dex-react/wiki/App-Ids-for-Forks
 appId: <your-app-id>
