@@ -97,7 +97,7 @@ import About from 'pages/About'
 This allows for easier plug-n-play customization and simplifies future merges from upstream. Let’s try making a custom about page:
 
 1. Copy `src/pages/About.tsx` to `custom/pages/About.tsx`
-```
+```bash
 mkdir -p custom/pages
 cp src/pages/About.tsx custom/pages/About.tsx
 ```
