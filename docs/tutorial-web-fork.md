@@ -103,7 +103,7 @@ cp src/pages/About.tsx custom/pages/About.tsx
 ```
 2. Now, edit the newly created `custom/pages/About.tsx` like so:
 
-```
+```tsx
    <AboutWrapper>
    + <h1>Here will be a new About page</h1>
      <h1>About {CONFIG.name}</h1>
