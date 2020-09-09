@@ -32,7 +32,7 @@ Let us go through these steps one by one.
     ```git clone https://github.com/<username>/dex-react.git```
 
 5. Now that you have your own copy of **dex-react** locally, navigate to its local directory and install its dependencies by running:
-    ```
+    ```bash
     yarn # recommended
     # or
     npm install
