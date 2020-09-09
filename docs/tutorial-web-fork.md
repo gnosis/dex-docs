@@ -59,7 +59,7 @@ A common change one may want to implement is to set a custom “[tcr](https://gi
 
 More information on setting up a custom config can be found on [wiki/Config](https://github.com/gnosis/dex-react/wiki/Config).
 
-Now, let’s try changing the project name and appId through a custom config file. Create a custom/config.yaml file containing:
+Now, let’s try changing the project name and **appId** through a custom config file. Create a `custom/config.yaml` file containing:
 
 ```
 # App Id
@@ -133,4 +133,3 @@ To further develop your fork of a Gnosis Protocol web interface, we encourage yo
 *   [Listing a Token on Gnosis Protocol](https://docs.gnosis.io/protocol/docs/addtoken1/)
 
 We would also be happy to receive PRs for any features you add to your fork that you want to see available upstream.
-
