@@ -23,13 +23,13 @@ sidebar_label: Quickstart
 Clone the dex-services repository, and acquire the project requirements
 
 ```sh
-git clone git@github.com:gnosis/dex-services.git
+git clone https://github.com/gnosis/dex-services.git
 ```
 
 We demonstrate how to run the open-solver. Once comfortable, the open-solver can be adapted to suit your own needs from the open-solver repo
 
 ```sh
-git clone git@github.com:gnosis/dex-solver.git
+git clone git@github.com:gnosis/dex-open-solver.git
 ```
 
 ## Building The Driver
