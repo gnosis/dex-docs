@@ -181,32 +181,10 @@ Not placing sell sETH order, our rate of 222.15740640448283 is too high for exch
 ```
 
 Now that we have this bot-script ready for production it remains run this automatically in every batch.
-For this we will publish this project as a docker image and run the script every five minutes as a cronjob on kubernetes.
+For this it is convienient to publish the project as a docker image and run the script every five minutes as a cronjob.
+For further information regarding the docker image and deployment, please refer to the relevant sections
 
-### Build a Docker Image
+- [Build a Docker Image](https://github.com/gnosis/dex-integration-tutorial/blob/d7ef06b4969b65608cae4f49a91931b1a4785b96/README.md#L171) and
+- [Running the Bot](https://github.com/gnosis/dex-integration-tutorial/blob/d7ef06b4969b65608cae4f49a91931b1a4785b96/README.md#L184)
 
-The docker file is a very simple basic instance of this project having a bash entry point. [Dockerfile](Dockerfile).
-To build the image, from within the project root
-
-```sh
-docker build -t <YOUR_DOCKERHUB_HANDLE>/synthetix-bot .
-docker run -e INFURA_KEY=$YOUR_INFURA_KEY -e PK=$YOUR_PRIVATE_KEY -t <YOUR_DOCKERHUB_HANDLE>/synthetix-bot:latest "truffle exec scripts/synthetix.js --network rinkeby"
-```
-
-To avoid including `INFURA_KEY` on every execution, this value can be included/replaced line 16 of [truffle-config.js](truffle-config.js) before building the docker image.
-However, it is important to note that these keys should not be pushed into a public repo.
-
-### Running the Bot
-
-At this point, you are now ready to deploy your liquidity bot. This is easily done by running our script in a crontab every five minutes at, say, the 3 minute mark of each batch.
-Although we will not provide any instructions for deployment here, there is a sample [crontab.txt](contab.txt) and slightly altered [Dockerfile](Dockerfile.Cron) that can be used to run the job inside a container.
-
-Alternatively, see the kubernetes directory here for a mock deployment configuration.
-
-## Testing Locally
-
-To continue in this direction please checkout the `local_dev` branch of the tutorial repo.
-
-```sh
-git checkout local_dev
-```
+in the example repository's README.
