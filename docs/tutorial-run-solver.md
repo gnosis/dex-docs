@@ -26,37 +26,33 @@ Clone the dex-services repository, and acquire the project requirements
 git clone https://github.com/gnosis/dex-services.git
 ```
 
-We demonstrate how to run the open-solver. Once comfortable, the open-solver can be adapted to suit your own needs from the open-solver repo
-
-```sh
-git clone git@github.com:gnosis/dex-open-solver.git
-```
+We demonstrate how to run the open solver.
+Once comfortable, the open solver can be adapted to suit your own needs from the [open solver repo](https://github.com/gnosis/dex-open-solver).
 
 ## Building The Driver
 
-Build the driver (with open-solver dockerhub image) from within the root directory of `dex-services` repo. This command builds the driver while simultanesouly baking the open solver into the the build.
+Build the driver (with the open solver dockerhub image) from within the root directory of `dex-services` repo. This command builds the driver while simultanesouly baking the open solver into the the build.
 
 ```sh
 docker-compose build --build-arg SOLVER_BASE=gnosispm/dex-open-solver:master stablex-debug
 ```
 
-Note that, if `SOLVER_BASE` is not specified, the driver's own internal `naive-solver` will be used. Alternatively, if you have your own personalized solver, this image would need to be specified during the build.
-We will see that specifying solver type again at runtime is also expected and this may seem counterintuitive.
-However, the argument used at runtime is meant to specify potentially different implementations from within the existing solver build.
-For example, you may have a `standard-solver` which matches orders according to one algorithm and another, say `fallback-solver` which makes use of a fixed list of currated tokens or simply operates in a different way.
+Be aware, your Docker installation may require elevated privileges!
+
+Note that, if `SOLVER_BASE` is not specified, the driver's own internal `NaiveSolver` will be used. Alternatively, if you have your own personalized solver, this image would need to be specified during the build.
 
 ## Configuring Environment Variables
 
-The following three environment variables are required when running the dex-services project.
+The following three environment variables are _required_ when running the dex-services project.
 Note that the account corresponding to the private key should be funded with sufficient ETH to pay gas for solution submission.
 
 ```sh
 export PRIVATE_KEY=<YOUR_PRIVATE_KEY>
 export ETHEREUM_NODE_URL=https://mainnet.infura.io/v3/<YOUR_INFURA_KEY>
-export NETWORK_ID=<YOUR_PREFERED_NETWORK_ID>
+export NETWORK_ID=<YOUR_PREFERED_NETWORK_ID where 1=mainnet, 4=rinkeby and 100=xdai>
 ```
 
-By placing these values into an `.env` file and sourcing this file, you can avoid adding them to as runtime arguments on every execution.
+By placing these values into an `.env` file and sourcing this file, you can avoid providing them as runtime arguments on every execution.
 
 ## Acquiring the Orderbook
 
@@ -72,7 +68,7 @@ Copy this orderbook file into `dex-services/target` and point your solver to thi
 First run and enter the solver container
 
 ```sh
-docker-compose run -v $(PWD)/:/app/dex-services stablex-debug
+docker-compose run -v $PWD/:/app/dex-services stablex-debug
 ```
 
 Since the project was mounted inside the container you can make changes to the driver code and they will be directly reflected on every restart.
@@ -80,13 +76,13 @@ Since the project was mounted inside the container you can make changes to the d
 ### Without orderbook file (not recommended)
 
 ```sh
-cargo run --bin driver -- --solver-type open-solver --network-id $NETWORK_ID --node-url $ETHEREUM_NODE_URL --private-key $PRIVATE_KEY
+cargo run --bin driver -- --solver-type opensolver --network-id $NETWORK_ID --node-url $ETHEREUM_NODE_URL --private-key $PRIVATE_KEY
 ```
 
 ### With orderbook file
 
 ```sh
-cargo run --bin driver -- --solver-type open-solver --network-id $NETWORK_ID --node-url $ETHEREUM_NODE_URL --private-key $PRIVATE_KEY --orderbook-file /app/dex-services/target/stablex_orderbook_mainnet.bin
+cargo run --bin driver -- --solver-type opensolver --network-id $NETWORK_ID --node-url $ETHEREUM_NODE_URL --private-key $PRIVATE_KEY --orderbook-file /app/dex-services/target/stablex_orderbook_mainnet.bin
 ```
 
 For an overall cleaner logging experience, you may also want to add the following log argument
@@ -110,7 +106,7 @@ export ETHEREUM_NODE_URL=https://rinkeby.infura.io/v3/${INFURA_KEY}
 export NETWORK_ID=4
 
 export ORDERBOOK_FILE=/app/dex-services/target/stablex_orderbook_rinkeby.bin
-export SOLVER_TYPE=open-solver
+export SOLVER_TYPE=OpenSolver
 ```
 
 Observe that the `INFURA_KEY` must also be specified beforehand for the `ETHEREUM_NODE_URL` to be valid.
