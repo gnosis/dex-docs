@@ -13,9 +13,9 @@
       "addtoken6"
     ],
     "Submit a limit order": ["tutorial-limit-orders"],
-    "Submit multiple limit orders or pre-schedule orders": [
-      "tutorial-multiple-orders"
-    ]
+    "Submit multiple limit orders or pre-schedule orders": ["tutorial-multiple-orders"],
+    "Integrations with Gnosis Protocol": ["tutorial-integrations"]
+
   },
   "developer-guide": {
     "Developer Guide": ["devguide01", "devguide02", "devguide03", "devguide04"]

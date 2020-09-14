@@ -65,7 +65,7 @@ In this example, these would be the brackets created by the script based on your
 
 
 | Bracket       | Lower price point (in DAI) | Upper price point (in DAI) | Deposit in ETH | Deposit in DAI |
-| ------------------ | ---- | ---------------------------------------- | -------------- | -------------- |	
+| ------------------ | ---- | ---------------------------------------- | -------------- | -------------- |  
 | Bracket 5  | 208                                           | 210                                           | 25             | 0              |
 | Bracket 4  | 206                                           | 208                                           | 25             | 0              |
 | Bracket 3  | 204                                           | 206                                           | 25             | 0              |
@@ -108,7 +108,7 @@ See results in this comparison table:
 ![](assets/cmm-5.png)
 
 When the price moved from 200 DAI per 1 WETH to 210 DAI per 1 WETH (5% increase in WETH), the CMM moved all funds from WETH to DAI (into the depreciated token per its market price).
-	
+    
 Here is the resulting portfolio evaluation:
 
 |                                                          |Initial ETH|Initial DAI|ETH after first trading cycle|DAI after first trading cycle|Difference in DAI|
