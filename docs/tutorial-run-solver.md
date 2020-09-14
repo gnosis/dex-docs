@@ -4,9 +4,7 @@ title: Quickstart - Running your own Solver
 sidebar_label: Quickstart
 ---
 
-#
-
-# Contents
+## Contents
 
 1. [Installation](#installing-driver-tools)
 2. [Building The Driver](#building-the-driver)
@@ -50,7 +48,7 @@ Note that the account corresponding to the private key should be funded with suf
 ```sh
 export INFURA_KEY=<your infura key>
 export PRIVATE_KEY=<your private key>
-export ETHEREUM_NODE_URL=https://mainnet.infura.io/v3/${INFURA_KEY}
+export NODE_URL=https://mainnet.infura.io/v3/${INFURA_KEY}
 ```
 
 By placing these values into an `.env` file and sourcing this file, you can avoid providing them as runtime arguments on every execution.
@@ -78,10 +76,10 @@ Since the project was mounted inside the container you can make changes to the d
 The driver can now be run via
 
 ```sh
-cargo run --bin driver -- --solver-type OpenSolver --node-url $ETHEREUM_NODE_URL --private-key $PRIVATE_KEY --orderbook-file $ORDERBOOK_FILE
+cargo run --bin driver -- --solver-type OpenSolver --node-url $NODE_URL --private-key $PRIVATE_KEY --orderbook-file $ORDERBOOK_FILE
 ```
 
-For the simplest and most robust experience, it is easiest to first source your environment configuration file and run the driver without any additional runtime arguments. That is,
+or, equivalently, for the simplest and most robust experience, first source your configuration file and run the driver without any additional runtime arguments. That is,
 
 ```sh
 source .env_rinkeby
@@ -93,13 +91,13 @@ where `.env_rinkeby` contains the following, minimal, parameters:
 ```
 export INFURA_KEY=<your infura key>
 export PRIVATE_KEY=<your private key>
-export ETHEREUM_NODE_URL=https://rinkeby.infura.io/v3/${INFURA_KEY}
+export NODE_URL=https://rinkeby.infura.io/v3/${INFURA_KEY}
 
 export SOLVER_TYPE=OpenSolver
 export ORDERBOOK_FILE=/app/dex-services/target/stablex_orderbook_rinkeby.bin
 ```
 
-Observe that the `INFURA_KEY` must also be specified beforehand for the `ETHEREUM_NODE_URL` to be valid.
+Observe that the `INFURA_KEY` must also be specified beforehand for the `NODE_URL` to be valid.
 Furthermore, while `ORDERBOOK_FILE` is technically an optional argument, it is **not recommended** to run without.
 
 A successfully running and properly configured driver should appear with the following logs:
