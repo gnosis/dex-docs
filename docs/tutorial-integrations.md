@@ -1,12 +1,11 @@
 ---
-id: dex-integration
-title: Integration with Gnosis Protocol
+id: tutorial-integrations
+title: Integrations with Gnosis Protocol
 sidebar_label: Overview
 ---
 
-# Gnosis Protocol Interaction and Integration Tutorial
 
-A lightweight repo demonstrating and guiding on how to minimally integrate with the Gnosis Protocol exchange platform.
+This tutorial will guide you through a lightweight repo that demonstrates how to minimally integrate with Gnosis Protocol smart contracts.
 
 - [Requirements](#requirements)
 - [[Optional] Project Initialization and Network Configuration](#Project-Initialization-and-Network-Configuration)
@@ -26,15 +25,14 @@ A lightweight repo demonstrating and guiding on how to minimally integrate with 
 - [Node](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/) or alternatily you could use the node package manager `npm` included with Node.
 
-To follow this tutorial more interactively, please clone the following github repository containing all the relevant code being referenced.
+To follow this tutorial more interactively, please clone the following Github repository containing all the relevant code being referenced.
 
 ```sh
 git clone https://github.com/gnosis/dex-integration-tutorial
 cd dex-integration-tutorial
 ```
 
-This guide will focus primarily on interacting with dex-contracts (i.e. the Gnosis Protocol Smart contracts) and writing a minimally functional integration with synthetix exchange.
-Note that the README in the cloned repository may be updated with additional integrations (such as Uniswap) in the future.
+This guide will focus primarily on interacting with dex-contracts (i.e. the Gnosis Protocol Smart contracts) and writing a minimally functional integration with Synthetix protocol. Note that the README in the cloned repository may be updated with additional integrations (such as Uniswap) in the future.
 
 ## Project Initialization and Network Configuration
 
@@ -57,15 +55,15 @@ This can be done with the following command
 cp ./node_modules/@gnosis.pm/dex-contracts/build/contracts/BatchExchange.json ./build/contracts
 ```
 
-For convienince, we have included this in the script portion of [package.json](./package.json) as the yarn command `copy-artifacts` along with a couple of other helpfull scripts (`build` and `compile`) if you plan to write any smart contracts as part of your integration.
+For convienince, we have included this in the script portion of [package.json](./package.json) as the yarn command `copy-artifacts` along with a couple of other helpful scripts (`build` and `compile`) if you plan to write any smart contracts as part of your integration.
 With these commands, you can initialize this project (at any time) by running `yarn build`.
 
-Make sure that you have a valid (truffle configuration)[https://www.trufflesuite.com/docs/truffle/reference/configuration] for the network you intend on interacting with.
-We will be using the common `truffle-config.js` found in most, if not all, gnosis smart contract projects.
-In order to use the common gnosis truffle configuration, you will need to install the optional package `@gnosis.pm/util-contracts` listed above.
+Make sure that you have a valid [Truffle configuration](https://www.trufflesuite.com/docs/truffle/reference/configuration) for the network you intend on interacting with.
+We will be using the common `truffle-config.js` found in most, if not all, Gnosis smart contract projects.
+In order to use the common Gnosis Truffle configuration, you will need to install the optional package `@gnosis.pm/util-contracts` listed above.
 Furthermore, you will have to provide your own `INFURA_KEY`.
 
-Note that, if you plan to be experimenting with a locally hosted development network, you will need to install additional "devDepencencies" to mirgrate the `BatchExchange` Smart Contracts. This will be covered in detail once we have successfully confirmed our ability to interact with the existing mainnet smart contracts.
+Note that, if you plan to be experimenting with a locally hosted development network, you will need to install additional "devDepencencies" to mirgrate the `BatchExchange` Smart Contracts. This will be covered in detail once we have successfully confirmed our ability to interact with the existing Mainnet smart contracts.
 
 ## Interaction with Batch Exchange
 
@@ -78,11 +76,11 @@ yarn install
 yarn build
 ```
 
-This should put us in the same place as has having completed the project initialization steps independantly.
-We are now prepared to start scripting interactions with the Gnosis Protocol.
-To test this run the `exchange_interaction` script via the command below.
+This should put us in the same place as has having completed the project initialization steps independently.
+We are now prepared to start scripting interactions with  Gnosis Protocol.
+To test this, run the `exchange_interaction` script via the command below.
 
-Note that before attempting to execute any of these truffle scripts, you will have to export your own `INFURA_KEY`!
+Note that before attempting to execute any of these Truffle scripts, you will have to export your own `INFURA_KEY`!
 
 ```sh
 export INFURA_KEY=<your infura key>
@@ -111,13 +109,13 @@ Now that we have successfully acquired the BatchExchange contract artifact, we a
 
 As a second simple interaction with the exchange, we can fetch token information for those registered. This script requires a few additional dev-tweaks in order to have access to `ECR20Detailed` token contract artifacts.
 
-We will need to install `@openzeppelin/contracts@2.5.1` and import `ERC20Detailed` so that is it included in truffle migrations. To do this from scratch
+We will need to install `@openzeppelin/contracts@2.5.1` and import `ERC20Detailed` so that is it included in truffle migrations. To do this from scratch:
 
 ```sh
 yarn add @openzeppelin/contracts@2.5.1
 ```
 
-and create a new file [contracts/Dependencies.sol](contracts/Dependencies.sol) importing `ERC20Detailed` contract artifact. Then run the following script.
+and create a new file [contracts/Dependencies.sol](contracts/Dependencies.sol) importing `ERC20Detailed` contract artifact. Then run the following script:
 
 ```sh
 npx truffle exec scripts/exchange_tokens.js --tokenIds 1,2 --network rinkeby
@@ -137,13 +135,13 @@ cp scripts/hollow_script.js scripts/deposit.js
 
 ## Synthetix Liquidity Bot
 
-In order to demonstrate an integration between two exchanges, we will make an example out of the Synthetix Protocol using their NPM package [synthetix-js](https://www.npmjs.com/package/synthetix-js) whose docs are avaialble [here](https://docs.synthetix.io/libraries/synthetix-js/)
+In order to demonstrate an integration between two trading protocols, we will make an example out of the Synthetix Protocol using their NPM package [synthetix-js](https://www.npmjs.com/package/synthetix-js). Their docs are avaialble [here](https://docs.synthetix.io/libraries/synthetix-js/).
 
 ### Getting Started
 
-To get started, we construct a simple interaction with their protocol in which we fetch the price `sETH` from their onchain price oracle (chainlink). This interaction is contained within [scripts/synthetix_interaction.js](scripts/synthetix_interaction.js)
+To get started, we construct a simple interaction with their protocol in which we fetch the price `sETH` from their on-chain price oracle (Chainlink). This interaction is contained within [scripts/synthetix_interaction.js](scripts/synthetix_interaction.js).
 
-To test our tiny interaction run
+To test our tiny interaction run:
 
 ```sh
 npx truffle exec scripts/synthetix_interaction.js --network rinkeby
@@ -151,23 +149,23 @@ npx truffle exec scripts/synthetix_interaction.js --network rinkeby
 
 ### Write the Script
 
-Now we are ready to build our liquidity provision bot that mirriors exchange rates from synthetix platform (including fees) and places orders in Gnosis Protocol whenever the price estimation services suggests there might be an overlaping order.
+Now we are ready to build our liquidity provision bot that mirriors exchange rates from Synthetix protocol (including fees) and places orders on Gnosis Protocol whenever the price estimation service suggests there might be an overlaping order.
 
-For this we have written the script [scripts/synthetix.js](scripts/synthetix.js) which essentaially performs the following sequence of operations:
+For this we have written the script [scripts/synthetix.js](scripts/synthetix.js) which essentially performs the following sequence of operations:
 
-- Instantiate a synthetix and batchExchange for the desired network
+- Instantiate a Synthetix and batchExchange for the desired network
 - Fetch relevant token infomation for `sUSD` and `sETH`
-- Fetch the exchange rate `sUSD`<->`sETH` from their on chain oracle along with the network fees for trading these tokens
-- Compare the buy and sell `sETH` for `sUSD` prices with thier counter parts on Gnosis Protocol
-- If the price comparisons suggest there is likely trade on and the "bot" has sufficient balance, place order(s) on BatchExchange valid for a single batch.
+- Fetch the exchange rate `sUSD`<->`sETH` from their on-chain oracle along with the network fees for trading these tokens
+- Compare the buy and sell `sETH` for `sUSD` prices with their counterparts on Gnosis Protocol
+- If the price comparisons suggest there is a likely trade available and the "bot" has sufficient balance, place order(s) on BatchExchange valid for a single batch
 
-All of these facts are documented in the script's logs. To test this, run
+All of these facts are documented in the script's logs. To test this, run:
 
 ```sh
 npx truffle exec scripts/synthetix.js --network rinkeby
 ```
 
-Given that there is often no orders between these tokens on rinkeby, you should see the following logs:
+Given that there are often no orders between these tokens on Rinkeby testnet, you should see the following logs:
 
 ```
 Using network 'rinkeby'.
@@ -180,11 +178,11 @@ Not placing buy  sETH order, our rate of 221.38024406323777 is too low  for exch
 Not placing sell sETH order, our rate of 222.15740640448283 is too high for exchange.
 ```
 
-Now that we have this bot-script ready for production it remains run this automatically in every batch.
-For this it is convienient to publish the project as a docker image and run the script every five minutes as a cronjob.
-For further information regarding the docker image and deployment, please refer to the relevant sections
+Now that we have this bot-script ready for production, it remains run this automatically in every batch.
+For this, it is convienient to publish the project as a Docker image, and run the script every five minutes as a cronjob.
+For further information regarding the Docker image and deployment process, please refer to the relevant documentation sections in the example repository's README:
 
 - [Build a Docker Image](https://github.com/gnosis/dex-integration-tutorial/blob/d7ef06b4969b65608cae4f49a91931b1a4785b96/README.md#L171) and
 - [Running the Bot](https://github.com/gnosis/dex-integration-tutorial/blob/d7ef06b4969b65608cae4f49a91931b1a4785b96/README.md#L184)
 
-in the example repository's README.
+Questions? Join our [Gnosis Discord server](https://chat.gnosis.io/).
