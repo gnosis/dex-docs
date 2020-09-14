@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Overview": ["introduction1", "intro-batches", "faq"],
+    "Overview": ["introduction1", "intro-batches", "intro-price-estimation", "faq"],
     "Custom Market Maker": ["intro-cmm"]
   },
   "docs-other": {
