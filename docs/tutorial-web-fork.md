@@ -31,15 +31,15 @@ Let us go through these steps one by one.
 
     ```git clone https://github.com/<username>/dex-react.git```
 
-5. Now that you have your own copy of **dex-react **locally, navigate to its local directory and install its dependencies by running:
-    ```
+5. Now that you have your own copy of **dex-react** locally, navigate to its local directory and install its dependencies by running:
+    ```bash
     yarn # recommended
     # or
     npm install
     ```
 6. Check that the application works by running it with:
 
-    ```
+    ```bash
     yarn start
     ```
 After the start process, it will be accessible at [http://localhost:8080](http://localhost:8080).
@@ -53,15 +53,15 @@ The project’s most important configuration parameters, such as the application
 
 At a minimum, an **appId** must be specified, and this appId parameter *must* be different from the currently taken Ids. To choose an available **appId,** see [wiki/App-Ids-for-Forks](https://github.com/gnosis/dex-react/wiki/App-Ids-for-Forks).
 
-``custom/config.yaml`` must follow the structure of default configuration file `config-default.yaml`, and can specify all the same fields. At build time, the two configs are merged with fields in custom config overriding those in the default config. While it is recommended to use YAML format for the custom config file, JSON format is also supported (custom/config.json).
+``custom/config.yaml`` must follow the structure of default configuration file `config-default.yaml`, and can specify all the same fields. At build time, the two configs are merged with fields in custom config overriding those in the default config. While it is recommended to use YAML format for the custom config file, JSON format is also supported (`custom/config.json`).
 
-A common change one may want to implement is to set a custom “[tcr](https://github.com/gnosis/dex-react/wiki/Config#tcr)field” for the app to connect to a custom TCR contract to keep a curated list of tokens visible on the interface.
+A common change one may want to implement is to set a custom [TCR](https://github.com/gnosis/dex-react/wiki/Config#tcr) for the app to connect to a custom TCR contract to keep a curated list of tokens visible on the interface.
 
 More information on setting up a custom config can be found on [wiki/Config](https://github.com/gnosis/dex-react/wiki/Config).
 
-Now, let’s try changing the project name and appId through a custom config file. Create a custom/config.yaml file containing:
+Now, let’s try changing the project name and **appId** through a custom config file. Create a `custom/config.yaml` file containing:
 
-```
+```bash
 # App Id
 #    Get yours at: https://github.com/gnosis/dex-react/wiki/App-Ids-for-Forks
 appId: <your-app-id>
@@ -89,7 +89,7 @@ Let’s illustrate this with an example. Given two files:
 *   `src/pages/About.tsx`
 *   `custom/pages/About.tsx`
 
-```
+```ts
 import About from 'pages/About'
 // will try resolving from custom/ first and failing that from src/
 ```
@@ -97,13 +97,13 @@ import About from 'pages/About'
 This allows for easier plug-n-play customization and simplifies future merges from upstream. Let’s try making a custom about page:
 
 1. Copy `src/pages/About.tsx` to `custom/pages/About.tsx`
-```
+```bash
 mkdir -p custom/pages
 cp src/pages/About.tsx custom/pages/About.tsx
 ```
 2. Now, edit the newly created `custom/pages/About.tsx` like so:
 
-```
+```tsx
    <AboutWrapper>
    + <h1>Here will be a new About page</h1>
      <h1>About {CONFIG.name}</h1>
@@ -133,4 +133,3 @@ To further develop your fork of a Gnosis Protocol web interface, we encourage yo
 *   [Listing a Token on Gnosis Protocol](https://docs.gnosis.io/protocol/docs/addtoken1/)
 
 We would also be happy to receive PRs for any features you add to your fork that you want to see available upstream.
-
