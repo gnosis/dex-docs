@@ -39,7 +39,8 @@ docker-compose build --build-arg SOLVER_BASE=gnosispm/dex-open-solver:master sta
 
 Be aware, your Docker installation may require elevated privileges!
 
-Note that, if `SOLVER_BASE` is not specified, the driver's own internal `NaiveSolver` will be used. Alternatively, if you have your own personalized solver, this image would need to be specified during the build.
+Note that, if `SOLVER_BASE` is not specified, the driver's own internal `NaiveSolver` will be used.
+Alternatively, if you have your own personalized solver, this image would need to be specified during the build.
 
 ## Configuring Environment Variables
 
@@ -47,21 +48,22 @@ The following three environment variables are _required_ when running the dex-se
 Note that the account corresponding to the private key should be funded with sufficient ETH to pay gas for solution submission.
 
 ```sh
-export PRIVATE_KEY=<YOUR_PRIVATE_KEY>
-export ETHEREUM_NODE_URL=https://mainnet.infura.io/v3/<YOUR_INFURA_KEY>
-export NETWORK_ID=<YOUR_PREFERED_NETWORK_ID where 1=mainnet, 4=rinkeby and 100=xdai>
+export INFURA_KEY=<your infura key>
+export PRIVATE_KEY=<your private key>
+export ETHEREUM_NODE_URL=https://mainnet.infura.io/v3/${INFURA_KEY}
 ```
 
 By placing these values into an `.env` file and sourcing this file, you can avoid providing them as runtime arguments on every execution.
 
 ## Acquiring the Orderbook
 
-It can take a very long time for the driver to load the orderbook and this process is also limited by infura rate limits so it is best to supply an existing orderbook file, available for download at
+It can take a very long time for the driver to load the orderbook and this process is also restricted by infura rate-limits so it is best to supply an existing orderbook file, available for download at
 
 - [mainnet](https://gnosis-dfusion-volume-mainnet.s3.amazonaws.com/stablex_orderbook_mainnet.bin)
 - [rinkeby](https://gnosis-dfusion-volume-rinkeby.s3.amazonaws.com/stablex_orderbook_rinkeby.bin)
 
-Copy this orderbook file into `dex-services/target` and point your solver to this file via the runtime argument `--orderbook-file` or environment vairable `ORDERBOOK_FILE`. That is, you can append `ORDERBOOK_FILE=/app/dex-services/target/stablex_orderbook_mainnet.bin` to your `.env` file.
+Copy this orderbook file into `dex-services/target` and append `ORDERBOOK_FILE=/app/dex-services/target/stablex_orderbook_mainnet.bin` to your `.env` file from the previous section.
+Technically the orderbook file can be saved anywhere, but we have chosen `target` here since it is flagged as an untracked directory in the project's `.gitignore`.
 
 ## Run the Solver
 
@@ -73,25 +75,13 @@ docker-compose run -v $PWD/:/app/dex-services stablex-debug
 
 Since the project was mounted inside the container you can make changes to the driver code and they will be directly reflected on every restart.
 
-### Without orderbook file (not recommended)
+The driver can now be run via
 
 ```sh
-cargo run --bin driver -- --solver-type opensolver --network-id $NETWORK_ID --node-url $ETHEREUM_NODE_URL --private-key $PRIVATE_KEY
+cargo run --bin driver -- --solver-type OpenSolver --node-url $ETHEREUM_NODE_URL --private-key $PRIVATE_KEY --orderbook-file $ORDERBOOK_FILE
 ```
 
-### With orderbook file
-
-```sh
-cargo run --bin driver -- --solver-type opensolver --network-id $NETWORK_ID --node-url $ETHEREUM_NODE_URL --private-key $PRIVATE_KEY --orderbook-file /app/dex-services/target/stablex_orderbook_mainnet.bin
-```
-
-For an overall cleaner logging experience, you may also want to add the following log argument
-
-```
- --log-filter warn,driver=info,services_core=info,services_core::price_estimation::clients::generic_client=error
-```
-
-For the simplest and most robust experience say, when working with different networks, it will be easiest to first source your environment configuration
+For the simplest and most robust experience, it is easiest to first source your environment configuration file and run the driver without any additional runtime arguments. That is,
 
 ```sh
 source .env_rinkeby
@@ -101,15 +91,16 @@ cargo run --bin driver
 where `.env_rinkeby` contains the following, minimal, parameters:
 
 ```
-export PRIVATE_KEY=0x80b19a03bb57789572aabdc0e77df6c0ba556702c76c875d6598834392196610
+export INFURA_KEY=<your infura key>
+export PRIVATE_KEY=<your private key>
 export ETHEREUM_NODE_URL=https://rinkeby.infura.io/v3/${INFURA_KEY}
-export NETWORK_ID=4
 
-export ORDERBOOK_FILE=/app/dex-services/target/stablex_orderbook_rinkeby.bin
 export SOLVER_TYPE=OpenSolver
+export ORDERBOOK_FILE=/app/dex-services/target/stablex_orderbook_rinkeby.bin
 ```
 
 Observe that the `INFURA_KEY` must also be specified beforehand for the `ETHEREUM_NODE_URL` to be valid.
+Furthermore, while `ORDERBOOK_FILE` is technically an optional argument, it is **not recommended** to run without.
 
 A successfully running and properly configured driver should appear with the following logs:
 
@@ -120,7 +111,7 @@ root@d792c990d8bd:/app/dex-services# cargo run --bin driver
      Running `target/debug/driver`
 2020-09-07T13:29:33.335Z INFO [driver] Starting driver with runtime options: Options {
     log_filter: "warn,driver=info,services_core=info",
-    node_url: "https://rinkeby.infura.io/v3/c8a386aaa40349eda89325818dbc40e9",
+    node_url: "https://rinkeby.infura.io/v3/XXXXXXXXXXXXXXXXXX",
     network_id: 4,
     solver_type: OpenSolver,
     solver_internal_optimizer: Scip,
@@ -162,6 +153,25 @@ root@d792c990d8bd:/app/dex-services# cargo run --bin driver
 2020-09-07T13:29:40.031Z INFO [services_core::orderbook::streamed::updating_orderbook] Received 164 events.
 2020-09-07T13:29:41.227Z INFO [services_core::orderbook::streamed::updating_orderbook] Finished applying events
 ```
+
+You may also encounter several price estimation warnings, but the driver will recover from this.
+
+```
+2020-09-14T12:06:56.746Z WARN [services_core::price_estimation::clients::generic_client] failed to retrieve services_core::price_estimation::clients::dexag::api::DexagHttpApi prices for token ID 33 (aTUSD): failed to get price from dexag
+
+Caused by:
+    0: failed to parse JSON '"{\"error\":\"Error getting price\"}"'
+    1: invalid type: string "{\"error\":\"Error getting price\"}", expected struct Price at line 1 column 37
+2020-09-14T12:06:56.748Z WARN [services_core::price_estimation::clients::generic_client] failed to retrieve services_core::price_estimation::clients::dexag::api::DexagHttpApi prices for token ID 36 (aBAT): failed to get price from dexag
+```
+
+To silence these warnings and for an overall cleaner logging experience, you may also want to add the following log argument
+
+```sh
+ --log-filter warn,driver=info,services_core=info,services_core::price_estimation::clients::generic_client=error
+```
+
+or append this as `LOG_FILTER` to your `.env` file.
 
 and [here](https://rinkeby.etherscan.io/tx/0xef93563c9c79708a613fb77978bff974672679270f9b51f98c19a8ce90d35260) is an example of a successfull solution submission.
 
