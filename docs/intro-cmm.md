@@ -1,7 +1,7 @@
 ---
 id: intro-cmm
 title: Custom Market Maker
-sidebar_label: Overview
+sidebar_label: Introduction
 ---
 
 _**Disclaimer**: This summary is for informational purposes only. It is not a risk assessment, nor investment advice! It is not intended to substitute for the advice of licensed professionals. Gnosis believes that the information is accurate as of the date of publication. No warranty of accuracy is given, and no liability for any error or omission is accepted by Gnosis Ltd. and/or its affiliates._
@@ -65,7 +65,7 @@ In this example, these would be the brackets created by the script based on your
 
 
 | Bracket       | Lower price point (in DAI) | Upper price point (in DAI) | Deposit in ETH | Deposit in DAI |
-| ------------------ | ---- | ---------------------------------------- | -------------- | -------------- |	
+| ------------------ | ---- | ---------------------------------------- | -------------- | -------------- |  
 | Bracket 5  | 208                                           | 210                                           | 25             | 0              |
 | Bracket 4  | 206                                           | 208                                           | 25             | 0              |
 | Bracket 3  | 204                                           | 206                                           | 25             | 0              |
@@ -108,7 +108,7 @@ See results in this comparison table:
 ![](assets/cmm-5.png)
 
 When the price moved from 200 DAI per 1 WETH to 210 DAI per 1 WETH (5% increase in WETH), the CMM moved all funds from WETH to DAI (into the depreciated token per its market price).
-	
+    
 Here is the resulting portfolio evaluation:
 
 |                                                          |Initial ETH|Initial DAI|ETH after first trading cycle|DAI after first trading cycle|Difference in DAI|
@@ -183,7 +183,7 @@ The tokens do not fluctuate as you assumed, and your capital is idle. This resul
 The prices move in one direction, all of your deposited capital is exchanged into the devalued token, and the price does not recover. This means you are left with depreciated inventory.
 
 ### Who can benefit from using the CMM?
-Anyone can tailor it to their needs. However, there are a few interesting use cases. One common use case could be for ERC-20 projects seeking to provide liquidity for their own token. Learn how to list a token on the Gnosis Protocol this tutorial. 
+Anyone can tailor it to their needs. However, there are a few interesting use cases. One common use case could be for ERC-20 projects seeking to provide liquidity for their own token. Learn how to list a token on the Gnosis Protocol [this tutorial](https://docs.gnosis.io/protocol/docs/addtoken1/). 
 
 ### Are there costs involved in using the CMM?
 There is a 0.1% fee for every trade executed on the protocol. However, there is no need for the liquidity provider (or any user) to worry about setting this, as this fee is already included in the limit orders part of your liquidity provision.
