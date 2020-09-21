@@ -115,7 +115,7 @@ cp src/pages/About.tsx custom/pages/About.tsx
 ![](assets/fork_add_text.png)
 
 
-Keep in mind that the _alternative source directory_ only works for absolute paths. If you want to change something in a file that is imported as `./&lt;path>/&lt;file>`, you will have to change it in place.
+Keep in mind that the _alternative source directory_ only works for absolute paths. If you want to change something in a file that is imported as `./<path>/<file>`, you will have to change it in place.
 
 For more details on customizing components, please refer to [wiki/Customize-Components](https://github.com/gnosis/dex-react/wiki/Customize-Components).
 
