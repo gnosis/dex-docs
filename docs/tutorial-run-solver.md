@@ -73,13 +73,13 @@ docker-compose run -v $PWD/:/app/dex-services stablex-debug
 
 Since the project was mounted inside the container you can make changes to the driver code and they will be directly reflected on every restart.
 
-The driver can now be run via
+The driver can now be run, from within the docker container, via
 
 ```sh
 cargo run --bin driver -- --solver-type OpenSolver --node-url $NODE_URL --private-key $PRIVATE_KEY --orderbook-file $ORDERBOOK_FILE
 ```
 
-or, equivalently, for the simplest and most robust experience, first source your configuration file and run the driver without any additional runtime arguments. That is,
+or, equivalently, for the simplest and most robust experience, first source your configuration file and run the driver without any additional runtime arguments. That is, from within the docker container,
 
 ```sh
 source .env_rinkeby
