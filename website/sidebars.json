@@ -1,8 +1,7 @@
 {
   "docs": {
     "Overview": ["introduction1", "intro-batches", "intro-price-estimation", "faq"],
-    "Custom Market Maker": ["intro-cmm"],
-    "Run your own Solver": ["tutorial-solver"]
+    "Custom Market Maker": ["intro-cmm"]
   },
   "docs-other": {
     "List any ERC-20 token on Gnosis Protocol": [
@@ -15,7 +14,8 @@
     ],
     "Submit a limit order": ["tutorial-limit-orders"],
     "Submit multiple limit orders or pre-schedule orders": ["tutorial-multiple-orders"],
-    "Integrations with Gnosis Protocol": ["tutorial-integrations"]
+    "Integrations with Gnosis Protocol": ["tutorial-integrations"],
+    "Run a Solver": ["tutorial-solver"]
   },
   "developer-guide": {
     "Developer Guide": ["devguide01", "devguide02", "devguide03", "devguide04"]
