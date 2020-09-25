@@ -158,5 +158,4 @@ To silence these warnings and for an overall cleaner logging experience, you may
 
 or append this as `LOG_FILTER` to your `.env` file.
 
-and [here](https://rinkeby.etherscan.io/tx/0xef93563c9c79708a613fb77978bff974672679270f9b51f98c19a8ce90d35260) is an example of a successfull solution submission on Rinekby.
-
+and [here](https://rinkeby.etherscan.io/tx/0xef93563c9c79708a613fb77978bff974672679270f9b51f98c19a8ce90d35260) is an example of a successful solution submission on Rinkeby.
