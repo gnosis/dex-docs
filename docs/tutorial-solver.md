@@ -31,7 +31,8 @@ Note that, if `SOLVER_BASE` is not specified, the driver's own internal `NaiveSo
 
 ## Configuring Environment Variables
 
-The following three environment variables are _required_ when running the dex-services project. Note that the account corresponding to the private key should be funded with sufficient ETH to pay gas for solution submission.
+The following three environment variables are _required_ when running the dex-services project. 
+Note that the account corresponding to the private key should be funded with sufficient ETH to pay gas for solution submission.
 
 ```sh
 export INFURA_KEY=<your infura key>
@@ -48,7 +49,8 @@ It can take a very long time for the driver to load the order book, and this pro
 - [Mainnet](https://gnosis-dfusion-volume-mainnet.s3.amazonaws.com/stablex_orderbook_mainnet.bin)
 - [Rinkeby](https://gnosis-dfusion-volume-rinkeby.s3.amazonaws.com/stablex_orderbook_rinkeby.bin)
 
-Copy this orderbook file into `dex-services/target` and append `ORDERBOOK_FILE=/app/dex-services/target/stablex_orderbook_mainnet.bin` to your `.env` file from the previous section. Technically, the orderbook file can be saved anywhere, but we have chosen `target` here since it is flagged as an untracked directory in the project's `.gitignore`.
+Copy this orderbook file into `dex-services/target` and append `ORDERBOOK_FILE=/app/dex-services/target/stablex_orderbook_mainnet.bin` to your `.env` file from the previous section. 
+Technically, the orderbook file can be saved anywhere, but we have chosen `target` here since it is flagged as an untracked directory in the project's `.gitignore`.
 
 ## Run the Solver
 
@@ -66,14 +68,15 @@ The driver can now be run from within the Docker container using the command:
 cargo run --bin driver -- --solver-type OpenSolver --node-url $NODE_URL --private-key $PRIVATE_KEY --orderbook-file $ORDERBOOK_FILE
 ```
 
-or, equivalently, for the simplest and most robust experience, first source your configuration file, and then run the driver without any additional runtime arguments. That is, from within the Docker container:
+or, equivalently, for the simplest and most robust experience, first source your configuration file, and then run the driver without any additional runtime arguments.
+That is, from within the Docker container:
 
 ```sh
 source .env_rinkeby
 cargo run --bin driver
 ```
 
-in which `.env_rinkeby` contains the following, minimal, parameters:
+where `.env_rinkeby` contains the following, minimal, parameters:
 
 ```
 export INFURA_KEY=<your infura key>
