@@ -134,7 +134,7 @@ function Tutorial(props) {
             </p>
           </a>
 
-                    <a href={docUrl("tutorial-integrations")} className="white-box">
+          <a href={docUrl("tutorial-integrations")} className="white-box">
             <h3>Integrations with Gnosis Protocol</h3>
             <p>
               This tutorial will guide you through a lightweight repo that demonstrates 
@@ -149,6 +149,26 @@ function Tutorial(props) {
               Intro
             </p>
           </a>
+
+
+          <a href={docUrl("tutorial-solver")} className="white-box">
+            <h3>Run a Solver</h3>
+            <p>
+              This tutorial will cover how to run the open solver.
+            </p>
+            <br/><br/>
+            <p className="box-icons">
+              <i className="icon icon-small icon-time"></i>
+              &nbsp; 30min &nbsp; &nbsp;
+              <i className="icon icon-small icon-star"></i>
+              &nbsp; Adv &nbsp; &nbsp;
+              <i className="icon icon-small icon-pen"></i>
+              Intro
+            </p>
+          </a>
+        </div>
+
+        <div className="inner grid-blocks four-blocks-grid tutorials-boxes">
 
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSfubvD9WsgCS8EbB-VeTWtzUSw5Mk1-s66BuZik0GHuvQZhAw/viewform" className="white-box">
             <h3>Looking for a specific tutorial?</h3>
