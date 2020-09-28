@@ -167,12 +167,12 @@ class HomeSplash extends React.Component {
           <div>
            <a name="projects">
             <h2>
-              Analytics
+              Analytics & Resources
             </h2>
             </a>
           </div>
           
-          <div className="index-projects-boxes grid-blocks three-blocks-grid">
+          <div className="index-projects-boxes grid-blocks four-blocks-grid">
                       
             <a href="https://explore.duneanalytics.com/public/dashboards/I43OkDWnojXZYm8vmdBDcLz5UsS3Tn0cx1xU8Hcg" className="white-box">
              <strong>Dune Analytics </strong>
@@ -184,6 +184,22 @@ class HomeSplash extends React.Component {
 
             <a href="https://thegraph.com/explorer/subgraph/gnosis/protocol-rinkeby" className="white-box">
               <strong> The Graph Rinkeby </strong>
+            </a>
+
+            <a href="https://defipulse.com" className="white-box">
+              <strong>DeFi Pulse</strong>
+            </a>
+                      
+            <a href="https://www.coingecko.com/en/exchanges/mesa" className="white-box">
+             <strong>Coin Gecko</strong>
+            </a>
+
+            <a href="https://dappradar.com/app/1879/gnosis-protocol" className="white-box">
+              <strong>DappRadar</strong>
+            </a>
+
+            <a href="https://github.com/zeriontech/defi-sdk" className="white-box">
+              <strong>Zerion DeFi SDK</strong>
             </a>
             
           </div>
