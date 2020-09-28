@@ -1,17 +1,26 @@
 {
   "docs": {
-    "Introduction": ["introduction1"],
+    "Overview": ["introduction1", "intro-batches", "intro-price-estimation", "faq"],
     "Custom Market Maker": ["intro-cmm"]
   },
   "docs-other": {
-    "List any ERC-20 token on Gnosis Protocol": ["addtoken1","addtoken2","addtoken3","addtoken4","addtoken5","addtoken6"],
+    "List any ERC-20 token on Gnosis Protocol": [
+      "addtoken1",
+      "addtoken2",
+      "addtoken3",
+      "addtoken4",
+      "addtoken5",
+      "addtoken6"
+    ],
     "Submit a limit order": ["tutorial-limit-orders"],
-    "Submit multiple limit orders or pre-schedule orders": ["tutorial-multiple-orders"]
+    "Submit multiple limit orders or pre-schedule orders": ["tutorial-multiple-orders"],
+    "Integrations with Gnosis Protocol": ["tutorial-integrations"],
+    "Run a Solver": ["tutorial-solver"]
   },
   "developer-guide": {
-  	"Developer Guide": ["devguide01", "devguide02", "devguide03", "devguide04"]
+    "Developer Guide": ["devguide01", "devguide02", "devguide03", "devguide04"]
   },
   "Game": {
-  	"Simple liquidity provision": ["liquidity1", "liquidity2", "liquidity3"]
+    "Simple liquidity provision": ["liquidity1", "liquidity2", "liquidity3"]
   }
 }
