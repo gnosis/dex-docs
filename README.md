@@ -14,8 +14,10 @@ yarn i
 
 ```sh
 cd website
-
+yarn i
+```
 # Run it for development
+```
 yarn start
 
 # It you want to try with a different base url

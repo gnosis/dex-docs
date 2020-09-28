@@ -14,8 +14,8 @@
     ],
     "Submit a limit order": ["tutorial-limit-orders"],
     "Submit multiple limit orders or pre-schedule orders": ["tutorial-multiple-orders"],
-    "Integrations with Gnosis Protocol": ["tutorial-integrations"]
-
+    "Integrations with Gnosis Protocol": ["tutorial-integrations"],
+    "Run a Solver": ["tutorial-solver"]
   },
   "developer-guide": {
     "Developer Guide": ["devguide01", "devguide02", "devguide03", "devguide04"]
