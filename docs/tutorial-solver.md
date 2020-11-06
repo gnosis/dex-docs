@@ -14,7 +14,6 @@ Clone the dex-services repository, and acquire the project requirements:
 git clone https://github.com/gnosis/dex-services.git
 ```
 
-
 Once comfortable you're all set, the open solver can be adapted to suit your own needs from the [open solver repository](https://github.com/gnosis/dex-open-solver).
 
 ## Building the Driver
@@ -31,7 +30,7 @@ Note that, if `SOLVER_BASE` is not specified, the driver's own internal `NaiveSo
 
 ## Configuring Environment Variables
 
-The following three environment variables are _required_ when running the dex-services project. 
+The following three environment variables are _required_ when running the dex-services project.
 Note that the account corresponding to the private key should be funded with sufficient ETH to pay gas for solution submission.
 
 ```sh
@@ -46,30 +45,20 @@ By placing these values into an `.env` file and sourcing this file, you can avoi
 
 It can take a very long time for the driver to load the order book, and this process is also restricted by Infura rate limits. For this reason, it's best to supply an existing order book file, which is available for download at:
 
-- [Mainnet](https://gnosis-dfusion-volume-mainnet.s3.amazonaws.com/stablex_orderbook_mainnet.bin)
-- [Rinkeby](https://gnosis-dfusion-volume-rinkeby.s3.amazonaws.com/stablex_orderbook_rinkeby.bin)
+- [Mainnet](hhttp://gnosis-dev-dfusion.s3-website.eu-central-1.amazonaws.com/explorer/#data/mainnet_dev/event_db/stablex_orderbook_mainnet.bin)
+- [Rinkeby](http://gnosis-dev-dfusion.s3-website.eu-central-1.amazonaws.com/explorer/#data/rinkeby_dev/event_db/stablex_orderbook_rinkeby.bin)
+- [xDai](http://gnosis-dev-dfusion.s3-website.eu-central-1.amazonaws.com/explorer/#data/rinkeby_dev/event_db/stablex_orderbook_xDai.bin)
 
-Copy this orderbook file into `dex-services/target` and append `ORDERBOOK_FILE=/app/dex-services/target/stablex_orderbook_mainnet.bin` to your `.env` file from the previous section. 
+Copy this orderbook file into `dex-services/target` and append `ORDERBOOK_FILE=/app/dex-services/target/stablex_orderbook_mainnet.bin` to your `.env` file from the previous section.
 Technically, the orderbook file can be saved anywhere, but we have chosen `target` here since it is flagged as an untracked directory in the project's `.gitignore`.
 
 ## Run the Solver
-
-First run and enter the solver container:
-
-```sh
-docker-compose run -v $PWD/:/app/dex-services stablex-debug
-```
-
-Since the project was mounted inside the container, changes you make to the driver code will be directly reflected on every restart.
-
-The driver can now be run from within the Docker container using the command:
 
 ```sh
 cargo run --bin driver -- --solver-type OpenSolver --node-url $NODE_URL --private-key $PRIVATE_KEY --orderbook-file $ORDERBOOK_FILE
 ```
 
 or, equivalently, for the simplest and most robust experience, first source your configuration file, and then run the driver without any additional runtime arguments.
-That is, from within the Docker container:
 
 ```sh
 source .env_rinkeby
@@ -138,7 +127,7 @@ root@d792c990d8bd:/app/dex-services# cargo run --bin driver
 2020-09-07T13:29:38.048Z INFO [services_core::history::events] Successfully loaded 60846 events in 12437006 bytes from event registry file
 2020-09-07T13:29:38.050Z INFO [services_core::orderbook::streamed::updating_orderbook] successfully recovered orderbook from path
 2020-09-07T13:29:38.284Z INFO [services_core::orderbook::streamed::updating_orderbook] Updating event based orderbook from block 7155117 to block 7155296.
-2020-09-07T13:29:40.031Z INFO [services_core::orderbook::streamed::updating_orderbook] Received 164 events.
+2020-09-07T13:29:40.031Z INFO [services_core::orderbook::streamed::updating_orderbootk] Received 164 events.
 2020-09-07T13:29:41.227Z INFO [services_core::orderbook::streamed::updating_orderbook] Finished applying events
 ```
 
@@ -162,3 +151,22 @@ To silence these warnings and for an overall cleaner logging experience, you may
 or append this as `LOG_FILTER` to your `.env` file.
 
 and [here](https://rinkeby.etherscan.io/tx/0xef93563c9c79708a613fb77978bff974672679270f9b51f98c19a8ce90d35260) is an example of a successful solution submission on Rinkeby.
+
+## Advanced Configuration
+
+### Economic Viability Constraints
+
+The *economic viability* (EV) of running a solver amounts, essentially, to ensuring that the gas spent by a solution submitter is sufficiently subsidized via the fee reward earned by successful solution submission. In other words "is the transaction cost worth the reward". There are three different flavour of _economic viability strategies_ that this software can be configured with. Namely
+1. Dynamic (default): Uses the current native token price, gas price and subsidy factor as specified by `economic_viability_subsidy_factor` (having a default of 1). 
+In brief, this compares the estimated price for transaction submission and compares with the USD value of the token reward earned from fees. 
+The subsidy factor is multiplicative so that a subsidy factor of 1 implies you are only willing to submit a solution if the reward it worth at least as much as the transaction cost, while a subsidy factor of 2 means you expect to get half as much in rewards as you are willing to spend.
+
+_Note that_ the default subsidy factor is 1.
+
+2. Static: Uses `static_min_avg_fee_per_order` and `static_max_gas_price` (in base units - wei). 
+Using this strategy with certain configuration values can be dangerous. 
+For example, if there are many overlapping open orders for low valued trades and the `static_min_avg_fee_per_order` is set to zero. 
+This would mean that running a solver with this EV-strategy would blindly match orders for substantially low reward.
+Similarily, if the `static_max_gas_price` is set too high and you have a solver running during times with high network demand/congestion, gas prices could increase to the point that your solver service submits very expensive transactions.
+
+3. Combined: 
