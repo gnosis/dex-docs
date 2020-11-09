@@ -154,7 +154,7 @@ and [here](https://rinkeby.etherscan.io/tx/0xef93563c9c79708a613fb77978bff974672
 
 ## Advanced Configuration
 
-### Economic Viability Constraints
+### Economic Viability Parameters
 
 The _economic viability_ (EV) of running a solver amounts, essentially, to ensuring that the gas spent by a solution submitter is sufficiently subsidized via the fee reward earned by successful solution submission. In other words "is the transaction cost worth the reward". There are three different flavour of _economic viability strategies_ that this software can be configured with. Namely
 
