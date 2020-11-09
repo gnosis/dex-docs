@@ -206,4 +206,7 @@ ECONOMIC_VIABILITY_SUBSIDY_FACTOR=0.5
 1. On September 17, 2020 a solver spent 3.317499 Ether (1477.95) solving a batch with a fee reward of 283.67410786975546 OWL.
 https://etherscan.io/tx/0x182fc2f21d3c2cd26a8567482990f61338eb9842143c9df96b9ee80925c75ba2
 
-2.On September 21, 2020 a solver spent 1.231 ETH (worth 548.13 USD at the time) for a batch of "dust orders" earning a fee-reward of 0.000000155873956 OWL. See the transaction [here](https://etherscan.io/tx/0xbb76c3ab9722fb4aeb5f466dbe2ba8cbda977139228c1c51343caeae1af29086)
+2. On September 21, 2020 a solver spent 1.231 ETH (worth 548.13 USD at the time) for a batch of "dust orders" earning a fee-reward of 0.000000155873956 OWL. See the transaction [here](https://etherscan.io/tx/0xbb76c3ab9722fb4aeb5f466dbe2ba8cbda977139228c1c51343caeae1af29086)
+
+
+A complete history on solutions submitted can be found in the [solutions table](https://explore.duneanalytics.com/queries/1796#3153) of the [Gnosis Protocol Dashboard](https://explore.duneanalytics.com/dashboard/gnosis-dex-protocol).
