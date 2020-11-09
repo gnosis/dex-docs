@@ -156,17 +156,22 @@ and [here](https://rinkeby.etherscan.io/tx/0xef93563c9c79708a613fb77978bff974672
 
 ### Economic Viability Constraints
 
-The *economic viability* (EV) of running a solver amounts, essentially, to ensuring that the gas spent by a solution submitter is sufficiently subsidized via the fee reward earned by successful solution submission. In other words "is the transaction cost worth the reward". There are three different flavour of _economic viability strategies_ that this software can be configured with. Namely
-1. Dynamic (default): Uses the current native token price, gas price and subsidy factor as specified by `economic_viability_subsidy_factor` (having a default of 1). 
-In brief, this compares the estimated price for transaction submission and compares with the USD value of the token reward earned from fees. 
-The subsidy factor is multiplicative so that a subsidy factor of 1 implies you are only willing to submit a solution if the reward it worth at least as much as the transaction cost, while a subsidy factor of 2 means you expect to get half as much in rewards as you are willing to spend.
+The _economic viability_ (EV) of running a solver amounts, essentially, to ensuring that the gas spent by a solution submitter is sufficiently subsidized via the fee reward earned by successful solution submission. In other words "is the transaction cost worth the reward". There are three different flavour of _economic viability strategies_ that this software can be configured with. Namely
+
+1. Dynamic (default): Uses the current native token price, gas price and subsidy factor as specified by `economic_viability_subsidy_factor` (having a default of 1).
+   In brief, this compares the estimated price for transaction submission and compares with the USD value of the token reward earned from fees.
+   The subsidy factor is multiplicative so that a subsidy factor of 1 implies you are only willing to submit a solution if the reward it worth at least as much as the transaction cost, while a subsidy factor of 2 means you expect to get half as much in rewards as you are willing to spend.
 
 _Note that_ the default subsidy factor is 1.
 
-2. Static: Uses `static_min_avg_fee_per_order` and `static_max_gas_price` (in base units - wei). 
-Using this strategy with certain configuration values can be dangerous. 
-For example, if there are many overlapping open orders for low valued trades and the `static_min_avg_fee_per_order` is set to zero. 
-This would mean that running a solver with this EV-strategy would blindly match orders for substantially low reward.
-Similarily, if the `static_max_gas_price` is set too high and you have a solver running during times with high network demand/congestion, gas prices could increase to the point that your solver service submits very expensive transactions.
+2. Static: Uses `static_min_avg_fee_per_order` and `static_max_gas_price` (in base units - wei).
+   Using this strategy with certain configuration values can be dangerous.
+   For example, if there are many overlapping open orders for low valued trades and the `static_min_avg_fee_per_order` is set to zero.
+   This would mean that running a solver with this EV-strategy would blindly match orders for substantially low reward.
+   Similarily, if the `static_max_gas_price` is set too high and you have a solver running during times with high network demand/congestion, gas prices could increase to the point that your solver service submits very expensive transactions.
 
-3. Combined: 
+3. Combined: This approach uses a hybrid of Dynamic and Static.
+   That is,it evaluates and Dynamic with priority.
+   If the dynamic evaluation fails or the result is worse (i.e. larger `min-avg-fee` or lower `max-gas-price`) then falls back to the static evalaution instead.
+   For somewhat more clarity, the EV-computer deems lower minimum average fee and higher max gas price as "better" so to say that the `min-avg-fee` is bounded _above_ by static evaluation with a preference for the lower value and the `max-gas-price` is bounded _below_ by the static with a preference for the higher.
+   In the code, this is expressed by the term `DynamicBoundedByStatic`.
