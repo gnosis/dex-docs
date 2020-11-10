@@ -82,14 +82,24 @@ Furthermore, while `ORDERBOOK_FILE` is technically an optional argument, it is *
 A successfully running and properly configured driver should appear with the following logs:
 
 ```
-root@d792c990d8bd:/app/dex-services# source .env_rinkeby
-root@d792c990d8bd:/app/dex-services# cargo run --bin driver
-    Finished dev [unoptimized + debuginfo] target(s) in 9.21s
+dex-services# source .env_rinkeby
+dex-services# cargo run --bin driver
+    Finished dev [unoptimized + debuginfo] target(s) in 0.99s
      Running `target/debug/driver`
-2020-09-07T13:29:33.335Z INFO [driver] Starting driver with runtime options: Options {
+2020-11-10T07:40:17.421Z INFO [driver] Starting driver with runtime options: Options {
     log_filter: "warn,driver=info,services_core=info",
-    node_url: "https://rinkeby.infura.io/v3/XXXXXXXXXXXXXXXXXX",
-    network_id: 4,
+    node_url: Url {
+        scheme: "https",
+        host: Some(
+            Domain(
+                "rinkeby.infura.io",
+            ),
+        ),
+        port: None,
+        path: "/v3/64f4b49c1b2a4af486d92c63556e53f9",
+        query: None,
+        fragment: None,
+    },
     solver_type: OpenSolver,
     solver_internal_optimizer: Scip,
     token_data: TokenData(
@@ -102,7 +112,7 @@ root@d792c990d8bd:/app/dex-services# cargo run --bin driver
         users: {},
     },
     private_key: PrivateKey(
-        0xee095e12b02a2b82d3ae06bbc7cb2a22885922a5,
+        0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1,
     ),
     auction_data_page_size: 500,
     rpc_timeout: 10s,
@@ -110,25 +120,29 @@ root@d792c990d8bd:/app/dex-services# cargo run --bin driver
     target_start_solve_time: 30s,
     latest_solution_submit_time: 210s,
     earliest_solution_submit_time: 0ns,
-    economic_viability_subsidy_factor: 10.0,
+    economic_viability_subsidy_factor: 1.0,
     economic_viability_min_avg_fee_factor: 1.1,
-    default_min_avg_fee_per_order: 0,
-    default_max_gas_price: 100000000000,
-    scheduler: Evm,
+    static_min_avg_fee_per_order: None,
+    static_max_gas_price: None,
+    economic_viability_strategy: Dynamic,
+    scheduler: System,
     price_source_update_interval: 300s,
     orderbook_file: Some(
-        "/app/dex-services/target/stablex_orderbook_rinkeby.bin",
+        "./target/orderbook_rinkeby.bin",
     ),
+    native_token_id: 1,
+    use_external_price_source: true,
 }
-2020-09-07T13:29:35.441Z INFO [driver] Using contract at 0xc576ea7bd102f7e476368a5e98fa455d1ea34de2
-2020-09-07T13:29:35.446Z INFO [driver] Using account Some(Offline(PrivateKey(0xee095e12b02a2b82d3ae06bbc7cb2a22885922a5), Some(4)))
-2020-09-07T13:29:35.447Z INFO [driver] Orderbook filter: OrderbookFilter { tokens: Blacklist({}), users: {} }
-2020-09-07T13:29:35.463Z INFO [services_core::price_finding] Using OpenSolver optimization price finder
-2020-09-07T13:29:38.048Z INFO [services_core::history::events] Successfully loaded 60846 events in 12437006 bytes from event registry file
-2020-09-07T13:29:38.050Z INFO [services_core::orderbook::streamed::updating_orderbook] successfully recovered orderbook from path
-2020-09-07T13:29:38.284Z INFO [services_core::orderbook::streamed::updating_orderbook] Updating event based orderbook from block 7155117 to block 7155296.
-2020-09-07T13:29:40.031Z INFO [services_core::orderbook::streamed::updating_orderbook] Received 164 events.
-2020-09-07T13:29:41.227Z INFO [services_core::orderbook::streamed::updating_orderbook] Finished applying events
+2020-11-10T07:40:19.243Z INFO [driver] Using contract at 0xc576ea7bd102f7e476368a5e98fa455d1ea34de2
+2020-11-10T07:40:19.245Z INFO [driver] Using account Some(Offline(PrivateKey(0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1), Some(4)))
+2020-11-10T07:40:19.245Z INFO [driver] Orderbook filter: OrderbookFilter { tokens: Blacklist({}), users: {} }
+2020-11-10T07:40:19.247Z INFO [services_core::price_finding] Using OpenSolver optimization price finder
+2020-11-10T07:40:20.720Z INFO [services_core::history::events] Successfully loaded 78301 events in 16235589 bytes from event registry file
+2020-11-10T07:40:20.720Z INFO [services_core::orderbook::streamed::updating_orderbook] successfully recovered orderbook from path
+2020-11-10T07:40:21.003Z INFO [services_core::orderbook::streamed::updating_orderbook] Updating event based orderbook from block 7499230 to block 7522380.
+2020-11-10T07:40:35.389Z INFO [services_core::orderbook::streamed::updating_orderbook] Received 80 events.
+2020-11-10T07:40:35.783Z INFO [services_core::orderbook::streamed::updating_orderbook] Finished applying events
+
 ```
 
 You may also encounter several price estimation warnings, but the driver will recover from this.
