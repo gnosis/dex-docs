@@ -127,7 +127,7 @@ root@d792c990d8bd:/app/dex-services# cargo run --bin driver
 2020-09-07T13:29:38.048Z INFO [services_core::history::events] Successfully loaded 60846 events in 12437006 bytes from event registry file
 2020-09-07T13:29:38.050Z INFO [services_core::orderbook::streamed::updating_orderbook] successfully recovered orderbook from path
 2020-09-07T13:29:38.284Z INFO [services_core::orderbook::streamed::updating_orderbook] Updating event based orderbook from block 7155117 to block 7155296.
-2020-09-07T13:29:40.031Z INFO [services_core::orderbook::streamed::updating_orderbootk] Received 164 events.
+2020-09-07T13:29:40.031Z INFO [services_core::orderbook::streamed::updating_orderbook] Received 164 events.
 2020-09-07T13:29:41.227Z INFO [services_core::orderbook::streamed::updating_orderbook] Finished applying events
 ```
 
@@ -156,14 +156,16 @@ and [here](https://rinkeby.etherscan.io/tx/0xef93563c9c79708a613fb77978bff974672
 
 ### Economic Viability Parameters
 
-The _economic viability_ (EV) of running a solver amounts, essentially, to ensuring that the gas spent by a solution submitter is sufficiently subsidized via the fee reward earned by successful solution submission. In other words "is the transaction cost worth the reward". There are three different flavour of _economic viability strategies_ that this software can be configured with. Namely
+The _economic viability_ (EV) of running a solver amounts, essentially, to ensuring that the gas spent by a solution submitter is sufficiently subsidized via the fee reward earned by successful solution submission. 
+In other words "is the transaction cost worth the reward". 
+There are three different flavour of _economic viability strategies_ that this software can be configured with. Namely
 
 1. **Dynamic (default):**
    Uses the current native token price, gas price and subsidy factor as specified by `economic_viability_subsidy_factor` (having a default of 1).
    In brief, this compares the estimated price for transaction submission and compares with the USD value of the token reward earned from fees.
    The subsidy factor is multiplicative so that a subsidy factor of 1 implies you are only willing to submit a solution if the reward it worth at least as much as the transaction cost, while a subsidy factor of 2 means you expect to get half as much in rewards as you are willing to spend.
 
-_Note that_ the default subsidy factor is 1.
+    _Note that_ the default subsidy factor is 1.
 
 2. **Static:**
    Uses `static_min_avg_fee_per_order` and `static_max_gas_price` (in base units - wei).
@@ -186,27 +188,17 @@ _Note that_ the default subsidy factor is 1.
    This could be considered dangerous for reasons describbed above, but may also be beneficial if the solver themselves has an overlapping open order that would yeild a valuable trade. Such a configuration would require the following env vars be set.
    Note that; if the `ECONOMIC_VIABILITY_STRATEGY` is set to static, then both of the following two _must_ be specified.
 
-```sh
-ECONOMIC_VIABILITY_STRATEGY=static
-STATIC_MIN_AVG_FEE_PER_ORDER=0
-STATIC_MAX_GAS_PRICE=100000000000
-```
+    ```sh
+    ECONOMIC_VIABILITY_STRATEGY=static
+    STATIC_MIN_AVG_FEE_PER_ORDER=0
+    STATIC_MAX_GAS_PRICE=100000000000
+    ```
 
 3. Combined with min fee of 10 USD, max gas of 40 GWei and subsidy factor of 1/2: Since this is a hybrid of both Dynamic and Static, one must specify the static environment variables, but is left to choose the if subsidy factor differs from the default of 1.
 
-```sh
-ECONOMIC_VIABILITY_STRATEGY=combined
-STATIC_MIN_AVG_FEE_PER_ORDER=10
-STATIC_MAX_GAS_PRICE=40000000000
-ECONOMIC_VIABILITY_SUBSIDY_FACTOR=0.5
-```
-
-#### Examples of Costly Solutions
-
-1. On September 17, 2020 a solver spent 3.317499 Ether (1477.95) solving a batch with a fee reward of 283.67410786975546 OWL.
-https://etherscan.io/tx/0x182fc2f21d3c2cd26a8567482990f61338eb9842143c9df96b9ee80925c75ba2
-
-2. On September 21, 2020 a solver spent 1.231 ETH (worth 548.13 USD at the time) for a batch of "dust orders" earning a fee-reward of 0.000000155873956 OWL. See the transaction [here](https://etherscan.io/tx/0xbb76c3ab9722fb4aeb5f466dbe2ba8cbda977139228c1c51343caeae1af29086)
-
-
-A complete history on solutions submitted can be found in the [solutions table](https://explore.duneanalytics.com/queries/1796#3153) of the [Gnosis Protocol Dashboard](https://explore.duneanalytics.com/dashboard/gnosis-dex-protocol).
+    ```sh
+    ECONOMIC_VIABILITY_STRATEGY=combined
+    STATIC_MIN_AVG_FEE_PER_ORDER=10
+    STATIC_MAX_GAS_PRICE=40000000000
+    ECONOMIC_VIABILITY_SUBSIDY_FACTOR=0.5
+    ```
