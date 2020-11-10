@@ -6,6 +6,8 @@ sidebar_label: Overview
 
 This tutorial will cover how to run the open solver for Gnosis Protocol. Before you get started, make sure you’ve familiarized yourself with the [Gnosis Protocol Introduction](https://docs.gnosis.io/protocol/docs/introduction1/), especially the section on what "solvers" are in the context of Gnosis Protocol.
 
+**Disclaimer**: _Running any sort of bot service that submits transactions to the EVM can result in substantial transaction fees. Please make sure to read the [advanced configuration](#Advanced-Configuration) section and familiarize yourself with the potential risks of running a solver. Gnosis believes that the information is accurate as of the date of publication. No warranty of accuracy is given, and no liability for any error or omission is accepted by Gnosis Ltd. and/or its affiliates._
+
 ## Installing Driver Tools
 
 Clone the dex-services repository, and acquire the project requirements:
