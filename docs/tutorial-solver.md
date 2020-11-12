@@ -16,19 +16,11 @@ Clone the dex-services repository, and acquire the project requirements:
 git clone https://github.com/gnosis/dex-services.git
 ```
 
-Once comfortable you're all set, the open solver can be adapted to suit your own needs from the [open solver repository](https://github.com/gnosis/dex-open-solver).
-
-## Building the Driver
-
-Build the driver (with the open solver Docker Hub image) from within the root directory of `dex-services` repo. This command builds the driver while simultanesouly baking the open solver into the the build.
+Install the [Open Solver](https://github.com/gnosis/dex-open-solver):
 
 ```sh
-docker-compose build --build-arg SOLVER_BASE=gnosispm/dex-open-solver:master stablex
+pip install git+http://github.com/gnosis/dex-open-solver#egg=dex-open-solver_gnosis
 ```
-
-Be aware, your Docker installation may require elevated privileges!
-
-Note that, if `SOLVER_BASE` is not specified, the driver's own internal `NaiveSolver` will be used. Alternatively, if you have your own personalized solver, this image would need to be specified during the build.
 
 ## Configuring Environment Variables
 
@@ -56,15 +48,7 @@ Technically, the orderbook file can be saved anywhere, but we have chosen `targe
 
 ## Run the Solver
 
-First run and enter the solver container:
-
-```sh
-docker-compose run -v $PWD/:/app/dex-services stablex
-```
-
-Since the project was mounted inside the container, changes you make to the driver code will be directly reflected on every restart.
-
-The driver can now be run from within the Docker container using the command:
+From within the `dex-services` root directory,
 
 ```sh
 cargo run --bin driver -- --solver-type OpenSolver --node-url $NODE_URL --private-key $PRIVATE_KEY --orderbook-file $ORDERBOOK_FILE
