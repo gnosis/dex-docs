@@ -23,7 +23,7 @@ Once comfortable you're all set, the open solver can be adapted to suit your own
 Build the driver (with the open solver Docker Hub image) from within the root directory of `dex-services` repo. This command builds the driver while simultanesouly baking the open solver into the the build.
 
 ```sh
-docker-compose build --build-arg SOLVER_BASE=gnosispm/dex-open-solver:master stablex-debug
+docker-compose build --build-arg SOLVER_BASE=gnosispm/dex-open-solver:master stablex
 ```
 
 Be aware, your Docker installation may require elevated privileges!
@@ -55,6 +55,16 @@ Copy this orderbook file into `dex-services/target` and append `ORDERBOOK_FILE=/
 Technically, the orderbook file can be saved anywhere, but we have chosen `target` here since it is flagged as an untracked directory in the project's `.gitignore`.
 
 ## Run the Solver
+
+First run and enter the solver container:
+
+```sh
+docker-compose run -v $PWD/:/app/dex-services stablex
+```
+
+Since the project was mounted inside the container, changes you make to the driver code will be directly reflected on every restart.
+
+The driver can now be run from within the Docker container using the command:
 
 ```sh
 cargo run --bin driver -- --solver-type OpenSolver --node-url $NODE_URL --private-key $PRIVATE_KEY --orderbook-file $ORDERBOOK_FILE
