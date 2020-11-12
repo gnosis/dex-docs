@@ -4,6 +4,8 @@ title: Run a Solver
 sidebar_label: Overview
 ---
 
+<!-- @format -->
+
 This tutorial will cover how to run the open solver for Gnosis Protocol. Before you get started, make sure you’ve familiarized yourself with the [Gnosis Protocol Introduction](https://docs.gnosis.io/protocol/docs/introduction1/), especially the section on what "solvers" are in the context of Gnosis Protocol.
 
 **Disclaimer**: _Running any sort of bot service that submits transactions to the EVM can result in substantial transaction fees. Please make sure to read the [advanced configuration](#Advanced-Configuration) section and familiarize yourself with the potential risks of running a solver. Gnosis believes that the information is accurate as of the date of publication. No warranty of accuracy is given, and no liability for any error or omission is accepted by Gnosis Ltd. and/or its affiliates._
@@ -72,7 +74,8 @@ export SOLVER_TYPE=OpenSolver
 export ORDERBOOK_FILE=/app/dex-services/target/stablex_orderbook_rinkeby.bin
 ```
 
-Observe that the `INFURA_KEY` must also be specified beforehand for the `NODE_URL` to be valid.
+Note that, if `SOLVER_TYPE` is not specified, the driver's own internal `NaiveSolver` will be used.
+Observe also that `INFURA_KEY` must be specified beforehand in order for the `NODE_URL` to be valid.
 Furthermore, while `ORDERBOOK_FILE` is technically an optional argument, it is **not recommended** to run without.
 
 A successfully running and properly configured driver should appear with the following logs:
@@ -166,8 +169,8 @@ and [here](https://rinkeby.etherscan.io/tx/0xef93563c9c79708a613fb77978bff974672
 
 ### Economic Viability Parameters
 
-The _economic viability_ (EV) of running a solver amounts, essentially, to ensuring that the gas spent by a solution submitter is sufficiently subsidized via the fee reward earned by successful solution submission. 
-In other words "is the transaction cost worth the reward". 
+The _economic viability_ (EV) of running a solver amounts, essentially, to ensuring that the gas spent by a solution submitter is sufficiently subsidized via the fee reward earned by successful solution submission.
+In other words "is the transaction cost worth the reward".
 There are three different flavour of _economic viability strategies_ that this software can be configured with. Namely
 
 1. **Dynamic (default):**
@@ -175,7 +178,7 @@ There are three different flavour of _economic viability strategies_ that this s
    In brief, this compares the estimated price for transaction submission and compares with the USD value of the token reward earned from fees.
    The subsidy factor is multiplicative so that a subsidy factor of 1 implies you are only willing to submit a solution if the reward it worth at least as much as the transaction cost, while a subsidy factor of 2 means you expect to get half as much in rewards as you are willing to spend.
 
-    _Note that_ the default subsidy factor is 1.
+   _Note that_ the default subsidy factor is 1.
 
 2. **Static:**
    Uses `static_min_avg_fee_per_order` and `static_max_gas_price` (in base units - wei).
@@ -198,17 +201,17 @@ There are three different flavour of _economic viability strategies_ that this s
    This could be considered dangerous for reasons describbed above, but may also be beneficial if the solver themselves has an overlapping open order that would yeild a valuable trade. Such a configuration would require the following env vars be set.
    Note that; if the `ECONOMIC_VIABILITY_STRATEGY` is set to static, then both of the following two _must_ be specified.
 
-    ```sh
-    ECONOMIC_VIABILITY_STRATEGY=static
-    STATIC_MIN_AVG_FEE_PER_ORDER=0
-    STATIC_MAX_GAS_PRICE=100000000000
-    ```
+   ```sh
+   ECONOMIC_VIABILITY_STRATEGY=static
+   STATIC_MIN_AVG_FEE_PER_ORDER=0
+   STATIC_MAX_GAS_PRICE=100000000000
+   ```
 
 3. Combined with min fee of 10 USD, max gas of 40 GWei and subsidy factor of 1/2: Since this is a hybrid of both Dynamic and Static, one must specify the static environment variables, but is left to choose the if subsidy factor differs from the default of 1.
 
-    ```sh
-    ECONOMIC_VIABILITY_STRATEGY=combined
-    STATIC_MIN_AVG_FEE_PER_ORDER=10
-    STATIC_MAX_GAS_PRICE=40000000000
-    ECONOMIC_VIABILITY_SUBSIDY_FACTOR=0.5
-    ```
+   ```sh
+   ECONOMIC_VIABILITY_STRATEGY=combined
+   STATIC_MIN_AVG_FEE_PER_ORDER=10
+   STATIC_MAX_GAS_PRICE=40000000000
+   ECONOMIC_VIABILITY_SUBSIDY_FACTOR=0.5
+   ```
