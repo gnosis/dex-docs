@@ -34,36 +34,29 @@ class HomeSplash extends React.Component {
         <div className="inner index-info-block grid-blocks two-blocks-grid">
           <div 
           className="index-info-block-title">
-           Build on Gnosis Protocol: A fully permissionless DEX that enables ring trades to maximize liquidity.
+           Integrate Gnosis Protocol v2 to your dapp: Fully permissionless trading protocol that leverages batch auctions to protect traders from MEV.
           </div>
           <div className="index-info-block-text">
             <p>
-              Gnosis Protocol is built in the spirit of permissionless innovation. Its fully decentralized architecture means you don’t need to trust us at Gnosis to build on our protocol. Not only can anyone list tokens or build integrations, Gnosis Protocol's order settlement process does not rely on any operator. 
+             Gnosis Protocol v2 is a completely decentralized protocol, and anyone can integrate on top of it. If a DEX/DAPP wants to offer their users MEV protection and better trading prices, all it has to do is integrate so that their UI routes their user trades to the protocol. 
             </p>
             <p>
-              Here you can learn more about the protocol and everything you need to start building. Start with the introduction, use cases, or a deep dive into the contracts.
+              Here you can learn everything about the protocol qualities, they way it functions and the code behind it.
             </p>
           </div>
         </div>
 
         <div className="inner index-section-boxes grid-blocks four-blocks-grid">
-          <a href={docUrl("introduction1")} className="white-box">
+          <a href={docUrl("introduction")} className="white-box">
             <h3>
               Introduction
             </h3>
             <p>
-              Understand the <strong>mechanism</strong> behind Gnosis Protocol 
+              Understand the <strong>mechanism</strong> behind Gnosis Protocol v2.
             </p>
           </a>
-          <a href={pageUrl("use-case")} className="white-box">
-            <h3>
-              Use Cases
-            </h3>
-            <p>
-              Create <strong>applications</strong> using the Gnosis Protocol
-            </p>
-          </a>
-          <a href={docUrl("devguide01")} className="white-box">
+          
+          <a href={docUrl("smartcontracts")} className="white-box">
             <h3>
               Documentation
             </h3>
@@ -79,9 +72,6 @@ class HomeSplash extends React.Component {
               <strong>Get started</strong> building on Gnosis Protocol contracts
             </p>
           </a>
-        </div>
-
-        <div className="inner index-section-last-boxes grid-blocks two-blocks-grid">
           <a href={pageUrl("#support")} className="white-box">
             <h3>
               Support
@@ -90,32 +80,8 @@ class HomeSplash extends React.Component {
               Need some <strong>help</strong>? Reach out to us!
             </p>
           </a>
-
-          <a href={pageUrl("#projects")} className="white-box">
-            <h3>
-              Projects
-            </h3>
-            <p>
-              <strong>Explore</strong> existing Gnosis Protocol integrations
-            </p>
-          </a>
         </div>
-
-        <div className="inner index-what-are grid-blocks two-blocks-grid">
-          <div>
-            <h2>
-              What is Gnosis Protocol?
-            </h2>
-          </div>
-          <div>
-            <p>
-              Gnosis Protocol is a fully permissionless DEX, which has been in research and development over the course of the last two years.
-            </p>
-            <p>
-              Gnosis Protocol enables ring trades to maximize liquidity. Ring trades are order settlements which share liquidity across all orders, rather than a single token pair, and uniquely suited for trading prediction market tokens and the long tail of all tokenized assets.
-            </p>
-          </div>
-        </div>
+        
 
         <div className="inner index-advantages grid-blocks two-blocks-grid">
           <div>
@@ -126,19 +92,19 @@ class HomeSplash extends React.Component {
           <div className="index-advantages-boxes  grid-blocks two-blocks-grid">
             <a className="white-box">
               <h3>
-                Maximized Liquidity
+                MEV Protection
               </h3>
               <p>
-                The protocol maximizes liquidity through <strong>ring trades</strong>, in which liquidity is shared among all traded assets.
+              Trades are <strong>protected from different sorts of MEV</strong> such as front/back running or sandwhich attacks.
               </p>
             </a>
 
             <a className="white-box">
               <h3>
-              Permissionless Innovation
+              Maximized liquidity 
               </h3>
               <p>
-               Anyone can list tokens, build integrations, and submit order settlements on the <strong>fully decentralized</strong> protocol.
+              Access to <strong> all</strong>  on chain liquidity.
               </p>
             </a>
 
@@ -147,16 +113,16 @@ class HomeSplash extends React.Component {
                 Uniform Prices
               </h3>
               <p>
-                The protocol is the first implementation of <strong>batch auctions</strong>, which promote uniform clearing prices and front-running resistance. 
+                The protocol is the first implementation (2nd iteration) of <strong>batch auctions</strong>, which promote uniform clearing prices. 
               </p>
             </a>
 
             <a className="white-box">
               <h3>
-                Long Tail Markets
+                Fair, decentralized settlements
               </h3>
               <p>
-                <strong>Trade any token pair</strong> without having to use an intermediary token or centralized exchange to convert your asset.
+              Open competitions for order matching  <strong>replaces a central operator</strong>  or a constant function market maker.
               </p>
             </a>
           </div>
@@ -172,34 +138,10 @@ class HomeSplash extends React.Component {
             </a>
           </div>
           
-          <div className="index-projects-boxes grid-blocks four-blocks-grid">
+          <div className="index-projects-boxes grid-blocks two-blocks-grid">
                       
-            <a href="https://explore.duneanalytics.com/public/dashboards/I43OkDWnojXZYm8vmdBDcLz5UsS3Tn0cx1xU8Hcg" className="white-box">
+            <a href="https://duneanalytics.com/gnosis.protocol/Gnosis-Protocol-V2" className="white-box">
              <strong>Dune Analytics </strong>
-            </a>
-
-            <a href="https://thegraph.com/explorer/subgraph/gnosis/protocol" className="white-box">
-              <strong>The Graph Mainnet</strong>
-            </a>
-
-            <a href="https://thegraph.com/explorer/subgraph/gnosis/protocol-rinkeby" className="white-box">
-              <strong> The Graph Rinkeby </strong>
-            </a>
-
-            <a href="https://defipulse.com" className="white-box">
-              <strong>DeFi Pulse</strong>
-            </a>
-                      
-            <a href="https://www.coingecko.com/en/exchanges/mesa" className="white-box">
-             <strong>Coin Gecko</strong>
-            </a>
-
-            <a href="https://dappradar.com/app/1879/gnosis-protocol" className="white-box">
-              <strong>DappRadar</strong>
-            </a>
-
-            <a href="https://github.com/zeriontech/defi-sdk" className="white-box">
-              <strong>Zerion DeFi SDK</strong>
             </a>
             
           </div>
@@ -209,7 +151,7 @@ class HomeSplash extends React.Component {
           <div>
            <a name="projects">
             <h2>
-              Projects building on<br></br>Gnosis Protocol
+              Projects building on<br></br>Gnosis Protocol v2
             </h2>
             </a>
             <p>
@@ -218,12 +160,12 @@ class HomeSplash extends React.Component {
 
           </div>
           <div className="index-projects-boxes grid-blocks two-blocks-grid">
-            <a href="https://mesa.eth.link" className="white-box">
-               <strong> Mesa</strong> <br></br>
-               The Mesa dapp supports simple market making strategies for stablecoins on the Gnosis Protocol.
+            <a href="https://cowswap.exchange" className="white-box">
+               <strong>CowSwap</strong> <br></br>
+               CowSwap is a <strong>proof-of-concept dapp </strong> built on Gnosis Protocol v2 .
             </a>            
-            <a href="https://github.com/gnosis/GECO" className="white-box">
-               <strong> Want to be the next?</strong> <br></br> Apply with your project to the <strong>Gnosis Ecosystem Fund</strong>!
+            <a href="https://medium.com/balancer-protocol/the-crypto-cinematic-universe-crossover-event-of-the-summer-balancer-gnosis-protocol-bgp-638568aa0385" className="white-box">
+              The  <strong> Crypto Cinematic Universe Crossover Event</strong> of the Summer: Balancer-Gnosis-Protocol (BGP)
             </a>
           </div>
         </div>

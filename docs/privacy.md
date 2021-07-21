@@ -3,7 +3,7 @@ id: privacy
 title: Privacy Policy
 ---
 
-last updated 1st of April 2020
+last updated 20th of July 2021
  
 We are delighted that you have chosen to use our App or visit our website. We take our data protection responsibilities with the utmost seriousness and we have designed our website so that you may navigate and use our website without having to provide Personal Data.
 This Policy sets out what Personal Data we collect, how we process it and how long we retain it. This Policy applies to all of our processing activities where we act as a data controller.

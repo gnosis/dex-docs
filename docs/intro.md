@@ -1,10 +1,12 @@
 ---
-id: introduction1
+id: introduction
 title: Introduction to Gnosis Protocol v2
 sidebar_label: Introduction
 ---
 
 Gnosis Protocol v2 is a fully permissionless trading protocol that leverages Batch Auctions as its price finding mechanism. Gnosis Protocol v2 enables batch auctions to maximize liquidity via Coincidence of Wants (CoWs) in addition to tapping all available on-chain liquidity whenever needed. Batch Auctions are continuously run by the protocol because the solvers, the parties in charge of finding the most optimal settlement for the batch, are in competition to settle it. The winning solver will be the one that can maximize traders surplus by either having the most optimal CoW, finding the best liquidity sources, or combining both in a single settlement.
+
+<img src="assets/GParchitecture.png">
 
 Coincidence of Wants (CoWs) are one of the most, if not the most, innovative aspects of the protocol, but what exactly are they? CoWs are settlements which share liquidity across all orders who have matching limit prices. Rather than an AMM or an CLOB, Gnosis Protocol v2 uses batch auctions as a core mechanism to facilitate CoWs. Using batch auctions leads to better prices for the individual traders as well as offering big savings, in terms of gas fees optimization and liquidity provider fees. Additionally, because of Batch Auction uniform clearing prices and CoWs not needing access to on-chain liquidity, Gnosis Protocol v2 is able to offer the user a level of MEV protection that can not be achieved by any other protocol.
 
