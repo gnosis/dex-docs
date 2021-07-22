@@ -76,7 +76,7 @@ The following briefly describes each of these individual solvers:
 
 Matches a single order to a set of AMM's. Computes the single sequence of AMM's that leads to a higher surplus for the owner of the order.
 
-<img src="assets/Baseline Solver.png">
+<img src="/protocol/docs/assets/Baseline Solver.png">
 
 Graph representation of a batch auction. Nodes represent tokens, blue arrows are orders, and green arrows are AMM pools. A dashed edge indicates an unused AMM. The edge weights stand for the spot exchange rate (sell amount/buy amount) associated with the AMM pool.
 
@@ -88,7 +88,7 @@ Matches a single order to a set of AMM's by using the 1inch, Paraswap & Matcha e
 
 It also has a more holistic view of the available on-chain liquidity (the baseline solver is still catching up on supporting all possible on-chain protocols).
 
-<img src="assets/1inch solver.png">
+<img src="/protocol/docs/assets/1inch solver.png">
 
 Example: Consider again the previous example. Since pools have slippage (the exchange rate changes as a function of the traded amount), if the order being matched is big enough, it could eventually occur that spot exchange rates on the sequence A->C->D would be as shown in the picture above. At this point, it is equally advantageous to use the A->B->D sequence, and in fact, the optimal strategy would be to match the remaining amount to be traded to both sequences simultaneously.
 
@@ -98,7 +98,7 @@ Matches a single order to the set of pools that are within the Balancer protocol
 
 It also has a more holistic view of the available on-chain liquidity (the baseline solver is still catching up on supporting all possible on-chain protocols).
 
-<img src="assets/Balancer SoR Solver.png">
+<img src="/protocol/docs/assets/Balancer SoR Solver.png">
 
 Example: Consider again the previous example. Since pools have slippage (the exchange rate changes as a function of the traded amount), if the order being matched is big enough, it could eventually occur that spot exchange rates on the sequence A->C->D would be as shown in the picture above. At this point, it is equally advantageous to use the A->B->D sequence, and in fact, the optimal strategy would be to match the remaining amount to be traded to both sequences simultaneously.
 
@@ -108,13 +108,13 @@ Matches a set of orders in a single token pair against a Uniswap v2 pool. The sp
 
 A slightly more sophisticated approach considering multi-hop routes (or even a full baseline route) for the excess would be a cool addition to the code-base (grants available)
 
-<img src="assets/Niave Solver.png">
+<img src="/protocol/docs/assets/Niave Solver.png">
 
 #### MIP solver
 
 Matches a set of orders against a set of AMM's. This is the general case, which is an NP-hard problem and is tackled using a mixed-integer programming solver. A previous version of the model, that doesn't include the AMM integration, is thoroughly described [here](https://github.com/gnosis/dex-research/blob/master/BatchAuctionOptimization/batchauctions.pdf).
 
-<img src="assets/MIP Solver.png">
+<img src="/protocol/docs/assets/MIP Solver.png">
 
 ### Solvers Competition
     

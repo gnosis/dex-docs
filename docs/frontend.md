@@ -8,12 +8,12 @@ Gnosis Protocol v2 can have different front ends, depending on the dapp you are 
 
 While the front end might look familiar, the trading process is quite different from other DeFi DEXes, starting with the fact that users don’t execute a trade transaction, but rather sign an off-chain message with an intent of trading.
 
-## Gnosis Protocol Explorer 
+## Gnosis Protocol Explorer
 Gnosis Protocol Explorer (GPE) is an "Etherscan" like interface for the Gnosis Protocol v2 (GPv2). Given that GPv2 leverages meta transactions, aka signed/offchain orders, the transactions submitted by the users are completely offline/off-chain and are therefore not visible on-chain until they have been fully executed. Because of it, GPE exists to help users find their orders, and be informed about the order details and their state.
 
 Although at the moment GPE only shows single order details, in a future version it will have a bigger scope to present more information to the user, such as diverse GPV2 protocol information, markets traded, trade history, graphs, and so on.
 
-<img src="assets/FrontEnd.png">
+<img src="/protocol/docs/assets/FrontEnd.png">
 
 1.  **Order ID:**ID given to each submitted order.
 2.  **From:** Ethereum address that is selling the tokens.
@@ -31,7 +31,7 @@ Although at the moment GPE only shows single order details, in a future version 
 14. **Fees:** Amount of fees that have been paid by the user.
 
 ### States
- 
+
 
 As GPE is meant to help users visualize meta transactions (signed orders), a critical parameter to show is the State of the signed order. This parameter has the following status:
 
@@ -46,13 +46,13 @@ As GPE is meant to help users visualize meta transactions (signed orders), a cri
 ### Surplus
 
 
-All the Orders placed on GPv2 are limit orders behind the scenes. When a user signs an order to trade it accepts the following: 
+All the Orders placed on GPv2 are limit orders behind the scenes. When a user signs an order to trade it accepts the following:
 
-- the sell and buy tokens they want to trade, 
-- the minimum price they are willing to receive, 
-- the slippage tolerance they have, 
-- the fee that is taken by the protocol and, 
-- how long is the order valid for. 
+- the sell and buy tokens they want to trade,
+- the minimum price they are willing to receive,
+- the slippage tolerance they have,
+- the fee that is taken by the protocol and,
+- how long is the order valid for.
 
 Through Batch Auctions and CoWs (Coincidence of Wants), the protocol can improve on the minimum price that has been shown to the user. That improvement is called *"Surplus"*, and it measures how much better your actual trade price was as opposed to your original limit order price.
 
@@ -64,14 +64,14 @@ As mentioned before, Gnosis Protocol v2 has the capability of offering users a b
 -   **Execution price:** The actual price the order was executed at. This parameter can only be equal to or better than the limit price.
 
 ### Search
- 
+
 In order to facilitate users searching their orders, the explorer has search functionality that allows the user to search for an order by the order id.
 
 GPE is capable of detecting which network the order belongs to, redirecting and loading the order details for the appropriate network, given that it exists.
 
 
 ## CowSwap
- 
+
 CowSwap is the first trading interface built on top of Gnosis Protocol v2. It allows you to buy and sell tokens using gas-less orders that are settled p2p.
 
 ###  Differences between CowSwap & UniSwap
@@ -91,7 +91,7 @@ CowSwap's interface may look very familiar to the average DeFi user, as it's bas
 CowSwap does not have liquidity providers. Instead, it connects to all on-chain liquidity that is provided across different protocols. Since orders only incur a cost if traded, active market makers can observe the order book and place counter orders (creating a CoW) to prevent settling trades via external liquidity.
 
 ### Cancelling orders
- 
+
 
 CowSwap allows you to cancel your orders without any cost. As a user, you simply sign the order cancellation - similar to how the order placement was done - and if the solution has not been mined yet, the order will not be executed, and therefore cancelled.
 
@@ -113,9 +113,8 @@ Cowswap has different types of interactions that a user is capable of executing.
 
 Internal CowSwap Operations
 
-<img src="assets/cowswap.png">
+<img src="/protocol/docs/assets/cowswap.png">
 
 ### FAQ
 
 Want to know more about CowSwap and how it works. Head over to its [FAQ section](https://cowswap.exchange/#/faq).
-

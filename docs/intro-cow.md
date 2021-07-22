@@ -22,6 +22,6 @@ Ring trades are a form of Coincidence of Wants that not only maximize the liquid
 </p>
 
 
-<img src="assets/Ring_trade.png">
+<img src="/protocol/docs/assets/Ring_trade.png">
 
 Overall, by leveraging Batch Auctions which are tailored for Coincidence of Wants, Gnosis Protocol is able to give better prices for trades because batching transactions results in a lower spread, as well as a much more optimized transaction management for the user.

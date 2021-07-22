@@ -21,7 +21,7 @@ In order for your order to be tradable, the owner account has to allow the [GPv2
 
 This can either be done using Etherscan, e.g. to set an unlimited allowance for USDC by visiting <https://etherscan.io/token/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48#writeProxyContract> and setting
 
-<img src="assets/tutapiorders.png">
+<img src="/protocol/docs/assets/tutapiorders.png">
 
 It can also be done programmatically e.g. using the following ethers typescript snippet:
 
