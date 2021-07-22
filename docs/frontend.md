@@ -5,7 +5,8 @@ sidebar_label: Front End
 ---
 
 Gnosis Protocol v2 can have different front ends, depending on the dapp you are interacting with. CowSwap is the first trading interface built on top of the protocol, followed by a soon to be launched Balancer UI.
-While the front end might look familiar, the trading process is quite different from other DeFi DEXs, starting with the fact that users don’t execute a trade transaction, but rather sign an off-chain message with an intent of trading.
+
+While the front end might look familiar, the trading process is quite different from other DeFi DEXes, starting with the fact that users don’t execute a trade transaction, but rather sign an off-chain message with an intent of trading.
 
 ## Gnosis Protocol Explorer 
 Gnosis Protocol Explorer (GPE) is an "Etherscan" like interface for the Gnosis Protocol v2 (GPv2). Given that GPv2 leverages meta transactions, aka signed/offchain orders, the transactions submitted by the users are completely offline/off-chain and are therefore not visible on-chain until they have been fully executed. Because of it, GPE exists to help users find their orders, and be informed about the order details and their state.
@@ -45,7 +46,15 @@ As GPE is meant to help users visualize meta transactions (signed orders), a cri
 ### Surplus
 
 
-All the Orders placed on GPv2 are limit orders behind the scenes. When a user signs an order to trade it accepts the following: the sell and buy tokens they want to trade, the minimum price they are willing to receive, the slippage tolerance they have, the fee that is taken by the protocol and how long is the order valid for. Through Batch Auctions and CoWs (Coincidence of Wants), the protocol can improve on the minimum price that has been shown to the user. That improvement is called *"Surplus"*, and it measures how much better your actual trade price was as opposed to your original limit order price.
+All the Orders placed on GPv2 are limit orders behind the scenes. When a user signs an order to trade it accepts the following: 
+
+- the sell and buy tokens they want to trade, 
+- the minimum price they are willing to receive, 
+- the slippage tolerance they have, 
+- the fee that is taken by the protocol and, 
+- how long is the order valid for. 
+
+Through Batch Auctions and CoWs (Coincidence of Wants), the protocol can improve on the minimum price that has been shown to the user. That improvement is called *"Surplus"*, and it measures how much better your actual trade price was as opposed to your original limit order price.
 
 ###  Prices
 
@@ -59,7 +68,6 @@ As mentioned before, Gnosis Protocol v2 has the capability of offering users a b
 In order to facilitate users searching their orders, the explorer has search functionality that allows the user to search for an order by the order id.
 
 GPE is capable of detecting which network the order belongs to, redirecting and loading the order details for the appropriate network, given that it exists.
-
 
 
 ## CowSwap
