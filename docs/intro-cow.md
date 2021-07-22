@@ -11,8 +11,6 @@ One of the advantages of using batch auctions is that not only can you find perf
 
 Once we know the theory behind Coincidence of Wants, and Ring trades, let's deep dive in an example for both of them to understand them deeper.
 
-COW:
-
 <https://etherscan.io/tx/0x71d6f5bb2f29d16a0649d2b6a2eb3fabde8040598c21e675511d54e27399f6d2> 
 
 In this batch auction, Gnosis Protocol found a Coincidence of Wants, from multiple users' orders. In this CoW, what we can see is that 12 swaps were mixed together to share liquidity amongst all of them. This allowed the protocol to settle a portion of the trade size internally, via CoWs, while only needing to tap into two different on-chain AMMs to cover for the rest of the liquidity within the batch.
