@@ -75,6 +75,7 @@ The following briefly describes each of these individual solvers:
 #### Baseline solver
 
 Matches a single order to a set of AMM's. Computes the single sequence of AMM's that leads to a higher surplus for the owner of the order.
+
 <img src="assets/Baseline Solver.png">
 
 Graph representation of a batch auction. Nodes represent tokens, blue arrows are orders, and green arrows are AMM pools. A dashed edge indicates an unused AMM. The edge weights stand for the spot exchange rate (sell amount/buy amount) associated with the AMM pool.
@@ -96,6 +97,7 @@ Example: Consider again the previous example. Since pools have slippage (the exc
 Matches a single order to the set of pools that are within the Balancer protocol. This means that the set of AMM pools to consider and the method used to match them against the order only relies on what is happening inside the Balancer protocol. Note, that this solvers routing algorithm is more advanced than the baseline solver since it can match an order using multiple pool sequences, as explained in the following example.
 
 It also has a more holistic view of the available on-chain liquidity (the baseline solver is still catching up on supporting all possible on-chain protocols).
+
 <img src="assets/Balancer SoR Solver.png">
 
 Example: Consider again the previous example. Since pools have slippage (the exchange rate changes as a function of the traded amount), if the order being matched is big enough, it could eventually occur that spot exchange rates on the sequence A->C->D would be as shown in the picture above. At this point, it is equally advantageous to use the A->B->D sequence, and in fact, the optimal strategy would be to match the remaining amount to be traded to both sequences simultaneously.
@@ -119,11 +121,11 @@ Matches a set of orders against a set of AMM's. This is the general case, which 
 
 As stated in the "Road to decentralization" section, there are different phases in which the solver's competition will open up to new users. To recap, the methods for a user to become a solver differ depending on which phase the protocol is at:
 
-**Phase 1:** having a trust relationship with the Gnosis Team will allow for collaboration to spark, and for them to manually include your solver in the authenticated solvers.
+- **Phase 1:** having a trust relationship with the Gnosis Team will allow for collaboration to spark, and for them to manually include your solver in the authenticated solvers.
 
-**Phase 2:** the protocol is more mature, and the GnosisDAO is the entity in charge of authenticating solvers according to the votes of the proposal, and the bond they have placed.
+- **Phase 2:** the protocol is more mature, and the GnosisDAO is the entity in charge of authenticating solvers according to the votes of the proposal, and the bond they have placed.
 
-**Phase 3:** the protocol will aim to make the orderbook decentralized in a P2P client network where everyone can validate the orders registered in a trustless manner.
+- **Phase 3:** the protocol will aim to make the orderbook decentralized in a P2P client network where everyone can validate the orders registered in a trustless manner.
 
 Once the solver has been authenticated and included in the Allowlist smart contract, it will now be able to submit batch settlement solutions and obtain rewards according to their performance.
 
