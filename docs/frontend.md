@@ -100,10 +100,10 @@ CowSwap allows you to cancel your orders without any cost. As a user, you simply
 
 CowSwap uses offline signatures to offer gasless orders, aka signed orders. The currently supported wallets by CowSwap can be grouped in the following way:
 
--   **EOA wallets: Most of the most popular EOA wallets are supported. Metamask or any injected wallet (Mobile Wallet app browser) as well as wallets through WalletConnect.\
+-   **EOA wallets:** Most of the most popular EOA wallets are supported. Metamask or any injected wallet (Mobile Wallet app browser) as well as wallets through WalletConnect.\
     If you have a wallet that's not working, let us know.
 
--   Smart Contract wallets: Currently, Smart Contract (SC) wallets such as Gnosis Safe, Argent or Pillar are not supported because it would require signing an on-chain transaction to place the order, making it no longer gasless. We are working to make this a possibility and support will be added soon.\
+-   **Smart Contract wallets**: Currently, Smart Contract (SC) wallets such as Gnosis Safe, Argent or Pillar are not supported because it would require signing an on-chain transaction to place the order, making it no longer gasless. We are working to make this a possibility and support will be added soon.\
     Nevertheless, even if your wallet is not a SC wallet, it might be unsupported in some cases. Not all wallets implement the necessary signing methods from the EIP-712 standard. If that is the case for you, reach out to your wallet developers and ask for it.
 
 ### Interactions encountered when using Cowswap
