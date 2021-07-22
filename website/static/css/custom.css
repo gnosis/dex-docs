@@ -4,28 +4,28 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
- 
+
 /* your custom css */
 
 @font-face {
    font-family: "Averta";
    font-style: normal;
    font-display: swap;
-   src: local("Averta-Regular"), url('/fonts/averta-regular.ttf') format('truetype');
+   src: local("Averta-Regular"), url('/protocol/fonts/averta-regular.ttf') format('truetype');
  }
 
  @font-face {
    font-family: 'Averta-Bold';
    font-style: normal;
    font-display: swap;
-   src: local("Averta-Bold"), url('/fonts/averta-bold.ttf') format('truetype');
+   src: local("Averta-Bold"), url('/protocol/fonts/averta-bold.ttf') format('truetype');
  }
 
  @font-face {
    font-family: 'Averta-Extra-Bold';
    font-style: normal;
    font-display: swap;
-   src: local("Averta-Extrabold"), url('/fonts/averta-extra-bold.ttf') format('truetype');
+   src: local("Averta-Extrabold"), url('/protocol/fonts/averta-extra-bold.ttf') format('truetype');
  }
 
  body {
@@ -111,7 +111,7 @@
 	width: 25%;
 	height: 50%;
 }
-  
+
 .homeContainer .homeWrapper .projectLogo {
    /*height: 100px;*/
    /*margin-bottom: 0px;*/
@@ -389,7 +389,7 @@ a{
 }
 
 .github-star-button:hover{
-   
+
    border: solid 2px #e8663d;
 }
 
@@ -470,7 +470,7 @@ a{
    .fixedHeaderContainer {
       position: relative;
    }
-   
+
    .docsNavContainer {
       top: 0;
       position: sticky;
