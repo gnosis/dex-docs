@@ -16,7 +16,7 @@ Both the user interface and the smart contracts are pieces that are already at 1
 Phase 1
 -----
 
-Initially, the smart contract curates a list of trusted solvers (e.g. an account running the solver implementation in gp-v2-services). This list would be given to the Gnosis DAO or GP Dao and will essentially control who gets to submit settlement solutions. People that want to implement solver strategies in this phase are invited to submit PRs to our repository to include their logic.
+Initially, the smart contract curates a list of trusted solvers (e.g. an account running the solver implementation in gp-v2-services). This list would be given to the Gnosis DAO or GnosisProtocolDao and will essentially control who gets to submit settlement solutions. People that want to implement solver strategies in this phase are invited to submit PRs to our repository to include their logic.
 
 It will allow competition between different independent solver accounts that communicate via some sort of central managed channel. Each solver would announce the “objective value” (what that value should be optimised for, is a separate topic) they have computed for the current batch auction and all together they agree on who obtains the right to settle this auction. In order to compute the objective value there needs to be consensus on what the state of the auction is (all valid orders for which surplus should be achieved). This is done via a central off-chain orderbook API (more on how to decentralize this part below). We should maybe mention here that for an order to be considered valid by the Orderbook API it needs to pay a “sufficient fee” (to be discussed in a separate topic) to the protocol.
 
@@ -26,7 +26,7 @@ In this phase the DAO would still pay close attention to who becomes an authenti
 Phase 2
 -----
 
-While the core GPv2 settlement contract is not upgradable, the logic of how solvers are authenticated is upgradeable. In phase 2, we envision the DAO to put in place a permissionless model, where anyone can become an authenticated solver as long as they stake a sizable amount of GNO. For this phase, the DAO would agree on a set of rules (e.g. under what circumstances batches are allowed to be split into multiple ones, which set of on-chain liquidity has to be at least considered for a solution, etc).
+While the core GPv2 settlement contract is not upgradable, the logic of how solvers are authenticated is upgradeable. In phase 2, we envision the DAO to put in place a permissionless model, where anyone can become an authenticated solver as long as they stake the asset and amount defined by the GnosisDAO or GnosisProtocolDAO. For this phase, the DAO would agree on a set of rules (e.g. under what circumstances batches are allowed to be split into multiple ones, which set of on-chain liquidity has to be at least considered for a solution, etc).
 
 Upon violation of these rules, the DAO can vote to slash a solver’s stake. The set of rules could be coded into a “verifier client” that members of the DAO run in order to indicate when a slashing vote should be casted.
 
@@ -38,6 +38,6 @@ Phase 3
 
 In phase 3 we hope the centrally hosted orderbook changes to a distributed p2p client network. Consensus could be reached:
 
-by a native client implementation,
-by making GP a first party citizen in Ethereum nodes (e.g. OpenEthereum) or
-by piggy-backing on a cheap side chain or test network (e.g. xDAI) for data availability
+- by a native client implementation,
+- by making GP a first party citizen in Ethereum nodes (e.g. OpenEthereum) or
+- by piggy-backing on a cheap side chain or test network (e.g. xDAI) for data availability
