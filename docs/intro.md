@@ -10,22 +10,22 @@ Gnosis Protocol v2 is a fully permissionless trading protocol that leverages Bat
 
 Coincidence of Wants (CoWs) are one of the most, if not the most, innovative aspects of the protocol, but what exactly are they? CoWs are settlements which share liquidity across all orders who have matching limit prices. Rather than an AMM or an CLOB, Gnosis Protocol v2 uses batch auctions as a core mechanism to facilitate CoWs. Using batch auctions leads to better prices for the individual traders as well as offering big savings, in terms of gas fees optimization and liquidity provider fees. Additionally, because of Batch Auction uniform clearing prices and CoWs not needing access to on-chain liquidity, Gnosis Protocol v2 is able to offer the user a level of MEV protection that can not be achieved by any other protocol.
 
-CowSwap is a proof-of-concept dapp (decentralized application) built on Gnosis Protocol v2 (GPv2) with the aim of establishing itself as the META DEX Aggregator. CowSwap offers the decentralized finance community a teaser of the capabilities of GPv2  through testing upcoming features while the upside of having heavily subsidized gas fee trades for the moment.
+CowSwap is the first trading interface built on top of Gnosis Protocol v2. It acts as Meta DEX aggregator, giving the users the best price across the aggregators or AMMs depending on which one is the most liquid venue for the trades within a batch. 
 
-In GPv2, instead of using a central operator or a constant function market maker to determine trade settlements, the protocol uses a "party" called solver, who is the party in charge of providing the settlement solution to the batch auctions. Solvers compete against each other to submit the most optimal batch settlement solution and each time a solver submits a successful batch settlement solution, the protocol rewards them with 1 GNO, meaning that the protocol rewards solvers for solving the batch auction optimization problem. Anyone can become a solver, although, in order to become one, there are certain requirements:
+In GPv2, instead of using a central operator or a constant function market maker to determine trade settlements, the protocol uses a “party” called solver, who is the party in charge of providing the settlement solution to the batch auctions. Solvers compete against each other to submit the most optimal batch settlement solution and each time a solver submits a successful batch settlement solution, the protocol rewards them with tokens, meaning that the protocol rewards solvers for solving the batch auction optimization problem. Anyone can become a solver, although, in order to become one, there are certain requirements:
 
--   To become a solver, an Ethereum address needs to deposit a bond of 100 GNO tokens to GnosisDAO. 
+-   To become a solver, an Ethereum address needs to deposit a bond in the form of tokens. Asset type and amounts are pending to be defined by the GnosisDAO or GnosisProtocolDAO.
 
--   Once the 100 GNO tokens have been staked (locked up), GnosisDAO has to vote to approve or reject the Ethereum address that will identify the solver. If the vote is successful, the solvers Ethereum address will be included in the allowlist (verification) solvers contract. 
+-   Once the tokens have been staked (locked up), GnosisDAO/GnosisProtocolDAO has to vote to approve or reject the Ethereum address that will identify the solver. If the vote is successful, the solvers Ethereum address will be included in the allowlist (verification) solvers contract. 
 
--   Additionally, a solver must have the technical knowledge to create the appropriate batch settlement solutions or take the risk of being slashed by the GnosisDAO for wrongdoing.
+-   Additionally, a solver must have the technical knowledge to create the appropriate batch settlement solutions or take the risk of being slashed by the GnosisDAO/GnosisProtocolDAO for wrongdoing.
 
 Benefits
 --------
 
 Gnosis protocol v2 has a wide range of benefits, both technical and functional, but to sum it up, here are the main benefits it brings to the ecosystem:
 
--   Fully permissionless DEX on which anyone can trade any tokens and build integrations;
+-   Fully permissionless Meta DEX Aggregator on which anyone can trade any tokens and build integrations;
 
 -   First implementation (2nd iteration) of batch auctions promoting fair uniform clearing prices;
 
@@ -33,9 +33,9 @@ Gnosis protocol v2 has a wide range of benefits, both technical and functional, 
 
 -   Maximized liquidity and access to all on chain liquidity
 
--   Best prices when COWs are found, or at least as good as the best DEX aggregator price if they aren't
+    -   Best prices when COWs are found, or at least as good as the best DEX aggregator price if they aren't
 
--   All token pairs available for trading,  Offchain order submission enables gasless trading
+    -   All token pairs available for trading,  Offchain order submission enables gasless trading
 
 -   Fair, decentralized settlement in which an open competition for order matching replaces a central operator or a constant function market maker.
 
@@ -44,23 +44,23 @@ Gnosis protocol v2 has a wide range of benefits, both technical and functional, 
 Trading Cycle
 -------------
 
-While we call CowSwap a META DEX Aggregator, as it may have similarities with current DEX aggregators or DEX trading protocol, Gnosis Protocol v2 introduces a completely new way of trading. In comparison with other DEXs or DEX aggregator, Gnosis Protocol, and therefore the interfaces built on top of it (cowswap.exchange for example), dont require the user to send a transaction to submit a trade, but rather require the user to send a signed message. The reason for this is that the protocol works with off-chain messages, where the trader signs an order with the valid parameters they are willing to accept. This signed order is later on picked up by the solvers and executed in the batch auction that satisfies the users signed requirements.
+While we call CowSwap a META DEX Aggregator, as it may have similarities with current DEX aggregators or DEX trading protocol, Gnosis Protocol v2 introduces a completely new way of trading. In comparison with other DEXs or DEX aggregator, Gnosis Protocol v2, and therefore the interfaces built on top of it (cowswap.exchange for example), dont require the user to send a transaction to submit a trade, but rather require the user to send a signed message. The reason for this is that the protocol works with off-chain messages, where the trader signs an order with the valid parameters they are willing to accept. This signed order is later on picked up by the solvers and executed in the batch auction that satisfies the users signed requirements.
 
 Let's get an owl's eye view on how the protocol's trading cycles works:
 
--   Users need to approve the contract allowance manager to enable trading for a desired token. This interaction incurs a transaction fee, but only needs to be done once per token, meaning that once you have approved a token, no more transaction fees on it.
+-   Users need to approve the contract allowance manager to enable trading for a desired token. This interaction incurs a transaction fee, but only needs to be done once per token, meaning that once you have approved a token, there aren't any more transaction fees on it.
 
 -   Users can place limit sell/buy orders off-chain at any time by simply signing a message that contains their trade details. Users don't pay a gas fee for posting and canceling orders. On the other hand, the user does pay a protocol fee to cover the solvers settling the transaction for them.
 
--   Off-chain orders are picked up by the solvers who will settle them in a batch auction that runs every XX.
+-   Off-chain orders are picked up by the solvers who will settle them in a batch auction.
 
--   At the start of a batch, all currently open orders on the protocol are considered;
+    -   At the start of a batch, all currently open orders on the protocol are considered;
 
--   For each batch an open competition to submit order settlement solutions by solvers takes place;
+    -   For each batch an open competition to submit order settlement solutions by solvers takes place;
 
 -   The protocol select the solvers order settlement solution that maximizes trader welfare the most and provides the best clearing prices for the orders in that batch;
 
--   All matched orders within a batch can either be settled off-chain via the liquidity found in the coincidence of wants (CoWs) across orders, or on-chain against AMM/aggregator liquidity.
+    -   All matched orders within a batch can either be settled off-chain via the liquidity found in the coincidence of wants (CoWs) across orders, or on-chain against AMM/aggregator liquidity.
 
 From a users' perspective, a full trading cycle on Gnosis Protocol v2 consists of three user actions: 
 
@@ -75,4 +75,4 @@ Conclusion
 
 We believe Gnosis Protocol v2 is critical infrastructure for open finance, which will see the creation of more and more tokenized assets, and will ultimately need a reliable trading mechanism that has the users best interest in mind.
 
-Ultimately, Gnosis Protocol is built in the spirit of permissionless innovation. Its fully decentralized architecture means you don't need Gnosis to build on our protocol.
+Ultimately, Gnosis Protocol v2 is built in the spirit of permissionless innovation. Its fully decentralized architecture means you don't need Gnosis to build on our protocol.
