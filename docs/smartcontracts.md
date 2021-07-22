@@ -12,19 +12,17 @@ A settlement is a list of orders traded together, their prices, and the on-chain
 
 The protocol uses three smart contracts:
 
--   Settlement contract:  The entry point of GPv2. Collects and verifies user orders, interacts with on-chain liquidity, stores information on the state of the orders.
+-   **Settlement contract:**  The entry point of GPv2. Collects and verifies user orders, interacts with on-chain liquidity, stores information on the state of the orders.
 
--   allow-list authentication contract: Determines which addresses are solvers.
+-   **Allow-list authentication contract:** Determines which addresses are solvers.
 
--   vault relayer contract: The target of user allowances. It is called by the settlement contract to receive the funds of the orders. It is also closely integrated with the Balancer protocol and can use funds from Balancer.
+-   **Vault relayer contract:** The target of user allowances. It is called by the settlement contract to receive the funds of the orders. It is also closely integrated with the Balancer protocol and can use funds from Balancer.
 
 Each contract is described in more detail in its own section.
 
 ## Allow-list authenticator
 
-The allow-list authenticator contract determines which addresses are solvers.
-
-Before executing any operation which is access-restricted to a solver, the settlement contract queries this contract to determine if the caller is a solver.
+The allow-list authenticator contract determines which addresses are solvers. Before executing any operation which is access-restricted to a solver, the settlement contract queries this contract to determine if the caller is a solver.
 
 The allow-list authenticator is the only contract that is deployed as a proxy.
 
