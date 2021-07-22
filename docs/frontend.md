@@ -3,6 +3,10 @@ id: frontend
 title: Front End
 sidebar_label: Front End
 ---
+
+Gnosis Protocol v2 can have different front ends, depending on the dapp you are interacting with. CowSwap is the first trading interface built on top of the protocol, followed by a soon to be launched Balancer UI.
+While the front end might look familiar, the trading process is quite different from other DeFi DEXs, starting with the fact that users don’t execute a trade transaction, but rather sign an off-chain message with an intent of trading.
+
 ## Gnosis Protocol Explorer 
 Gnosis Protocol Explorer (GPE) is an "Etherscan" like interface for the Gnosis Protocol v2 (GPv2). Given that GPv2 leverages meta transactions, aka signed/offchain orders, the transactions submitted by the users are completely offline/off-chain and are therefore not visible on-chain until they have been fully executed. Because of it, GPE exists to help users find their orders, and be informed about the order details and their state.
 
