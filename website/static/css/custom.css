@@ -406,31 +406,31 @@ a{
 }
 
 .icon-github{
-   background-image: url(/img/icon-github.svg);
+   background-image: url(/protocol/img/icon-github.svg);
 }
 
 .icon-pen{
-   background-image: url(/img/icon-pen-s.svg);
+   background-image: url(/protocol/img/icon-pen-s.svg);
 }
 
 .icon-reddit{
-   background-image: url(/img/icon-reddit.svg);
+   background-image: url(/protocol/img/icon-reddit.svg);
 }
 
 .icon-star{
-   background-image: url(/img/icon-star-s.svg);
+   background-image: url(/protocol/img/icon-star-s.svg);
 }
 
 .icon-twitter{
-   background-image: url(/img/icon-twitter.svg);
+   background-image: url(/protocol/img/icon-twitter.svg);
 }
 
 .icon-time{
-   background-image: url(/img/icon-time-s.svg);
+   background-image: url(/protocol/img/icon-time-s.svg);
 }
 
 .icon-arrow{
-   background-image: url(/img/icon-arrow-s.svg);
+   background-image: url(/protocol/img/icon-arrow-s.svg);
 }
 
 .nav-footer .sitemap a:hover, .nav-footer .sitemap a:focus{

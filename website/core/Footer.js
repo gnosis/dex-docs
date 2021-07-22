@@ -36,9 +36,9 @@ class Footer extends React.Component {
              © 2020 Gnosis LTD
             </a>
           </div>
-        
+
           <div>
-            
+
           </div>
 
           <div><a href={this.docUrl('privacy')}>
@@ -47,7 +47,7 @@ class Footer extends React.Component {
           <div></div>
           <div></div>
           <div>
-            <a className="icon icon-twitter" href="https://twitter.com/gnosisPM"></a>
+            <a className="icon icon-twitter" href="https://twitter.com/MEVProtection"></a>
             <a className="icon icon-reddit" href="https://reddit.com"></a>
             <a className="icon icon-github" href="https://github.com/gnosis"></a>
           </div>
