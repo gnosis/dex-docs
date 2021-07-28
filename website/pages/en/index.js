@@ -162,10 +162,11 @@ class HomeSplash extends React.Component {
           <div className="index-projects-boxes grid-blocks two-blocks-grid">
             <a href="https://cowswap.exchange" className="white-box">
                <strong>CowSwap</strong> <br></br>
-               CowSwap is a <strong>proof-of-concept dapp </strong> built on Gnosis Protocol v2 .
+               CowSwap is a <strong> the first trading UI </strong> built on Gnosis Protocol v2 .
             </a>            
             <a href="https://medium.com/balancer-protocol/the-crypto-cinematic-universe-crossover-event-of-the-summer-balancer-gnosis-protocol-bgp-638568aa0385" className="white-box">
-              The  <strong> Crypto Cinematic Universe Crossover Event</strong> of the Summer: Balancer-Gnosis-Protocol (BGP)
+              <strong>Balancer</strong> <br></br> 
+              <strong> The Balancer trading UI </strong> has integrated CowSwap
             </a>
           </div>
         </div>
