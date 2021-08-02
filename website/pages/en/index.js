@@ -38,10 +38,10 @@ class HomeSplash extends React.Component {
           </div>
           <div className="index-info-block-text">
             <p>
-             Gnosis Protocol v2 is a completely decentralized protocol, and anyone can integrate on top of it. If a DEX/DAPP wants to offer their users MEV protection and better trading prices, all it has to do is integrate so that their UI routes their user trades to the protocol. 
+             Gnosis Protocol v2 is a fully decentralized protocol on which anyone can build. If a DEX/dapp wants to offer their users MEV protection and better prices, the project can simply integrate Gnosis Protocol v2 so that their UI routes their users trades through the protocol.' 
             </p>
             <p>
-              Here you can learn everything about the protocol qualities, they way it functions and the code behind it.
+              Here you can learn everything about how the protocol works and deeper technical documentation.
             </p>
           </div>
         </div>
@@ -162,10 +162,11 @@ class HomeSplash extends React.Component {
           <div className="index-projects-boxes grid-blocks two-blocks-grid">
             <a href="https://cowswap.exchange" className="white-box">
                <strong>CowSwap</strong> <br></br>
-               CowSwap is a <strong>proof-of-concept dapp </strong> built on Gnosis Protocol v2 .
+               CowSwap is a <strong> the first trading UI </strong> built on Gnosis Protocol v2 .
             </a>            
             <a href="https://medium.com/balancer-protocol/the-crypto-cinematic-universe-crossover-event-of-the-summer-balancer-gnosis-protocol-bgp-638568aa0385" className="white-box">
-              The  <strong> Crypto Cinematic Universe Crossover Event</strong> of the Summer: Balancer-Gnosis-Protocol (BGP)
+              <strong>Balancer</strong> <br></br> 
+              <strong> The Balancer trading UI </strong> has integrated CowSwap
             </a>
           </div>
         </div>

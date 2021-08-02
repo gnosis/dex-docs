@@ -1,6 +1,6 @@
 {
   "name": "dfusion-docs",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "Gnosis Protocol Docs",
   "main": "README.md",
   "scripts": {
