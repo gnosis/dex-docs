@@ -38,7 +38,7 @@ class HomeSplash extends React.Component {
           </div>
           <div className="index-info-block-text">
             <p>
-             Gnosis Protocol v2 is a fully decentralized protocol on which anyone can build. If a DEX/dapp wants to offer their users MEV protection and better prices, the project can simply integrate Gnosis Protocol v2 so that their UI routes their users trades through the protocol.' 
+             Gnosis Protocol v2 is a fully decentralized protocol on which anyone can build. If a DEX/dapp wants to offer their users MEV protection and better prices, the project can simply integrate Gnosis Protocol v2 so that their UI routes their users trades through the protocol. 
             </p>
             <p>
               Here you can learn everything about how the protocol works and deeper technical documentation.
