@@ -17,7 +17,8 @@ We have also written a small [trading bot script](https://github.com/gnosis/gp-v
 ##  Set Allowance for the sell token
   
 
-In order for your order to be tradable, the owner account has to allow the [GPv2 Allowance Manager](https://etherscan.io/address/0x7d8e28184408bc4790e79fd08ed67f7ebacbebcc) to spend the sell tokens on their behalf. You may either set a limited allowance (at least the amount of tokens you intend to sell) or an unlimited allowance (2**256 - 1)
+In order for your order to be tradable, the owner account has to allow the [GPv2 Vault Relayer](https://etherscan.io/address/0xC92E8bdf79f0507f65a392b0ab4667716BFE0110) to spend the sell tokens on their behalf (if you are using an existing Balancer v2 approved token or the Balancer Vault's internal balance you may skip this step). 
+You may either set a limited allowance (at least the amount of tokens you intend to sell) or an unlimited allowance (2**256 - 1).
 
 This can either be done using Etherscan, e.g. to set an unlimited allowance for USDC by visiting <https://etherscan.io/token/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48#writeProxyContract> and setting
 
@@ -39,7 +40,7 @@ const tx = await erc20
 
   .connect("your address")
 
-  .approve("0x7D8E28184408Bc4790E79Fd08ED67f7eBaCBEbcc", ethers.constants.MaxUint256);
+  .approve("0xC92E8bdf79f0507f65a392b0ab4667716BFE0110", ethers.constants.MaxUint256);
 
 await tx.wait();
 
@@ -136,7 +137,7 @@ const order = {
 
 const raw_signature = await signOrder(
 
-      domain(1, "0x3328f5f2cEcAF00a2443082B657CedEAf70bfAEf"),
+      domain(1, "0x9008D19f58AAbD9eD0D60971565AA8510560ab41"),
 
       order,
 
@@ -154,7 +155,7 @@ const signature = ethers.utils.joinSignature(rawSignature.data);
 
 If you are using a different programming language you may have to write your own singing logic. 
 
-[Here](https://github.com/gnosis/oba-services/blob/4a2f0702014c24052909bfec6bf98b7ba50890f1/model/src/order.rs#L149) is a reference implementation in rust. The domain separator can be queried from the [Settlement Contract](https://etherscan.io/address/0x3328f5f2cEcAF00a2443082B657CedEAf70bfAEf#readContract).
+[Here](https://github.com/gnosis/gp-v2-services/blob/d76f23b867e8dbb201f51736c9666e9b18d1086e/model/src/order.rs#L166) is a reference implementation in rust. The domain separator can be queried from the [Settlement Contract](https://etherscan.io/address/0x9008D19f58AAbD9eD0D60971565AA8510560ab41#readContract).
 
 The source of truth for signature verification is the smart contract's implementation of the [order digest](https://github.com/gnosis/gp-v2-contracts/blob/main/src/contracts/libraries/GPv2Order.sol#L134) and how it gets verified given [different signing schemes](https://github.com/gnosis/gp-v2-contracts/blob/main/src/contracts/mixins/GPv2Signing.sol#L141). 
 
@@ -196,11 +197,18 @@ The payload needs to be a json encoded object. Our example order would look like
 
         "signingScheme": "ethsign",
 
-      }
+        "sellTokenBalance": "erc20",
+
+        "buyTokenBalance": "erc20",
+}
 
 ```
 
 Note, that uint256 fields need to be encoded as long decimal strings instead of numbers. Receiver is optional (if funds are intended to be sent to another account) and the trader address is automatically derived from the signature.
+
+By default, funds will be taken from your account via the Vault Relayer and proceeds will be sent to your receiving account.
+For sell token balance, you can also chose to use your existing Balancer v2 vault's allowance ("external") or internal Balancer v2 balance ("internal"). In this case you don't need to set the VaultRelayer approval from step 1.
+The buy token can also be transferred into your internal Balancer v2 Vault balance by specifying "buyTokenBalance": "internal".
 
 In case of success the API should return the order UID which you can use to track the status of your order either in the [GP Explorer](https://gnosis-protocol.io/), or programmatically below:
 
@@ -218,7 +226,7 @@ const uid = <uid to follow>;
 
 const TRADE_TIMEOUT_SECONDS = 30*60
 
-const settlement = new Contract("0x3328f5f2cEcAF00a2443082B657CedEAf70bfAEf", GPv2SettlementArtefact.abi, ethers.provider)
+const settlement = new Contract("0x9008D19f58AAbD9eD0D60971565AA8510560ab41", GPv2SettlementArtefact.abi, ethers.provider)
 
 const traded = new Promise((resolve: (value: boolean) => void) => {
 
