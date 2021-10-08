@@ -34,7 +34,7 @@ class HomeSplash extends React.Component {
         <div className="inner index-info-block grid-blocks two-blocks-grid">
           <div 
           className="index-info-block-title">
-           Integrate Gnosis Protocol v2 to your dapp: Fully permissionless trading protocol that leverages batch auctions to protect traders from MEV.
+           Integrate Gnosis Protocol v2 with your dapp: Fully permissionless trading protocol that leverages batch auctions to protect traders from MEV.
           </div>
           <div className="index-info-block-text">
             <p>
@@ -95,7 +95,7 @@ class HomeSplash extends React.Component {
                 MEV Protection
               </h3>
               <p>
-              Trades are <strong>protected from different sorts of MEV</strong> such as front/back running or sandwhich attacks.
+              Trades are <strong>protected from different sorts of MEV</strong> such as front/back running or sandwich attacks.
               </p>
             </a>
 
@@ -104,7 +104,7 @@ class HomeSplash extends React.Component {
               Maximized liquidity 
               </h3>
               <p>
-              Access to <strong> all</strong>  on chain liquidity.
+              Access to <strong> all</strong>  on-chain liquidity.
               </p>
             </a>
 
@@ -162,7 +162,7 @@ class HomeSplash extends React.Component {
           <div className="index-projects-boxes grid-blocks two-blocks-grid">
             <a href="https://cowswap.exchange" className="white-box">
                <strong>CowSwap</strong> <br></br>
-               CowSwap is a <strong> the first trading UI </strong> built on Gnosis Protocol v2 .
+               CowSwap is <strong> the first trading UI </strong> built on Gnosis Protocol v2 .
             </a>            
             <a href="https://medium.com/balancer-protocol/the-crypto-cinematic-universe-crossover-event-of-the-summer-balancer-gnosis-protocol-bgp-638568aa0385" className="white-box">
               <strong>Balancer</strong> <br></br> 
