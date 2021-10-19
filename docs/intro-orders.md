@@ -14,7 +14,7 @@ Gnosis Protocol v2 is able to work with signed messages because it bases its mec
 
 -   Limit prices and amounts of the signed order will always be satisfied;
 
--   Signed orders have an expiry date, can be cancelled on chain, and not be replayed;
+-   Signed orders have an expiry date, can be cancelled on-chain, and not be replayed;
 
 -   Only solvers subject to slashing can execute the batch auction settlement;
 

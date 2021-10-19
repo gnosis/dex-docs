@@ -85,9 +85,9 @@ The response contains the token that you will be receiving (or need to sell in c
 
 Again, amounts are denominated in atoms. The response indicates that you could expect to receive 4.97 ETH for 10k USDC.
 
-This price estimate only considers our baseline liquidity sources (which is a limited but growing subset of all on chain liquidity). Some of our solvers (e.g. DEX Aggregators) might be able to offer better prices. You can also use their APIs directly in order to get price estimates.
+This price estimate only considers our baseline liquidity sources (which is a limited but growing subset of all on-chain liquidity). Some of our solvers (e.g. DEX Aggregators) might be able to offer better prices. You can also use their APIs directly in order to get price estimates.
 
-Note, that the estimate doesn't include any slippage tolerance, so we advise that on your actual order you add a slippage tolerance of at least 0.3%. Our solvers ensure that setting a slippage on your order doesn't make you prone to MEV attacks (the slippage that solvers set on the actual on chain interactions are always close to 0).
+Note, that the estimate doesn't include any slippage tolerance, so we advise that on your actual order you add a slippage tolerance of at least 0.3%. Our solvers ensure that setting a slippage on your order doesn't make you prone to MEV attacks (the slippage that solvers set on the actual on-chain interactions are always close to 0).
 
 ## Signing the order
 

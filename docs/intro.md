@@ -16,7 +16,7 @@ In GPv2, instead of using a central operator or a constant function market maker
 
 -   To become a solver, an Ethereum address needs to deposit a bond in the form of tokens. Asset type and amounts are pending to be defined by the GnosisDAO or GnosisProtocolDAO.
 
--   Once the tokens have been staked (locked up), GnosisDAO/GnosisProtocolDAO has to vote to approve or reject the Ethereum address that will identify the solver. If the vote is successful, the solvers Ethereum address will be included in the allowlist (verification) solvers contract. 
+-   Once the tokens have been staked (locked up), GnosisDAO/GnosisProtocolDAO has to vote to approve or reject the Ethereum address that will identify the solver. If the vote is successful, the solver's Ethereum address will be included in the allowlist (verification) solvers contract. 
 
 -   Additionally, a solver must have the technical knowledge to create the appropriate batch settlement solutions or take the risk of being slashed by the GnosisDAO/GnosisProtocolDAO for wrongdoing.
 
@@ -31,7 +31,7 @@ Gnosis Protocol v2 has a wide range of benefits, both technical and functional, 
 
 -   Trades are protected from different types of MEV such as front/back running or sandwhich attacks;
 
--   Maximized liquidity and access to all on chain liquidity:
+-   Maximized liquidity and access to all on-chain liquidity:
 
     -   Best prices when CoWs are found, or at least as good as the best DEX aggregator or AMM price if they aren’t;
 
