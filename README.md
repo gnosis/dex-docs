@@ -1,3 +1,5 @@
+**:warning: The Cow Protocol documentation has moved to https://docs.cow.fi and is no longer generated from this repository.**
+
 # Gnosis Docs
 
 What are these docs about...
